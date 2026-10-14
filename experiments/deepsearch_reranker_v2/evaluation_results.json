@@ -1,0 +1,23 @@
+{
+  "candidate_pool_size": 20,
+  "alpha": 0.1479477435350418,
+  "checkpoint_epoch": 3,
+  "held_out_accuracy": 0.6,
+  "retriever": {
+    "recall_at_1": 0.35019999742507935,
+    "recall_at_5": 0.6175999641418457,
+    "recall_at_10": 0.7347999811172485,
+    "recall_at_20": 0.8295999765396118
+  },
+  "residual_reranker": {
+    "recall_at_1": 0.09160000085830688,
+    "recall_at_5": 0.2069999873638153,
+    "recall_at_10": 0.3465999960899353,
+    "recall_at_20": 0.8295999765396118
+  },
+  "improvement": {
+    "recall_at_1": -0.25859999656677246,
+    "recall_at_5": -0.4105999767780304,
+    "recall_at_10": -0.38819998502731323
+  }
+}

@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+env/
+envs/
+venv/
+.venv/
+conda-env/
+
+# Hugging Face / model caches
+hf_cache/
+.cache/
+transformers_cache/
+
+# Large datasets
+data/coco/
+data/images/
+data/train2017/
+data/val2017/
+
+# Keep benchmark JSON files
+!data/benchmarks/
+!data/benchmarks/*.json
+
+# Model checkpoints / weights
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+checkpoints/
+models/checkpoints/
+
+# Large experiment artifacts
+experiments/*.pt
+experiments/*.pth
+experiments/*.ckpt
+
+# Keep experiment JSON results
+!experiments/*.json
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~

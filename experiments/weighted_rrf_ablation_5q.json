@@ -1,0 +1,1846 @@
+{
+  "configuration": {
+    "num_queries": 5,
+    "seed": 42,
+    "rrf_k": 60,
+    "original_query_weight": 2.0,
+    "subquery_weight": 1.0,
+    "verification_top_k": 10,
+    "retrieval_weight": 0.25,
+    "verification_weight": 0.75
+  },
+  "metrics": {
+    "baseline": {
+      "recall_at_1": 0.4,
+      "recall_at_5": 0.6,
+      "recall_at_10": 0.8,
+      "mrr_at_10": 0.4833333333333334
+    },
+    "equal_rrf": {
+      "recall_at_1": 0.2,
+      "recall_at_5": 0.8,
+      "recall_at_10": 0.8,
+      "mrr_at_10": 0.39
+    },
+    "weighted_rrf": {
+      "recall_at_1": 0.4,
+      "recall_at_5": 0.8,
+      "recall_at_10": 0.8,
+      "mrr_at_10": 0.5
+    },
+    "weighted_rrf_verified": {
+      "recall_at_1": 0.4,
+      "recall_at_5": 0.8,
+      "recall_at_10": 0.8,
+      "mrr_at_10": 0.54
+    }
+  },
+  "results": [
+    {
+      "query_number": 1,
+      "target_image_id": 311081,
+      "target_file": "000000311081.jpg",
+      "caption_a": "The shower curtain is centered in the middle of the tub.",
+      "caption_b": "A bathroom with white fixtures and tile floor",
+      "caption_overlap": 0.0,
+      "query": "Find an image matching both of these visual descriptions: The shower curtain is centered in the middle of the tub; A bathroom with white fixtures and tile floor.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: The shower curtain is centered in the middle of the tub; A bathroom with white fixtures and tile floor.",
+        "search_queries": [
+          "shower curtain centered in the middle of the tub",
+          "bathroom with white fixtures and tile floor"
+        ],
+        "positive_constraints": [
+          "centered shower curtain",
+          "tub",
+          "white fixtures",
+          "tile floor"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that the image contains a shower curtain centered in the middle of the tub and a bathroom with white fixtures and a tile floor."
+      },
+      "retrieval_queries": [
+        "Find an image matching both of these visual descriptions: The shower curtain is centered in the middle of the tub; A bathroom with white fixtures and tile floor.",
+        "shower curtain centered in the middle of the tub",
+        "bathroom with white fixtures and tile floor"
+      ],
+      "equal_rrf_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weighted_rrf_weights": [
+        2.0,
+        1.0,
+        1.0
+      ],
+      "semantic_positive_constraints": [
+        "shower curtain centered in the middle of the tub",
+        "bathroom with white fixtures and tile floor"
+      ],
+      "semantic_negative_constraints": [],
+      "baseline_rank": 26,
+      "equal_rrf_rank": 24,
+      "weighted_rrf_rank": 24,
+      "weighted_verified_rank": null,
+      "verified_results": [
+        {
+          "image_index": 3210,
+          "image_id": 505169,
+          "file_name": "000000505169.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.05914086103439331,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a shower curtain centered in the middle of the tub and a bathroom with white fixtures and a tile floor."
+          },
+          "combined_score": 0.925
+        },
+        {
+          "image_index": 4927,
+          "image_id": 357567,
+          "file_name": "000000357567.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.05642670392990112,
+          "normalized_rrf_score": 0.5487464076900208,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a shower curtain centered in the middle of the tub and a bathroom with white fixtures and a tile floor."
+          },
+          "combined_score": 0.8121866019225052
+        },
+        {
+          "image_index": 3591,
+          "image_id": 384850,
+          "file_name": "000000384850.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.0562996044754982,
+          "normalized_rrf_score": 0.5276149539193341,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a shower curtain centered in the middle of the tub and a bathroom with white fixtures and a tile floor."
+          },
+          "combined_score": 0.8069037384798335
+        },
+        {
+          "image_index": 381,
+          "image_id": 547816,
+          "file_name": "000000547816.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.0560302697122097,
+          "normalized_rrf_score": 0.48283557130115945,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a bathroom with a shower curtain centered in the middle of the tub and white fixtures and tile floor."
+          },
+          "combined_score": 0.7957088928252899
+        },
+        {
+          "image_index": 2942,
+          "image_id": 351362,
+          "file_name": "000000351362.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.05510992184281349,
+          "normalized_rrf_score": 0.3298192696462194,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a bathroom with a shower curtain centered over a bathtub, and it has white fixtures and a tiled floor."
+          },
+          "combined_score": 0.7574548174115548
+        },
+        {
+          "image_index": 2542,
+          "image_id": 446574,
+          "file_name": "000000446574.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.05588722974061966,
+          "normalized_rrf_score": 0.45905385987513625,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The shower curtain is centered in the middle of the tub, and the bathroom has white fixtures and a tile floor."
+          },
+          "combined_score": 0.7522634649687842
+        },
+        {
+          "image_index": 994,
+          "image_id": 90108,
+          "file_name": "000000090108.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.054694000631570816,
+          "normalized_rrf_score": 0.2606685412744029,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a bathroom with white fixtures and a tiled floor, and a shower curtain centered in the middle of the tub."
+          },
+          "combined_score": 0.7401671353186008
+        },
+        {
+          "image_index": 1274,
+          "image_id": 167898,
+          "file_name": "000000167898.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.05435500293970108,
+          "normalized_rrf_score": 0.20430705579229017,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a bathroom with a shower curtain centered in the middle of the tub and white fixtures on a tiled floor."
+          },
+          "combined_score": 0.7260767639480726
+        },
+        {
+          "image_index": 2940,
+          "image_id": 262440,
+          "file_name": "000000262440.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.05335025116801262,
+          "normalized_rrf_score": 0.03725782875829947,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a bathroom with white fixtures and a tiled floor, and a shower curtain centered in the middle of the tub."
+          },
+          "combined_score": 0.684314457189575
+        },
+        {
+          "image_index": 3831,
+          "image_id": 92124,
+          "file_name": "000000092124.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.05312615633010864,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "shower curtain centered in the middle of the tub",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "bathroom with white fixtures and tile floor",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a bathroom with a centered orange shower curtain, white fixtures, and a tile floor."
+          },
+          "combined_score": 0.675
+        }
+      ]
+    },
+    {
+      "query_number": 2,
+      "target_image_id": 301376,
+      "target_file": "000000301376.jpg",
+      "caption_a": "A street corner with a store that shows open for 24 hour.",
+      "caption_b": "Poplewalk on the sidewalk near the colorfully striped building.",
+      "caption_overlap": 0.0,
+      "query": "Find an image matching both of these visual descriptions: A street corner with a store that shows open for 24 hour; Poplewalk on the sidewalk near the colorfully striped building.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: A street corner with a store that shows open for 24 hour; Poplewalk on the sidewalk near the colorfully striped building.",
+        "search_queries": [
+          "street corner with a store showing open for 24 hours",
+          "sidewalk with people walking near a colorful striped building"
+        ],
+        "positive_constraints": [
+          "store",
+          "open 24 hours",
+          "sidewalk",
+          "people",
+          "colorful striped building"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a street corner with a store showing open for 24 hours and people walking on the sidewalk near a colorful striped building."
+      },
+      "retrieval_queries": [
+        "Find an image matching both of these visual descriptions: A street corner with a store that shows open for 24 hour; Poplewalk on the sidewalk near the colorfully striped building.",
+        "street corner with a store showing open for 24 hours",
+        "sidewalk with people walking near a colorful striped building"
+      ],
+      "equal_rrf_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weighted_rrf_weights": [
+        2.0,
+        1.0,
+        1.0
+      ],
+      "semantic_positive_constraints": [
+        "street corner with a store showing open for 24 hours",
+        "sidewalk with people walking near a colorful striped building"
+      ],
+      "semantic_negative_constraints": [],
+      "baseline_rank": 6,
+      "equal_rrf_rank": 5,
+      "weighted_rrf_rank": 4,
+      "weighted_verified_rank": 5,
+      "verified_results": [
+        {
+          "image_index": 2072,
+          "image_id": 283318,
+          "file_name": "000000283318.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.06478053331375122,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'An Open Book' sign, indicating it's open 24 hours. There is also a sidewalk with people walking near a colorful striped building."
+          },
+          "combined_score": 0.8875000000000001
+        },
+        {
+          "image_index": 511,
+          "image_id": 163314,
+          "file_name": "000000163314.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.06433184444904327,
+          "normalized_rrf_score": 0.9656291449691917,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'Billabong' and 'open for 24 hours', as well as people walking on the sidewalk near a colorful striped building."
+          },
+          "combined_score": 0.878907286242298
+        },
+        {
+          "image_index": 247,
+          "image_id": 555050,
+          "file_name": "000000555050.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.058862876147031784,
+          "normalized_rrf_score": 0.5466904739618885,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'Open 7 Days 9am-9pm' and a colorful striped building nearby."
+          },
+          "combined_score": 0.7741726184904723
+        },
+        {
+          "image_index": 2544,
+          "image_id": 488592,
+          "file_name": "000000488592.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.05409902706742287,
+          "normalized_rrf_score": 0.18176595948688562,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'open for 24 hours' and people walking on a sidewalk near a colorful striped building."
+          },
+          "combined_score": 0.7204414898717214
+        },
+        {
+          "image_index": 3826,
+          "image_id": 301376,
+          "file_name": "000000301376.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.05595238134264946,
+          "normalized_rrf_score": 0.3237382171581463,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying '24 Hour' and people walking on a sidewalk near a colorful striped building."
+          },
+          "combined_score": 0.7184345542895366
+        },
+        {
+          "image_index": 2971,
+          "image_id": 502336,
+          "file_name": "000000502336.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.05379382520914078,
+          "normalized_rrf_score": 0.15838662103823703,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'Heumarkt' and 'Canton', indicating it's open 24 hours. People are walking on the sidewalk near a colorful striped building."
+          },
+          "combined_score": 0.6770966552595593
+        },
+        {
+          "image_index": 1413,
+          "image_id": 213605,
+          "file_name": "000000213605.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.05244908854365349,
+          "normalized_rrf_score": 0.0553759322970292,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'open for 24 hours' and a sidewalk with people walking near a colorful striped building."
+          },
+          "combined_score": 0.6513439830742573
+        },
+        {
+          "image_index": 1257,
+          "image_id": 427055,
+          "file_name": "000000427055.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.05202433839440346,
+          "normalized_rrf_score": 0.022838851588129608,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'Open 24 Hours' sign, and a sidewalk with people walking near a colorful striped building."
+          },
+          "combined_score": 0.6432097128970324
+        },
+        {
+          "image_index": 4085,
+          "image_id": 320232,
+          "file_name": "000000320232.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.05193525552749634,
+          "normalized_rrf_score": 0.016014848264163953,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'Open 24 Hours' and people walking on the sidewalk near a colorful striped building."
+          },
+          "combined_score": 0.6415037120660411
+        },
+        {
+          "image_index": 3287,
+          "image_id": 289938,
+          "file_name": "000000289938.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.051726192235946655,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "street corner with a store showing open for 24 hours",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "sidewalk with people walking near a colorful striped building",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a street corner with a store displaying 'Open 24 Hours' sign, and a sidewalk with people walking near a colorful striped building."
+          },
+          "combined_score": 0.6375000000000001
+        }
+      ]
+    },
+    {
+      "query_number": 3,
+      "target_image_id": 363875,
+      "target_file": "000000363875.jpg",
+      "caption_a": "The guy is travelling on his motorcycle outside.",
+      "caption_b": "a person riding a scooter with folded cardboard",
+      "caption_overlap": 0.0,
+      "query": "Find an image matching both of these visual descriptions: The guy is travelling on his motorcycle outside; a person riding a scooter with folded cardboard.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: The guy is travelling on his motorcycle outside; a person riding a scooter with folded cardboard.",
+        "search_queries": [
+          "guy traveling on motorcycle outside",
+          "person riding scooter with folded cardboard"
+        ],
+        "positive_constraints": [
+          "guy",
+          "motorcycle",
+          "traveling",
+          "outside",
+          "scooter",
+          "folded cardboard"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a guy traveling on a motorcycle outside and a person riding a scooter with folded cardboard."
+      },
+      "retrieval_queries": [
+        "Find an image matching both of these visual descriptions: The guy is travelling on his motorcycle outside; a person riding a scooter with folded cardboard.",
+        "guy traveling on motorcycle outside",
+        "person riding scooter with folded cardboard"
+      ],
+      "equal_rrf_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weighted_rrf_weights": [
+        2.0,
+        1.0,
+        1.0
+      ],
+      "semantic_positive_constraints": [
+        "guy traveling on motorcycle outside",
+        "person riding scooter with folded cardboard"
+      ],
+      "semantic_negative_constraints": [],
+      "baseline_rank": 1,
+      "equal_rrf_rank": 1,
+      "weighted_rrf_rank": 1,
+      "weighted_verified_rank": 1,
+      "verified_results": [
+        {
+          "image_index": 2296,
+          "image_id": 363875,
+          "file_name": "000000363875.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.06200083717703819,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a man riding a scooter outside, carrying folded cardboard boxes, which matches the description."
+          },
+          "combined_score": 0.925
+        },
+        {
+          "image_index": 3217,
+          "image_id": 146667,
+          "file_name": "000000146667.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.05777605623006821,
+          "normalized_rrf_score": 0.5946350528420166,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a person riding a scooter with folded cardboard, which matches the description."
+          },
+          "combined_score": 0.7861587632105043
+        },
+        {
+          "image_index": 244,
+          "image_id": 38829,
+          "file_name": "000000038829.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.05452430993318558,
+          "normalized_rrf_score": 0.2826321389980766,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a person riding a scooter with folded cardboard, which matches the description."
+          },
+          "combined_score": 0.7081580347495192
+        },
+        {
+          "image_index": 3595,
+          "image_id": 574702,
+          "file_name": "000000574702.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.051578670740127563,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8500000000000001,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8500000000000001,
+            "overall_match": true,
+            "explanation": "The image shows a man riding a motorcycle outside, which satisfies the first positive constraint. Additionally, there is a person riding a scooter with folded cardboard, satisfying the second positive constraint."
+          },
+          "combined_score": 0.6375000000000001
+        },
+        {
+          "image_index": 1531,
+          "image_id": 7816,
+          "file_name": "000000007816.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.05618228763341904,
+          "normalized_rrf_score": 0.4417140065032479,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a person riding a motorcycle outside, but there is no evidence of a person riding a scooter with folded cardboard."
+          },
+          "combined_score": 0.447928501625812
+        },
+        {
+          "image_index": 1153,
+          "image_id": 467511,
+          "file_name": "000000467511.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.05554603040218353,
+          "normalized_rrf_score": 0.38066554454603263,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a man traveling on a motorcycle outside, but does not show a person riding a scooter with folded cardboard."
+          },
+          "combined_score": 0.4326663861365082
+        },
+        {
+          "image_index": 868,
+          "image_id": 226417,
+          "file_name": "000000226417.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.05480487644672394,
+          "normalized_rrf_score": 0.30955231104068764,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a person riding a scooter with folded cardboard, and a guy traveling on his motorcycle outside."
+          },
+          "combined_score": 0.41488807776017195
+        },
+        {
+          "image_index": 1923,
+          "image_id": 380706,
+          "file_name": "000000380706.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.05380607768893242,
+          "normalized_rrf_score": 0.2137182285744719,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a person riding a motorcycle outside, which satisfies the first positive constraint. However, it does not show a person riding a scooter with folded cardboard, which violates the second positive constraint."
+          },
+          "combined_score": 0.390929557143618
+        },
+        {
+          "image_index": 254,
+          "image_id": 534827,
+          "file_name": "000000534827.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.05277088284492493,
+          "normalized_rrf_score": 0.11439196562579194,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows people riding motorcycles outside, but there is no evidence of anyone riding a scooter with folded cardboard."
+          },
+          "combined_score": 0.366097991406448
+        },
+        {
+          "image_index": 2295,
+          "image_id": 31817,
+          "file_name": "000000031817.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.052519895136356354,
+          "normalized_rrf_score": 0.09030986042358684,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "guy traveling on motorcycle outside",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "person riding scooter with folded cardboard",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a person riding a scooter, but there is no evidence of a person riding a scooter with folded cardboard."
+          },
+          "combined_score": 0.3600774651058967
+        }
+      ]
+    },
+    {
+      "query_number": 4,
+      "target_image_id": 226408,
+      "target_file": "000000226408.jpg",
+      "caption_a": "Child laying down with arms extended in the air.",
+      "caption_b": "Black and white photograph of a girl on a bed.",
+      "caption_overlap": 0.0,
+      "query": "Find an image matching both of these visual descriptions: Child laying down with arms extended in the air; Black and white photograph of a girl on a bed.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: Child laying down with arms extended in the air; Black and white photograph of a girl on a bed.",
+        "search_queries": [
+          "child laying down with arms extended in the air",
+          "black and white photograph of a girl on a bed"
+        ],
+        "positive_constraints": [
+          "child",
+          "laying down",
+          "arms extended in the air",
+          "girl",
+          "bed",
+          "black and white photography"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that the image contains a child laying down with arms extended in the air and a black and white photograph of a girl on a bed."
+      },
+      "retrieval_queries": [
+        "Find an image matching both of these visual descriptions: Child laying down with arms extended in the air; Black and white photograph of a girl on a bed.",
+        "child laying down with arms extended in the air",
+        "black and white photograph of a girl on a bed"
+      ],
+      "equal_rrf_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weighted_rrf_weights": [
+        2.0,
+        1.0,
+        1.0
+      ],
+      "semantic_positive_constraints": [
+        "child laying down with arms extended in the air",
+        "black and white photograph of a girl on a bed"
+      ],
+      "semantic_negative_constraints": [],
+      "baseline_rank": 4,
+      "equal_rrf_rank": 4,
+      "weighted_rrf_rank": 4,
+      "weighted_verified_rank": 1,
+      "verified_results": [
+        {
+          "image_index": 1270,
+          "image_id": 226408,
+          "file_name": "000000226408.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.05946939438581467,
+          "normalized_rrf_score": 0.5643741067731638,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a child lying down with arms extended in the air, which matches the first positive constraint. The photograph is in black and white, which matches the second positive constraint. There are no negative violations."
+          },
+          "combined_score": 0.8160935266932909
+        },
+        {
+          "image_index": 4597,
+          "image_id": 555005,
+          "file_name": "000000555005.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.057264961302280426,
+          "normalized_rrf_score": 0.3173810255245829,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a child lying down with arms extended in the air, which matches the first positive constraint. The photograph is black and white, which matches the second positive constraint. There are no negative violations."
+          },
+          "combined_score": 0.7543452563811458
+        },
+        {
+          "image_index": 2381,
+          "image_id": 468577,
+          "file_name": "000000468577.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.060210153460502625,
+          "normalized_rrf_score": 0.6473715756855307,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The child is lying down with arms extended in the air, which matches the first positive constraint. However, the second positive constraint about a black and white photograph is not met."
+          },
+          "combined_score": 0.4993428939213827
+        },
+        {
+          "image_index": 3794,
+          "image_id": 415882,
+          "file_name": "000000415882.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.058090224862098694,
+          "normalized_rrf_score": 0.40984669890074665,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": true,
+                "confidence": 1.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.5,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.5,
+            "overall_match": false,
+            "explanation": "The image is a black and white photograph of a girl lying on a bed with her arms extended in the air."
+          },
+          "combined_score": 0.47746167472518664
+        },
+        {
+          "image_index": 4626,
+          "image_id": 137106,
+          "file_name": "000000137106.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.0633573904633522,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a child lying down with arms extended in the air or a black and white photograph of a girl on a bed."
+          },
+          "combined_score": 0.25
+        },
+        {
+          "image_index": 1363,
+          "image_id": 557916,
+          "file_name": "000000557916.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.05974026024341583,
+          "normalized_rrf_score": 0.5947229494183174,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a child lying down with arms extended in the air or a black and white photograph of a girl on a bed."
+          },
+          "combined_score": 0.14868073735457935
+        },
+        {
+          "image_index": 3164,
+          "image_id": 82765,
+          "file_name": "000000082765.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.05647280812263489,
+          "normalized_rrf_score": 0.22862516528870427,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a child laying down with arms extended in the air or a black and white photograph of a girl on a bed."
+          },
+          "combined_score": 0.05715629132217607
+        },
+        {
+          "image_index": 1242,
+          "image_id": 40757,
+          "file_name": "000000040757.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.05640680715441704,
+          "normalized_rrf_score": 0.2212301653554876,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a child lying down with arms extended in the air or a black and white photograph of a girl on a bed."
+          },
+          "combined_score": 0.0553075413388719
+        },
+        {
+          "image_index": 2506,
+          "image_id": 460333,
+          "file_name": "000000460333.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.056022487580776215,
+          "normalized_rrf_score": 0.178169536123095,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not contain a child laying down with arms extended in the air or a black and white photograph of a girl on a bed."
+          },
+          "combined_score": 0.04454238403077375
+        },
+        {
+          "image_index": 2995,
+          "image_id": 270883,
+          "file_name": "000000270883.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.05443231016397476,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "child laying down with arms extended in the air",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "black and white photograph of a girl on a bed",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a child lying down with arms extended in the air or a black and white photograph of a girl on a bed."
+          },
+          "combined_score": 0.0
+        }
+      ]
+    },
+    {
+      "query_number": 5,
+      "target_image_id": 525322,
+      "target_file": "000000525322.jpg",
+      "caption_a": "two stunt airplanes touching their wings as the fly",
+      "caption_b": "A picture of an open air zone that looks incredible.\n",
+      "caption_overlap": 0.0,
+      "query": "Find an image matching both of these visual descriptions: two stunt airplanes touching their wings as the fly; A picture of an open air zone that looks incredible.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: two stunt airplanes touching their wings as the fly; A picture of an open air zone that looks incredible.",
+        "search_queries": [
+          "stunt airplanes touching wings flying",
+          "open air zone looking incredible"
+        ],
+        "positive_constraints": [
+          "stunt airplanes",
+          "touching wings",
+          "flying",
+          "open air zone",
+          "incredible"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there are two stunt airplanes touching their wings while flying and that the image depicts an open air zone that looks incredibly impressive."
+      },
+      "retrieval_queries": [
+        "Find an image matching both of these visual descriptions: two stunt airplanes touching their wings as the fly; A picture of an open air zone that looks incredible.",
+        "stunt airplanes touching wings flying",
+        "open air zone looking incredible"
+      ],
+      "equal_rrf_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weighted_rrf_weights": [
+        2.0,
+        1.0,
+        1.0
+      ],
+      "semantic_positive_constraints": [
+        "stunt airplanes touching wings flying",
+        "open air zone looking incredible"
+      ],
+      "semantic_negative_constraints": [],
+      "baseline_rank": 1,
+      "equal_rrf_rank": 2,
+      "weighted_rrf_rank": 1,
+      "weighted_verified_rank": 2,
+      "verified_results": [
+        {
+          "image_index": 1158,
+          "image_id": 513580,
+          "file_name": "000000513580.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.04867514967918396,
+          "normalized_rrf_score": 0.6636408503134028,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows two stunt airplanes touching their wings while flying, and it depicts an open air zone with a beautiful view."
+          },
+          "combined_score": 0.8409102125783507
+        },
+        {
+          "image_index": 890,
+          "image_id": 525322,
+          "file_name": "000000525322.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.05091192200779915,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows two stunt airplanes flying close together with their wings touching, which satisfies the first positive constraint. However, there is no indication of an open air zone or a visually stunning environment, so the second positive constraint is not met."
+          },
+          "combined_score": 0.5875
+        },
+        {
+          "image_index": 4069,
+          "image_id": 144114,
+          "file_name": "000000144114.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.04914349317550659,
+          "normalized_rrf_score": 0.7340689480545163,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows stunt airplanes touching their wings while flying, which satisfies the positive constraint. There is no indication of an open air zone in the image."
+          },
+          "combined_score": 0.5210172370136291
+        },
+        {
+          "image_index": 3019,
+          "image_id": 196442,
+          "file_name": "000000196442.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.04812440276145935,
+          "normalized_rrf_score": 0.5808211719006904,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows an open air zone with a snow-covered landscape, which looks incredible. There are no stunt airplanes or any indication of them touching their wings."
+          },
+          "combined_score": 0.4827052929751726
+        },
+        {
+          "image_index": 257,
+          "image_id": 300659,
+          "file_name": "000000300659.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.04808123782277107,
+          "normalized_rrf_score": 0.5743301571971724,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows stunt airplanes flying in formation with visible smoke trails, satisfying the positive constraint. There is no indication of an open air zone in the image."
+          },
+          "combined_score": 0.4810825392992931
+        },
+        {
+          "image_index": 258,
+          "image_id": 199977,
+          "file_name": "000000199977.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.046762824058532715,
+          "normalized_rrf_score": 0.37607102863004127,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows stunt airplanes touching their wings, which satisfies the first positive constraint. However, there is no indication of an open air zone or a visually stunning environment, which does not satisfy the second positive constraint."
+          },
+          "combined_score": 0.43151775715751034
+        },
+        {
+          "image_index": 2955,
+          "image_id": 183500,
+          "file_name": "000000183500.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.045452963560819626,
+          "normalized_rrf_score": 0.17909811476553192,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a biplane with its wings touching, which satisfies the first positive constraint. The second positive constraint about an open air zone is not applicable as it does not exist in the image."
+          },
+          "combined_score": 0.382274528691383
+        },
+        {
+          "image_index": 2767,
+          "image_id": 134322,
+          "file_name": "000000134322.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.04543302580714226,
+          "normalized_rrf_score": 0.1760999348489678,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows an open-air zone with a kite flying, which aligns with the description of an open-air zone looking incredible. However, there are no stunt airplanes touching their wings in the image."
+          },
+          "combined_score": 0.38152498371224197
+        },
+        {
+          "image_index": 4073,
+          "image_id": 396903,
+          "file_name": "000000396903.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.048303570598363876,
+          "normalized_rrf_score": 0.6077638966927589,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show stunt airplanes touching their wings or an open air zone."
+          },
+          "combined_score": 0.15194097417318972
+        },
+        {
+          "image_index": 891,
+          "image_id": 33114,
+          "file_name": "000000033114.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.04426196962594986,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "stunt airplanes touching wings flying",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "open air zone looking incredible",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": true
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not contain any stunt airplanes or an open air zone."
+          },
+          "combined_score": 0.0
+        }
+      ]
+    }
+  ]
+}

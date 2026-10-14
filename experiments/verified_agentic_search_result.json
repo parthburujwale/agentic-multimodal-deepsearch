@@ -1,0 +1,304 @@
+{
+  "query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+  "plan": {
+    "original_query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+    "search_queries": [
+      "dog near water",
+      "people in background"
+    ],
+    "positive_constraints": [
+      "dog",
+      "near water",
+      "people",
+      "background"
+    ],
+    "negative_constraints": [
+      "dog swimming",
+      "swimming"
+    ],
+    "reasoning_goal": "Verify that there is a dog near water with people in the background, but ensure the dog is not swimming."
+  },
+  "retrieval_queries": [
+    "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+    "dog near water",
+    "people in background"
+  ],
+  "positive_constraints": [
+    "dog",
+    "near water",
+    "people",
+    "background"
+  ],
+  "negative_constraints": [
+    "dog swimming",
+    "swimming"
+  ],
+  "verification_positive_constraints": [
+    "dog near water",
+    "people in background"
+  ],
+  "verification_negative_constraints": [
+    "dog swimming"
+  ],
+  "reasoning_goal": "Verify that there is a dog near water with people in the background, but ensure the dog is not swimming.",
+  "retrieval_weight": 0.25,
+  "verification_weight": 0.75,
+  "num_verified_candidates": 10,
+  "results": [
+    {
+      "image_index": 4495,
+      "image_id": 52891,
+      "file_name": "000000052891.jpg",
+      "rrf_score": 0.031754032258064516,
+      "query_matches": [
+        {
+          "query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+          "rank": 4,
+          "retrieval_score": 0.26872125267982483,
+          "rrf_contribution": 0.015625
+        },
+        {
+          "query": "dog near water",
+          "rank": 2,
+          "retrieval_score": 0.28159213066101074,
+          "rrf_contribution": 0.016129032258064516
+        }
+      ],
+      "normalized_rrf_score": 0.9262696357590577,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog near water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "people in background",
+            "satisfied": true,
+            "confidence": 0.8,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.8500000000000001,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.8500000000000001,
+        "overall_match": true,
+        "explanation": "The image shows a dog near water with people in the background, fulfilling all the required conditions."
+      },
+      "final_score": 0.8690674089397645
+    },
+    {
+      "image_index": 3762,
+      "image_id": 490171,
+      "file_name": "000000490171.jpg",
+      "rrf_score": 0.029211087420042643,
+      "query_matches": [
+        {
+          "query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+          "rank": 7,
+          "retrieval_score": 0.2618197202682495,
+          "rrf_contribution": 0.014925373134328358
+        },
+        {
+          "query": "dog near water",
+          "rank": 10,
+          "retrieval_score": 0.2618192732334137,
+          "rrf_contribution": 0.014285714285714285
+        }
+      ],
+      "normalized_rrf_score": 0.5603784395557753,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog near water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "people in background",
+            "satisfied": true,
+            "confidence": 0.8,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.8500000000000001,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.8500000000000001,
+        "overall_match": true,
+        "explanation": "The image shows a dog near water with people in the background, satisfying the positive constraints."
+      },
+      "final_score": 0.7775946098889439
+    },
+    {
+      "image_index": 1065,
+      "image_id": 190140,
+      "file_name": "000000190140.jpg",
+      "rrf_score": 0.028404512489927477,
+      "query_matches": [
+        {
+          "query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+          "rank": 8,
+          "retrieval_score": 0.2557971477508545,
+          "rrf_contribution": 0.014705882352941176
+        },
+        {
+          "query": "dog near water",
+          "rank": 13,
+          "retrieval_score": 0.2538086771965027,
+          "rrf_contribution": 0.0136986301369863
+        }
+      ],
+      "normalized_rrf_score": 0.44432453952820467,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog near water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "people in background",
+            "satisfied": true,
+            "confidence": 0.8,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.8500000000000001,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.8500000000000001,
+        "overall_match": true,
+        "explanation": "The image shows a dog standing on a boat near water with people in the background, satisfying all the given conditions."
+      },
+      "final_score": 0.7485811348820512
+    },
+    {
+      "image_index": 4948,
+      "image_id": 19042,
+      "file_name": "000000019042.jpg",
+      "rrf_score": 0.02531645569620253,
+      "query_matches": [
+        {
+          "query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+          "rank": 19,
+          "retrieval_score": 0.23996001482009888,
+          "rrf_contribution": 0.012658227848101266
+        },
+        {
+          "query": "dog near water",
+          "rank": 19,
+          "retrieval_score": 0.24905507266521454,
+          "rrf_contribution": 0.012658227848101266
+        }
+      ],
+      "normalized_rrf_score": 0.0,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog near water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "people in background",
+            "satisfied": true,
+            "confidence": 0.8,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.8500000000000001,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.8500000000000001,
+        "overall_match": true,
+        "explanation": "The image shows a dog near water with people in the background, satisfying the positive constraints."
+      },
+      "final_score": 0.6375000000000001
+    },
+    {
+      "image_index": 4856,
+      "image_id": 331075,
+      "file_name": "000000331075.jpg",
+      "rrf_score": 0.032266458495966696,
+      "query_matches": [
+        {
+          "query": "Find an image of a dog near water with people in the background, but the dog should not be swimming.",
+          "rank": 3,
+          "retrieval_score": 0.27397260069847107,
+          "rrf_contribution": 0.015873015873015872
+        },
+        {
+          "query": "dog near water",
+          "rank": 1,
+          "retrieval_score": 0.2953035831451416,
+          "rrf_contribution": 0.01639344262295082
+        }
+      ],
+      "normalized_rrf_score": 1.0,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog near water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "people in background",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.45,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.45,
+        "overall_match": false,
+        "explanation": "The dog is near water, but there are no people in the background."
+      },
+      "final_score": 0.5875
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+Multimodal DeepSearch - COCO Retrieval Experiments
+
+Dataset:
+MS COCO 2017 validation
+5000 images
+Text-to-image retrieval
+
+Pretrained CLIP ViT-B/32
+Recall@1:  0.2868
+Recall@5:  0.5320
+Recall@10: 0.6466
+
+Projection Fine-Tuning
+Training pairs: 20000
+Epochs: 3
+Batch size: 64
+Learning rate: 1e-4
+
+Recall@1:  0.2950
+Recall@5:  0.5446
+Recall@10: 0.6738
+
+Projection Fine-Tuning - Unique Images
+Training images: 50000
+One caption per unique image
+Epochs: 3
+Batch size: 64
+Learning rate: 1e-4
+
+Recall@1:  0.3218
+Recall@5:  0.5852
+Recall@10: 0.7000
+
+Improvement over pretrained CLIP:
+Recall@1:  +0.0350
+Recall@5:  +0.0532
+Recall@10: +0.0534
+
+Hard-Negative Projection Fine-Tuning
+Starting model: 50k unique projection model
+Training samples: 50000
+Hard negatives per caption: 5
+Hard-negative weight: 0.5
+Learning rate: 5e-5
+Epochs: 3
+Batch size: 32
+
+Recall@1:  0.2402
+Recall@5:  0.4934
+Recall@10: 0.6124
+
+Result:
+Performance degraded substantially relative to both the
+50k unique projection model and pretrained CLIP.
+
+Semi-Hard Negative Fine-Tuning
+
+Starting model:
+clip_projection_finetune_50k_unique
+
+Training samples: 50000
+Semi-hard negatives per caption: 2
+Selected negative ranks: 3 and 4
+Hard-negative weight: 0.1
+Learning rate: 1e-5
+Batch size: 32
+Epochs: 1
+
+Recall@1:  0.3340
+Recall@5:  0.6056
+Recall@10: 0.7192
+
+Improvement over 50k unique projection model:
+Recall@1:  +0.0122
+Recall@5:  +0.0204
+Recall@10: +0.0192
+
+Improvement over pretrained CLIP:
+Recall@1:  +0.0472
+Recall@5:  +0.0736
+Recall@10: +0.0726
+
+CLIP-Only Extra-Epoch Control
+
+Starting model:
+clip_projection_finetune_50k_unique
+
+Training samples: 50000
+Batch size: 32
+Learning rate: 1e-5
+Epochs: 1
+Loss: standard CLIP contrastive loss only
+
+Recall@1:  0.3312
+Recall@5:  0.6016
+Recall@10: 0.7208
+
+Comparison with semi-hard-negative experiment:
+
+CLIP-only:
+R@1:  0.3312
+R@5:  0.6016
+R@10: 0.7208
+
+Semi-hard:
+R@1:  0.3340
+R@5:  0.6056
+R@10: 0.7192
+
+Semi-hard minus control:
+R@1:  +0.0028
+R@5:  +0.0040
+R@10: -0.0016
+
+Conclusion:
+Most of the improvement over the 50k base model came from
+an additional low-learning-rate training epoch. Semi-hard
+negatives yielded small gains at R@1 and R@5 but did not
+improve R@10.
+
+DeepSearch Retriever V1
+
+Architecture:
+Frozen CLIP vision/text transformers
+Replaced original CLIP projection layers with custom nonlinear MLP heads
+Projection: LayerNorm -> Linear -> GELU -> Dropout -> Linear
+Embedding dimension: 512
+Hidden dimension: 1024
+
+Training:
+50000 unique image-caption pairs
+Batch size: 64
+Epochs: 3
+Learning rate: 1e-4
+Symmetric image-text contrastive loss
+
+Results:
+Recall@1:  0.2722
+Recall@5:  0.5454
+Recall@10: 0.6788
+
+Compared with pretrained CLIP:
+Recall@1:  -0.0146
+Recall@5:  +0.0134
+Recall@10: +0.0322
+
+Conclusion:
+Replacing CLIP's pretrained projection layers with randomly
+initialized nonlinear heads weakened top-1 retrieval, although
+the learned model exceeded pretrained CLIP at Recall@5 and
+Recall@10. This motivates preserving CLIP's pretrained
+multimodal projection space and learning residual adapters.
+
+DeepSearch Retriever V2
+
+Architecture:
+Frozen CLIP vision and text encoders
+Frozen pretrained CLIP visual and text projection layers
+Custom nonlinear residual adapters on top of the pretrained
+512-dimensional multimodal embedding space
+
+Adapter architecture:
+LayerNorm -> Linear(512 -> 1024) -> GELU ->
+Dropout -> Linear(1024 -> 512)
+
+Residual formulation:
+final_embedding =
+normalize(base_CLIP_embedding + alpha * adapter_update)
+
+Training:
+50000 unique image-caption pairs
+Batch size: 64
+Epochs: 3
+Learning rate: 1e-4
+Symmetric text-to-image / image-to-text contrastive loss
+
+Final learned residual strengths:
+Image alpha: 0.035759
+Text alpha: 0.033565
+
+COCO 2017 Validation Results:
+Recall@1:  0.3502
+Recall@5:  0.6176
+Recall@10: 0.7348
+
+Improvement over pretrained CLIP:
+Recall@1:  +0.0634
+Recall@5:  +0.0856
+Recall@10: +0.0882
+
+Improvement over DeepSearch V1:
+Recall@1:  +0.0780
+Recall@5:  +0.0722
+Recall@10: +0.0560
+
+Improvement over CLIP-only control:
+Recall@1:  +0.0190
+Recall@5:  +0.0160
+Recall@10: +0.0140
+
+Improvement over semi-hard model:
+Recall@1:  +0.0162
+Recall@5:  +0.0120
+Recall@10: +0.0156
+
+Conclusion:
+Preserving CLIP's pretrained multimodal embedding space and
+learning small nonlinear residual corrections substantially
+outperformed both replacing the projection space entirely
+and directly fine-tuning CLIP's original projection heads.
+
+DeepSearch Reranker V1
+
+Architecture:
+Frozen pretrained CLIP image/text embeddings
+Global feature fusion using:
+text embedding
+image embedding
+elementwise product
+absolute difference
+MLP relevance scorer
+
+Training:
+50000 retrieval queries
+4 retrieved negatives + 1 positive per query
+3 epochs
+Final training query accuracy: 0.4817
+
+Validation pipeline:
+DeepSearch Retriever V2 -> Top 20 -> Reranker V1
+
+Retriever V2:
+Recall@1:  0.3502
+Recall@5:  0.6176
+Recall@10: 0.7348
+Recall@20: 0.8296
+
+V2 + Reranker V1:
+Recall@1:  0.1106
+Recall@5:  0.3292
+Recall@10: 0.5102
+Recall@20: 0.8296
+
+Change:
+Recall@1:  -0.2396
+Recall@5:  -0.2884
+Recall@10: -0.2246
+
+Conclusion:
+Replacing the Retriever V2 ranking with a standalone learned
+reranker score substantially degraded retrieval ordering.
+The candidate pool remained unchanged, as shown by identical
+Recall@20. The next reranker should preserve Retriever V2's
+score and learn only a residual correction using Retriever V2
+embeddings.
+
+Residual Reranker V2
+Held-out 5-way accuracy:
+Retriever: 0.1570
+Reranker:  0.6000
+
+COCO validation:
+Retriever V2:
+R@1  0.3502
+R@5  0.6176
+R@10 0.7348
+R@20 0.8296
+
+Residual Reranker V2:
+R@1  0.0916
+R@5  0.2070
+R@10 0.3466
+R@20 0.8296
+
+Conclusion:
+Residual reranking using only global DeepSearch V2 embeddings
+severely overfit the reranker development task and failed to
+generalize to COCO validation. Future reranking should use
+token/patch-level cross-modal interaction rather than another
+global-embedding MLP.
+
+DeepSearch Cross-Attention Reranker V4
+
+Architecture:
+Frozen CLIP vision/text encoders
+Token-to-patch cross-attention
+Full top-20 candidate training
+Bounded residual correction:
+final_score = retriever_score + 0.02 * tanh(correction)
+
+Image-disjoint DEV set:
+5000 images
+Retriever V2 baseline:
+R@1  = 0.3710
+R@5  = 0.6530
+R@10 = 0.7696
+R@20 = 0.8720
+
+V2 + Bounded Reranker V4:
+R@1  = 0.3254
+R@5  = 0.5962
+R@10 = 0.7362
+R@20 = 0.8720
+
+Change:
+R@1  = -0.0456
+R@5  = -0.0568
+R@10 = -0.0334
+
+Maximum correction:
+0.020000
+
+Conclusion:
+Even with image-disjoint validation, full top-20 training,
+token/patch cross-attention, and strictly bounded residual
+corrections, the reranker did not outperform DeepSearch
+Retriever V2. Retriever V2 will therefore remain the primary
+retrieval model for the next stages of the system.
+

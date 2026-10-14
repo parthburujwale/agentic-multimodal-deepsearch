@@ -1,0 +1,1518 @@
+{
+  "benchmark": {
+    "benchmark_file": "../../data/benchmarks/complex_coco_queries_50.json",
+    "benchmark_version": "1.1",
+    "num_examples": 2
+  },
+  "configuration": {
+    "rrf_k": 60,
+    "original_query_weight": 2.0,
+    "subquery_weight": 1.0,
+    "verification_top_k": 10,
+    "retrieval_weight": 0.25,
+    "verification_weight": 0.75
+  },
+  "metrics": {
+    "baseline": {
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr_at_10": 1.0,
+      "mean_capped_rank": 1.0,
+      "median_capped_rank": 1.0
+    },
+    "equal_rrf": {
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 0.5,
+      "mrr_at_10": 0.16666666666666666,
+      "mean_capped_rank": 7.0,
+      "median_capped_rank": 7.0
+    },
+    "weighted_rrf": {
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.5,
+      "recall_at_10": 1.0,
+      "mrr_at_10": 0.3125,
+      "mean_capped_rank": 5.0,
+      "median_capped_rank": 5.0
+    },
+    "weighted_rrf_vlm": {
+      "recall_at_1": 0.5,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr_at_10": 0.75,
+      "mean_capped_rank": 1.5,
+      "median_capped_rank": 1.5
+    },
+    "strict_anchor": {
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0,
+      "mrr_at_10": 1.0,
+      "mean_capped_rank": 1.0,
+      "median_capped_rank": 1.0
+    }
+  },
+  "comparisons": {
+    "weighted_vs_baseline": {
+      "improved": 0,
+      "unchanged": 0,
+      "worsened": 2
+    },
+    "vlm_vs_weighted": {
+      "improved": 2,
+      "unchanged": 0,
+      "worsened": 0
+    },
+    "strict_anchor_vs_vlm": {
+      "improved": 1,
+      "unchanged": 1,
+      "worsened": 0
+    },
+    "strict_anchor_vs_baseline": {
+      "improved": 0,
+      "unchanged": 2,
+      "worsened": 0
+    }
+  },
+  "results": [
+    {
+      "benchmark_id": "coco_complex_001",
+      "target_image_id": 77396,
+      "target_file": "000000077396.jpg",
+      "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+        "search_queries": [
+          "two cats playing in a room with a large tv and a laptop computer",
+          "cat laying on the floor",
+          "cat with its front paws up on a stool"
+        ],
+        "positive_constraints": [
+          "two cats",
+          "playing",
+          "room",
+          "large tv",
+          "laptop computer",
+          "cat laying",
+          "cat with front paws up on stool"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there are two cats playing in a room with a large TV and a laptop computer, one cat lying on the floor, and another with its front paws up on a stool."
+      },
+      "baseline_rank": 1,
+      "equal_rrf_rank": 11,
+      "weighted_rrf_rank": 8,
+      "weighted_verified_rank": 2,
+      "strict_anchor_rank": 1,
+      "anchor_applied": true,
+      "semantic_positive_constraints": [
+        "two cats playing in a room with a large tv and a laptop computer",
+        "cat laying on the floor",
+        "cat with its front paws up on a stool"
+      ],
+      "semantic_negative_constraints": [],
+      "verified_results_before_anchor": [
+        {
+          "image_index": 4585,
+          "image_id": 297085,
+          "file_name": "000000297085.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.0666486918926239,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.7,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8000000000000002,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8000000000000002,
+            "overall_match": true,
+            "explanation": "The image shows two cats playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other has its front paws up on a stool."
+          },
+          "combined_score": 0.8500000000000001
+        },
+        {
+          "image_index": 1161,
+          "image_id": 77396,
+          "file_name": "000000077396.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.05976485460996628,
+          "normalized_rrf_score": 0.17332602037666497,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8666666666666667,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8666666666666667,
+            "overall_match": true,
+            "explanation": "The image shows two cats playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other has its front paws up on a stool."
+          },
+          "combined_score": 0.6933315050941663
+        },
+        {
+          "image_index": 1096,
+          "image_id": 333772,
+          "file_name": "000000333772.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.06465344876050949,
+          "normalized_rrf_score": 0.7603930028246743,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.6,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.6,
+            "overall_match": false,
+            "explanation": "The image shows two cats playing in a room with a laptop computer, but one cat is not laying on the floor as described."
+          },
+          "combined_score": 0.6400982507061685
+        },
+        {
+          "image_index": 1060,
+          "image_id": 271728,
+          "file_name": "000000271728.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.059655897319316864,
+          "normalized_rrf_score": 0.16024143493809784,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.5666666666666668,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.5666666666666668,
+            "overall_match": false,
+            "explanation": "The image shows a cat lying on a couch, which satisfies the requirement of a cat laying on the floor. However, it does not show a cat with its front paws up on a stool or a large TV and a laptop computer as described."
+          },
+          "combined_score": 0.4650603587345245
+        },
+        {
+          "image_index": 2590,
+          "image_id": 357941,
+          "file_name": "000000357941.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.05832154303789139,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.3,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.3,
+            "overall_match": false,
+            "explanation": "The image shows a cat sitting on top of a television, which satisfies the presence of a large TV. However, it does not show any cats playing or one cat lying on the floor, nor does it show a cat with its front paws up on a stool."
+          },
+          "combined_score": 0.22499999999999998
+        },
+        {
+          "image_index": 1686,
+          "image_id": 540928,
+          "file_name": "000000540928.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.06317368149757385,
+          "normalized_rrf_score": 0.5826890505175587,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not contain any cats or a room with a large TV and a laptop computer."
+          },
+          "combined_score": 0.14567226262938968
+        },
+        {
+          "image_index": 1817,
+          "image_id": 106389,
+          "file_name": "000000106389.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.0619509294629097,
+          "normalized_rrf_score": 0.43584983147691003,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not contain any cats, a large TV, or a laptop computer. It shows a cat sitting on a chair, but it does not meet all the specified conditions."
+          },
+          "combined_score": 0.10896245786922751
+        },
+        {
+          "image_index": 1059,
+          "image_id": 187236,
+          "file_name": "000000187236.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.06173422187566757,
+          "normalized_rrf_score": 0.4098256074570684,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image shows two cats, but they are not playing in a room with a large TV and a laptop computer. One cat is lying on the floor, while the other is not on a stool."
+          },
+          "combined_score": 0.1024564018642671
+        },
+        {
+          "image_index": 2166,
+          "image_id": 402473,
+          "file_name": "000000402473.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.06024764105677605,
+          "normalized_rrf_score": 0.23130342119319894,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image shows two cats, but they are not playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other is not with its front paws up on a stool."
+          },
+          "combined_score": 0.057825855298299735
+        },
+        {
+          "image_index": 1683,
+          "image_id": 570664,
+          "file_name": "000000570664.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.06004004552960396,
+          "normalized_rrf_score": 0.20637345647254823,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a large TV or a laptop computer."
+          },
+          "combined_score": 0.05159336411813706
+        }
+      ],
+      "verified_results_after_anchor": [
+        {
+          "image_index": 1161,
+          "image_id": 77396,
+          "file_name": "000000077396.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.05976485460996628,
+          "normalized_rrf_score": 0.17332602037666497,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8666666666666667,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8666666666666667,
+            "overall_match": true,
+            "explanation": "The image shows two cats playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other has its front paws up on a stool."
+          },
+          "combined_score": 0.6933315050941663
+        },
+        {
+          "image_index": 4585,
+          "image_id": 297085,
+          "file_name": "000000297085.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.0666486918926239,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.7,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.8000000000000002,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.8000000000000002,
+            "overall_match": true,
+            "explanation": "The image shows two cats playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other has its front paws up on a stool."
+          },
+          "combined_score": 0.8500000000000001
+        },
+        {
+          "image_index": 1096,
+          "image_id": 333772,
+          "file_name": "000000333772.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.06465344876050949,
+          "normalized_rrf_score": 0.7603930028246743,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.6,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.6,
+            "overall_match": false,
+            "explanation": "The image shows two cats playing in a room with a laptop computer, but one cat is not laying on the floor as described."
+          },
+          "combined_score": 0.6400982507061685
+        },
+        {
+          "image_index": 1060,
+          "image_id": 271728,
+          "file_name": "000000271728.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.059655897319316864,
+          "normalized_rrf_score": 0.16024143493809784,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.8,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.5666666666666668,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.5666666666666668,
+            "overall_match": false,
+            "explanation": "The image shows a cat lying on a couch, which satisfies the requirement of a cat laying on the floor. However, it does not show a cat with its front paws up on a stool or a large TV and a laptop computer as described."
+          },
+          "combined_score": 0.4650603587345245
+        },
+        {
+          "image_index": 2590,
+          "image_id": 357941,
+          "file_name": "000000357941.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.05832154303789139,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.1,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.3,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.3,
+            "overall_match": false,
+            "explanation": "The image shows a cat sitting on top of a television, which satisfies the presence of a large TV. However, it does not show any cats playing or one cat lying on the floor, nor does it show a cat with its front paws up on a stool."
+          },
+          "combined_score": 0.22499999999999998
+        },
+        {
+          "image_index": 1686,
+          "image_id": 540928,
+          "file_name": "000000540928.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.06317368149757385,
+          "normalized_rrf_score": 0.5826890505175587,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not contain any cats or a room with a large TV and a laptop computer."
+          },
+          "combined_score": 0.14567226262938968
+        },
+        {
+          "image_index": 1817,
+          "image_id": 106389,
+          "file_name": "000000106389.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.0619509294629097,
+          "normalized_rrf_score": 0.43584983147691003,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not contain any cats, a large TV, or a laptop computer. It shows a cat sitting on a chair, but it does not meet all the specified conditions."
+          },
+          "combined_score": 0.10896245786922751
+        },
+        {
+          "image_index": 1059,
+          "image_id": 187236,
+          "file_name": "000000187236.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.06173422187566757,
+          "normalized_rrf_score": 0.4098256074570684,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image shows two cats, but they are not playing in a room with a large TV and a laptop computer. One cat is lying on the floor, while the other is not on a stool."
+          },
+          "combined_score": 0.1024564018642671
+        },
+        {
+          "image_index": 2166,
+          "image_id": 402473,
+          "file_name": "000000402473.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.06024764105677605,
+          "normalized_rrf_score": 0.23130342119319894,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image shows two cats, but they are not playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other is not with its front paws up on a stool."
+          },
+          "combined_score": 0.057825855298299735
+        },
+        {
+          "image_index": 1683,
+          "image_id": 570664,
+          "file_name": "000000570664.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.06004004552960396,
+          "normalized_rrf_score": 0.20637345647254823,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat laying on the floor",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "cat with its front paws up on a stool",
+                "satisfied": true,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.0,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.0,
+            "overall_match": false,
+            "explanation": "The image does not show a large TV or a laptop computer."
+          },
+          "combined_score": 0.05159336411813706
+        }
+      ]
+    },
+    {
+      "benchmark_id": "coco_complex_002",
+      "target_image_id": 471991,
+      "target_file": "000000471991.jpg",
+      "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+      "plan": {
+        "original_query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+        "search_queries": [
+          "church with pews",
+          "large room with wooden counters"
+        ],
+        "positive_constraints": [
+          "pews",
+          "center aisle",
+          "wooden counters",
+          "chairs"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that the image contains a church with pews running along the sides and a large room with wooden counters and chairs."
+      },
+      "baseline_rank": 1,
+      "equal_rrf_rank": 3,
+      "weighted_rrf_rank": 2,
+      "weighted_verified_rank": 1,
+      "strict_anchor_rank": 1,
+      "anchor_applied": false,
+      "semantic_positive_constraints": [
+        "church with pews",
+        "large room with wooden counters"
+      ],
+      "semantic_negative_constraints": [],
+      "verified_results_before_anchor": [
+        {
+          "image_index": 758,
+          "image_id": 471991,
+          "file_name": "000000471991.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.053065184503793716,
+          "normalized_rrf_score": 0.9255061670607064,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a church with pews running along the sides and a clear center aisle, as well as a large room with wooden counters and chairs behind them on both sides."
+          },
+          "combined_score": 0.9063765417651767
+        },
+        {
+          "image_index": 757,
+          "image_id": 481404,
+          "file_name": "000000481404.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.05280088260769844,
+          "normalized_rrf_score": 0.9006487290991929,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a church with pews running along the sides and a clear center aisle, as well as a large room with wooden counters and chairs behind them on both sides."
+          },
+          "combined_score": 0.9001621822747983
+        },
+        {
+          "image_index": 4309,
+          "image_id": 68833,
+          "file_name": "000000068833.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.05385725572705269,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a kitchen with wooden counters, but no pews or chairs are visible."
+          },
+          "combined_score": 0.5875
+        },
+        {
+          "image_index": 487,
+          "image_id": 440475,
+          "file_name": "000000440475.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.04645804315805435,
+          "normalized_rrf_score": 0.3041084074114041,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a large room with wooden counters and chairs, but it does not show a church with pews."
+          },
+          "combined_score": 0.413527101852851
+        },
+        {
+          "image_index": 2760,
+          "image_id": 294783,
+          "file_name": "000000294783.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.04635429382324219,
+          "normalized_rrf_score": 0.2943508434599446,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The room has wooden counters but no chairs behind them."
+          },
+          "combined_score": 0.4110877108649862
+        },
+        {
+          "image_index": 4528,
+          "image_id": 89045,
+          "file_name": "000000089045.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.04588891565799713,
+          "normalized_rrf_score": 0.25058230058482317,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a large room with wooden counters and chairs behind them on both sides, which matches the description."
+          },
+          "combined_score": 0.4001455751462058
+        },
+        {
+          "image_index": 375,
+          "image_id": 221708,
+          "file_name": "000000221708.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.04457006976008415,
+          "normalized_rrf_score": 0.12654561915159296,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a kitchen with wooden counters and chairs, but it does not depict a church with pews."
+          },
+          "combined_score": 0.3691364047878983
+        },
+        {
+          "image_index": 4145,
+          "image_id": 139,
+          "file_name": "000000000139.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.04369756206870079,
+          "normalized_rrf_score": 0.044486783668675874,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a large room with wooden counters and chairs, but it does not depict a church with pews."
+          },
+          "combined_score": 0.348621695917169
+        },
+        {
+          "image_index": 134,
+          "image_id": 186980,
+          "file_name": "000000186980.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.04323635250329971,
+          "normalized_rrf_score": 0.001110295158426401,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a kitchen with wooden counters and chairs, but it does not depict a church with pews."
+          },
+          "combined_score": 0.3377775737896066
+        },
+        {
+          "image_index": 1280,
+          "image_id": 382122,
+          "file_name": "000000382122.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.04322454705834389,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a church with pews, but does not show a large room with wooden counters."
+          },
+          "combined_score": 0.3375
+        }
+      ],
+      "verified_results_after_anchor": [
+        {
+          "image_index": 758,
+          "image_id": 471991,
+          "file_name": "000000471991.jpg",
+          "rrf_rank": 2,
+          "rrf_score": 0.053065184503793716,
+          "normalized_rrf_score": 0.9255061670607064,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a church with pews running along the sides and a clear center aisle, as well as a large room with wooden counters and chairs behind them on both sides."
+          },
+          "combined_score": 0.9063765417651767
+        },
+        {
+          "image_index": 757,
+          "image_id": 481404,
+          "file_name": "000000481404.jpg",
+          "rrf_rank": 3,
+          "rrf_score": 0.05280088260769844,
+          "normalized_rrf_score": 0.9006487290991929,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.9,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.9,
+            "overall_match": true,
+            "explanation": "The image shows a church with pews running along the sides and a clear center aisle, as well as a large room with wooden counters and chairs behind them on both sides."
+          },
+          "combined_score": 0.9001621822747983
+        },
+        {
+          "image_index": 4309,
+          "image_id": 68833,
+          "file_name": "000000068833.jpg",
+          "rrf_rank": 1,
+          "rrf_score": 0.05385725572705269,
+          "normalized_rrf_score": 1.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a kitchen with wooden counters, but no pews or chairs are visible."
+          },
+          "combined_score": 0.5875
+        },
+        {
+          "image_index": 487,
+          "image_id": 440475,
+          "file_name": "000000440475.jpg",
+          "rrf_rank": 4,
+          "rrf_score": 0.04645804315805435,
+          "normalized_rrf_score": 0.3041084074114041,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a large room with wooden counters and chairs, but it does not show a church with pews."
+          },
+          "combined_score": 0.413527101852851
+        },
+        {
+          "image_index": 2760,
+          "image_id": 294783,
+          "file_name": "000000294783.jpg",
+          "rrf_rank": 5,
+          "rrf_score": 0.04635429382324219,
+          "normalized_rrf_score": 0.2943508434599446,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The room has wooden counters but no chairs behind them."
+          },
+          "combined_score": 0.4110877108649862
+        },
+        {
+          "image_index": 4528,
+          "image_id": 89045,
+          "file_name": "000000089045.jpg",
+          "rrf_rank": 6,
+          "rrf_score": 0.04588891565799713,
+          "normalized_rrf_score": 0.25058230058482317,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a large room with wooden counters and chairs behind them on both sides, which matches the description."
+          },
+          "combined_score": 0.4001455751462058
+        },
+        {
+          "image_index": 375,
+          "image_id": 221708,
+          "file_name": "000000221708.jpg",
+          "rrf_rank": 7,
+          "rrf_score": 0.04457006976008415,
+          "normalized_rrf_score": 0.12654561915159296,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a kitchen with wooden counters and chairs, but it does not depict a church with pews."
+          },
+          "combined_score": 0.3691364047878983
+        },
+        {
+          "image_index": 4145,
+          "image_id": 139,
+          "file_name": "000000000139.jpg",
+          "rrf_rank": 8,
+          "rrf_score": 0.04369756206870079,
+          "normalized_rrf_score": 0.044486783668675874,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a large room with wooden counters and chairs, but it does not depict a church with pews."
+          },
+          "combined_score": 0.348621695917169
+        },
+        {
+          "image_index": 134,
+          "image_id": 186980,
+          "file_name": "000000186980.jpg",
+          "rrf_rank": 9,
+          "rrf_score": 0.04323635250329971,
+          "normalized_rrf_score": 0.001110295158426401,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a kitchen with wooden counters and chairs, but it does not depict a church with pews."
+          },
+          "combined_score": 0.3377775737896066
+        },
+        {
+          "image_index": 1280,
+          "image_id": 382122,
+          "file_name": "000000382122.jpg",
+          "rrf_rank": 10,
+          "rrf_score": 0.04322454705834389,
+          "normalized_rrf_score": 0.0,
+          "verification": {
+            "positive_checks": [
+              {
+                "constraint": "church with pews",
+                "satisfied": true,
+                "confidence": 0.9,
+                "missing_from_model_output": false
+              },
+              {
+                "constraint": "large room with wooden counters",
+                "satisfied": false,
+                "confidence": 0.0,
+                "missing_from_model_output": false
+              }
+            ],
+            "negative_checks": [],
+            "positive_score": 0.45,
+            "negative_violation_score": 0.0,
+            "overall_score": 0.45,
+            "overall_match": false,
+            "explanation": "The image shows a church with pews, but does not show a large room with wooden counters."
+          },
+          "combined_score": 0.3375
+        }
+      ]
+    }
+  ]
+}
