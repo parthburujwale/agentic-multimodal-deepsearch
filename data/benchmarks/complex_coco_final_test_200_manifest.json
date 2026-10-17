@@ -1,0 +1,16 @@
+{
+  "benchmark_file": "complex_coco_final_test_200.json",
+  "benchmark_name": "Complex COCO Final Test 200",
+  "version": "1.0",
+  "status": "FROZEN",
+  "num_queries": 200,
+  "random_seed": 20261017,
+  "sha256": "723380c31e6842c3388f9c73f1bf251bbf4617bf7bd6f7099f822a25686e720c",
+  "excluded_benchmarks": [
+    "complex_coco_queries_50.json",
+    "complex_coco_holdout_100.json"
+  ],
+  "dev50_target_overlap": 0,
+  "holdout100_target_overlap": 0,
+  "instruction": "Do not modify this benchmark or tune the retrieval architecture using its individual examples or results."
+}

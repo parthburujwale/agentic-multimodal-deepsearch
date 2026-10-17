@@ -1,0 +1,2019 @@
+{
+  "benchmark_name": "Complex COCO Final Test 200",
+  "version": "1.0",
+  "status": "FROZEN",
+  "purpose": "Untouched final evaluation set for Agentic Multimodal DeepSearch.",
+  "construction": {
+    "source_dataset": "MS COCO 2017 validation",
+    "retrieval_corpus": "COCO val2017",
+    "num_queries": 200,
+    "random_seed": 20261017,
+    "query_template": "Find an image matching both of these visual descriptions: <caption_1>; <caption_2>.",
+    "target_overlap_with_dev50": 0,
+    "target_overlap_with_old_holdout100": 0,
+    "manual_selection": false,
+    "manual_tuning": false
+  },
+  "queries": [
+    {
+      "id": "coco_final_001",
+      "query": "Find an image matching both of these visual descriptions: Several people in skis standing on a snow covered incline.; Three skiers skiing down a steep snowy slope..",
+      "target_image_id": 274708,
+      "caption_1": "Several people in skis standing on a snow covered incline.",
+      "caption_2": "Three skiers skiing down a steep snowy slope.",
+      "file_name": "000000274708.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_002",
+      "query": "Find an image matching both of these visual descriptions: a desk with a laptop some keyboards and some books; An office desk with a row of books and a desktop computer and laptop computer on the desk..",
+      "target_image_id": 26564,
+      "caption_1": "a desk with a laptop some keyboards and some books",
+      "caption_2": "An office desk with a row of books and a desktop computer and laptop computer on the desk.",
+      "file_name": "000000026564.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_003",
+      "query": "Find an image matching both of these visual descriptions: A group of different colored teddy bears sitting on top of a blue table.; A table full of different teddy bears with place cards.",
+      "target_image_id": 428867,
+      "caption_1": "A group of different colored teddy bears sitting on top of a blue table.",
+      "caption_2": "A table full of different teddy bears with place cards",
+      "file_name": "000000428867.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_004",
+      "query": "Find an image matching both of these visual descriptions: A Penn tennis bill resting on a tennis racquet; A tennis ball sitting on top of a tennis racket..",
+      "target_image_id": 179285,
+      "caption_1": "A Penn tennis bill resting on a tennis racquet",
+      "caption_2": "A tennis ball sitting on top of a tennis racket.",
+      "file_name": "000000179285.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_005",
+      "query": "Find an image matching both of these visual descriptions: a vandalized stop sign in the dark with a sky background; A red stop sign sitting on the side of a dark road..",
+      "target_image_id": 122745,
+      "caption_1": "a vandalized stop sign in the dark with a sky background",
+      "caption_2": "A red stop sign sitting on the side of a dark road.",
+      "file_name": "000000122745.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_006",
+      "query": "Find an image matching both of these visual descriptions: A little boy sitting on a kitchen counter top next to a plate of sliced apples.; A young child sitting on a kitchen counter next to some sliced apples..",
+      "target_image_id": 473406,
+      "caption_1": "A little boy sitting on a kitchen counter top next to a plate of sliced apples.",
+      "caption_2": "A young child sitting on a kitchen counter next to some sliced apples.",
+      "file_name": "000000473406.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_007",
+      "query": "Find an image matching both of these visual descriptions: The case on the shelf is holding several feathers.; A vase of feathers on a shelf by some art..",
+      "target_image_id": 512403,
+      "caption_1": "The case on the shelf is holding several feathers.",
+      "caption_2": "A vase of feathers on a shelf by some art.",
+      "file_name": "000000512403.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_008",
+      "query": "Find an image matching both of these visual descriptions: a kitchen with a refrigerator a counter with chairs; A very nice large modern style kitchen with a bar..",
+      "target_image_id": 519569,
+      "caption_1": "a kitchen with a refrigerator a counter with chairs",
+      "caption_2": "A very nice large modern style kitchen with a bar.",
+      "file_name": "000000519569.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_009",
+      "query": "Find an image matching both of these visual descriptions: A small bird is standing on the concrete; a close of up a small bird on a dirt ground.",
+      "target_image_id": 509719,
+      "caption_1": "A small bird is standing on the concrete",
+      "caption_2": "a close of up a small bird on a dirt ground",
+      "file_name": "000000509719.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_010",
+      "query": "Find an image matching both of these visual descriptions: A cow standing outside of a white building with a blue entrance.; A cow standing next to a white wall and bright blue door..",
+      "target_image_id": 545958,
+      "caption_1": "A cow standing outside of a white building with a blue entrance.",
+      "caption_2": "A cow standing next to a white wall and bright blue door.",
+      "file_name": "000000545958.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_011",
+      "query": "Find an image matching both of these visual descriptions: THERE ARE TOYS TAHT ARE ON THE BEACH; A couple of storm troopers standing next to each other..",
+      "target_image_id": 544052,
+      "caption_1": "THERE ARE TOYS TAHT ARE ON THE BEACH",
+      "caption_2": "A couple of storm troopers standing next to each other.",
+      "file_name": "000000544052.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_012",
+      "query": "Find an image matching both of these visual descriptions: A toilet that has three sea shells on top.; A toilet with three seashells sitting on top of it..",
+      "target_image_id": 323202,
+      "caption_1": "A toilet that has three sea shells on top.",
+      "caption_2": "A toilet with three seashells sitting on top of it.",
+      "file_name": "000000323202.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_013",
+      "query": "Find an image matching both of these visual descriptions: A man is guiding a horse through a body of water.; A boy on a horse jumps across th water hoe.",
+      "target_image_id": 576955,
+      "caption_1": "A man is guiding a horse through a body of water.",
+      "caption_2": "A boy on a horse jumps across th water hoe",
+      "file_name": "000000576955.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_014",
+      "query": "Find an image matching both of these visual descriptions: People sit around a pool and a clock tower.; A large clock standing in front a building with lots of windows..",
+      "target_image_id": 173057,
+      "caption_1": "People sit around a pool and a clock tower.",
+      "caption_2": "A large clock standing in front a building with lots of windows.",
+      "file_name": "000000173057.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_015",
+      "query": "Find an image matching both of these visual descriptions: A woman standing behind a camera near a laptop computer.; a lady operating a video camera in a computer class.",
+      "target_image_id": 465822,
+      "caption_1": "A woman standing behind a camera near a laptop computer.",
+      "caption_2": "a lady operating a video camera in a computer class",
+      "file_name": "000000465822.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_016",
+      "query": "Find an image matching both of these visual descriptions: A guy is playing baseball while wearing a white uniform.; derek jeter swings his bat at a baseball.",
+      "target_image_id": 501005,
+      "caption_1": "A guy is playing baseball while wearing a white uniform.",
+      "caption_2": "derek jeter swings his bat at a baseball",
+      "file_name": "000000501005.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_017",
+      "query": "Find an image matching both of these visual descriptions: Cat wedged between two large oak doors trying to get out.; A cat is trying to squeeze through a door..",
+      "target_image_id": 386457,
+      "caption_1": "Cat wedged between two large oak doors trying to get out.",
+      "caption_2": "A cat is trying to squeeze through a door.",
+      "file_name": "000000386457.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_018",
+      "query": "Find an image matching both of these visual descriptions: The large red train is attached to wires above it.; red and white train traveling on a train track.",
+      "target_image_id": 539445,
+      "caption_1": "The large red train is attached to wires above it.",
+      "caption_2": "red and white train traveling on a train track",
+      "file_name": "000000539445.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_019",
+      "query": "Find an image matching both of these visual descriptions: A clown talking on a phone next to a building.; Mandor stuff is a clown holding his cell phone up to his face..",
+      "target_image_id": 553731,
+      "caption_1": "A clown talking on a phone next to a building.",
+      "caption_2": "Mandor stuff is a clown holding his cell phone up to his face.",
+      "file_name": "000000553731.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_020",
+      "query": "Find an image matching both of these visual descriptions: a slice of cake with some syrup next to it; A plate with an orange cake dessert and a fork..",
+      "target_image_id": 85195,
+      "caption_1": "a slice of cake with some syrup next to it",
+      "caption_2": "A plate with an orange cake dessert and a fork.",
+      "file_name": "000000085195.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_021",
+      "query": "Find an image matching both of these visual descriptions: A Christmas tree with lights and teddy bear; A teddy bear wearing a red bow that is sitting on a Christmas tree..",
+      "target_image_id": 175443,
+      "caption_1": "A Christmas tree with lights and teddy bear",
+      "caption_2": "A teddy bear wearing a red bow that is sitting on a Christmas tree.",
+      "file_name": "000000175443.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_022",
+      "query": "Find an image matching both of these visual descriptions: A woman walking on a cross walk with cars driving on it.; A woman that is standing in a crosswalk near mopeds..",
+      "target_image_id": 181542,
+      "caption_1": "A woman walking on a cross walk with cars driving on it.",
+      "caption_2": "A woman that is standing in a crosswalk near mopeds.",
+      "file_name": "000000181542.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_023",
+      "query": "Find an image matching both of these visual descriptions: A herd of elephants standing on top of a dirt road.; Elephants in a zoo close to buildings.",
+      "target_image_id": 162543,
+      "caption_1": "A herd of elephants standing on top of a dirt road.",
+      "caption_2": "Elephants in a zoo close to buildings",
+      "file_name": "000000162543.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_024",
+      "query": "Find an image matching both of these visual descriptions: A cat sitting on the edge of the toilet looking toward the open bathroom door.; A cat is laying on a toilet seat.",
+      "target_image_id": 245764,
+      "caption_1": "A cat sitting on the edge of the toilet looking toward the open bathroom door.",
+      "caption_2": "A cat is laying on a toilet seat",
+      "file_name": "000000245764.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_025",
+      "query": "Find an image matching both of these visual descriptions: a pink clock tower rises above a tree line; A large tall building with a clock on the top..",
+      "target_image_id": 308531,
+      "caption_1": "a pink clock tower rises above a tree line",
+      "caption_2": "A large tall building with a clock on the top.",
+      "file_name": "000000308531.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_026",
+      "query": "Find an image matching both of these visual descriptions: Surfer riding large breaking wave on open ocean.; A man surfing the waves on a surfboard in the ocean..",
+      "target_image_id": 441286,
+      "caption_1": "Surfer riding large breaking wave on open ocean.",
+      "caption_2": "A man surfing the waves on a surfboard in the ocean.",
+      "file_name": "000000441286.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_027",
+      "query": "Find an image matching both of these visual descriptions: cereal and juice are placed on top of a fridge; I do not know what this is supposed to be...",
+      "target_image_id": 554838,
+      "caption_1": "cereal and juice are placed on top of a fridge",
+      "caption_2": "I do not know what this is supposed to be..",
+      "file_name": "000000554838.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_028",
+      "query": "Find an image matching both of these visual descriptions: A desk with both a laptop computer and a desktop computer.; A home office desk with a desktop computer, large flat screen monitor, and laptop computer on it..",
+      "target_image_id": 135872,
+      "caption_1": "A desk with both a laptop computer and a desktop computer.",
+      "caption_2": "A home office desk with a desktop computer, large flat screen monitor, and laptop computer on it.",
+      "file_name": "000000135872.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_029",
+      "query": "Find an image matching both of these visual descriptions: a person skating on some pieces of wood; A skateboarder is riding on boards that have been placed over grass..",
+      "target_image_id": 3553,
+      "caption_1": "a person skating on some pieces of wood",
+      "caption_2": "A skateboarder is riding on boards that have been placed over grass.",
+      "file_name": "000000003553.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_030",
+      "query": "Find an image matching both of these visual descriptions: Traditional American comfort food arranged on a plate; a plate with a hot dog in a bun, macaroni and cheese and stuffing on it.",
+      "target_image_id": 320664,
+      "caption_1": "Traditional American comfort food arranged on a plate",
+      "caption_2": "a plate with a hot dog in a bun, macaroni and cheese and stuffing on it",
+      "file_name": "000000320664.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_031",
+      "query": "Find an image matching both of these visual descriptions: A green door opens into a toilet stall containing a white toilet bowl.; A white toilet sitting up against a wall..",
+      "target_image_id": 175387,
+      "caption_1": "A green door opens into a toilet stall containing a white toilet bowl.",
+      "caption_2": "A white toilet sitting up against a wall.",
+      "file_name": "000000175387.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_032",
+      "query": "Find an image matching both of these visual descriptions: A bath and a toilet in a small room.; A bathroom with blue walls and pink tile..",
+      "target_image_id": 10977,
+      "caption_1": "A bath and a toilet in a small room.",
+      "caption_2": "A bathroom with blue walls and pink tile.",
+      "file_name": "000000010977.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_033",
+      "query": "Find an image matching both of these visual descriptions: A woman tennis player serving a tennis ball.; A woman holding a racquet on top of a tennis court..",
+      "target_image_id": 83172,
+      "caption_1": "A woman tennis player serving a tennis ball.",
+      "caption_2": "A woman holding a racquet on top of a tennis court.",
+      "file_name": "000000083172.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_034",
+      "query": "Find an image matching both of these visual descriptions: Persons of different origin standing in a hall.; A man in shirt and tie standing in lobby next to other people..",
+      "target_image_id": 352684,
+      "caption_1": "Persons of different origin standing in a hall.",
+      "caption_2": "A man in shirt and tie standing in lobby next to other people.",
+      "file_name": "000000352684.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_035",
+      "query": "Find an image matching both of these visual descriptions: A red tour bus driving through the streets; some cars a red bus and a blue bus.",
+      "target_image_id": 315450,
+      "caption_1": "A red tour bus driving through the streets",
+      "caption_2": "some cars a red bus and a blue bus",
+      "file_name": "000000315450.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_036",
+      "query": "Find an image matching both of these visual descriptions: a boy with a green shirt and a black pair of shorts playing soccer; a young boy on a soccer field standing in front of a ball..",
+      "target_image_id": 371552,
+      "caption_1": "a boy with a green shirt and a black pair of shorts playing soccer",
+      "caption_2": "a young boy on a soccer field standing in front of a ball.",
+      "file_name": "000000371552.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_037",
+      "query": "Find an image matching both of these visual descriptions: Bride and groom walking under an umbrella held by a woman.; A newly married couple walking down a street..",
+      "target_image_id": 496854,
+      "caption_1": "Bride and groom walking under an umbrella held by a woman.",
+      "caption_2": "A newly married couple walking down a street.",
+      "file_name": "000000496854.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_038",
+      "query": "Find an image matching both of these visual descriptions: A wooden bench sitting next to a large body of water.; A wooden bench is located by a lakeshore..",
+      "target_image_id": 335529,
+      "caption_1": "A wooden bench sitting next to a large body of water.",
+      "caption_2": "A wooden bench is located by a lakeshore.",
+      "file_name": "000000335529.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_039",
+      "query": "Find an image matching both of these visual descriptions: there is a bird that is sitting at the top of a branch; A bird is perched on top of a large stick..",
+      "target_image_id": 482477,
+      "caption_1": "there is a bird that is sitting at the top of a branch",
+      "caption_2": "A bird is perched on top of a large stick.",
+      "file_name": "000000482477.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_040",
+      "query": "Find an image matching both of these visual descriptions: A white and red train at a train depot with passengers sitting inside.; A red and white train traveling down train tracks..",
+      "target_image_id": 369675,
+      "caption_1": "A white and red train at a train depot with passengers sitting inside.",
+      "caption_2": "A red and white train traveling down train tracks.",
+      "file_name": "000000369675.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_041",
+      "query": "Find an image matching both of these visual descriptions: The people are flying the kites in the sky.; A crowd of people standing on a field flying kites..",
+      "target_image_id": 163117,
+      "caption_1": "The people are flying the kites in the sky.",
+      "caption_2": "A crowd of people standing on a field flying kites.",
+      "file_name": "000000163117.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_042",
+      "query": "Find an image matching both of these visual descriptions: Several sheep standing in a barn, one is black; a black goat standing next to two white goats.",
+      "target_image_id": 233567,
+      "caption_1": "Several sheep standing in a barn, one is black",
+      "caption_2": "a black goat standing next to two white goats",
+      "file_name": "000000233567.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_043",
+      "query": "Find an image matching both of these visual descriptions: A business on the corner of a big busy city street.; Poplewalk on the sidewalk near the colorfully striped building..",
+      "target_image_id": 301376,
+      "caption_1": "A business on the corner of a big busy city street.",
+      "caption_2": "Poplewalk on the sidewalk near the colorfully striped building.",
+      "file_name": "000000301376.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_044",
+      "query": "Find an image matching both of these visual descriptions: a person riding skis on a snowy slope; An individual is in the open view in the picture..",
+      "target_image_id": 314709,
+      "caption_1": "a person riding skis on a snowy slope",
+      "caption_2": "An individual is in the open view in the picture.",
+      "file_name": "000000314709.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_045",
+      "query": "Find an image matching both of these visual descriptions: A young man taking a selfie with an iPhone wearing a tie.; A man holding up an apple phone while taking a selfie..",
+      "target_image_id": 345397,
+      "caption_1": "A young man taking a selfie with an iPhone wearing a tie.",
+      "caption_2": "A man holding up an apple phone while taking a selfie.",
+      "file_name": "000000345397.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_046",
+      "query": "Find an image matching both of these visual descriptions: One girl trying to block another girl from catching a Frisbee.; two teenagers playing in a grassy field while a fribee flies their way.",
+      "target_image_id": 391290,
+      "caption_1": "One girl trying to block another girl from catching a Frisbee.",
+      "caption_2": "two teenagers playing in a grassy field while a fribee flies their way",
+      "file_name": "000000391290.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_047",
+      "query": "Find an image matching both of these visual descriptions: A black and silver fridge next to a large mirror.; A small area containing a refrigerator and a microwave positioned on a shelf.",
+      "target_image_id": 313130,
+      "caption_1": "A black and silver fridge next to a large mirror.",
+      "caption_2": "A small area containing a refrigerator and a microwave positioned on a shelf",
+      "file_name": "000000313130.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_048",
+      "query": "Find an image matching both of these visual descriptions: The skateboarder is jumping over the railing in a park.; A boy is skateboarding on a pole at a park..",
+      "target_image_id": 419408,
+      "caption_1": "The skateboarder is jumping over the railing in a park.",
+      "caption_2": "A boy is skateboarding on a pole at a park.",
+      "file_name": "000000419408.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_049",
+      "query": "Find an image matching both of these visual descriptions: A blue truck drives down a narrow street.; a blue rubbish removal truck and two vehicles behind it.",
+      "target_image_id": 295420,
+      "caption_1": "A blue truck drives down a narrow street.",
+      "caption_2": "a blue rubbish removal truck and two vehicles behind it",
+      "file_name": "000000295420.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_050",
+      "query": "Find an image matching both of these visual descriptions: A man smiles while he stands beside a bike with a bike on it; A picture of a person standing by a bicycle..",
+      "target_image_id": 357737,
+      "caption_1": "A man smiles while he stands beside a bike with a bike on it",
+      "caption_2": "A picture of a person standing by a bicycle.",
+      "file_name": "000000357737.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_051",
+      "query": "Find an image matching both of these visual descriptions: Street scene with USA and Mexican flags flying from building above restaurant tables on sidewalk.; A group of people sitting at a table next to a traffic filled street..",
+      "target_image_id": 67616,
+      "caption_1": "Street scene with USA and Mexican flags flying from building above restaurant tables on sidewalk.",
+      "caption_2": "A group of people sitting at a table next to a traffic filled street.",
+      "file_name": "000000067616.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_052",
+      "query": "Find an image matching both of these visual descriptions: A plane flies through the sky above some trees.; A tri-motor, vintage airplane on final approach to land..",
+      "target_image_id": 137950,
+      "caption_1": "A plane flies through the sky above some trees.",
+      "caption_2": "A tri-motor, vintage airplane on final approach to land.",
+      "file_name": "000000137950.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_053",
+      "query": "Find an image matching both of these visual descriptions: A brown dog sitting in a yard looking at a black and white dog.; A small dog is looking at a larger barking dog..",
+      "target_image_id": 562561,
+      "caption_1": "A brown dog sitting in a yard looking at a black and white dog.",
+      "caption_2": "A small dog is looking at a larger barking dog.",
+      "file_name": "000000562561.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_054",
+      "query": "Find an image matching both of these visual descriptions: A man and a dog fishing on a boat in a lake with two boats in the background.; A man sailing a boat with his dog riding in front..",
+      "target_image_id": 171611,
+      "caption_1": "A man and a dog fishing on a boat in a lake with two boats in the background.",
+      "caption_2": "A man sailing a boat with his dog riding in front.",
+      "file_name": "000000171611.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_055",
+      "query": "Find an image matching both of these visual descriptions: several boys hanging out at a skate park; A person with a skateboard on a street..",
+      "target_image_id": 559160,
+      "caption_1": "several boys hanging out at a skate park",
+      "caption_2": "A person with a skateboard on a street.",
+      "file_name": "000000559160.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_056",
+      "query": "Find an image matching both of these visual descriptions: Two giraffes standing in a wide open area.; some giraffes standing by each other in a field.",
+      "target_image_id": 345261,
+      "caption_1": "Two giraffes standing in a wide open area.",
+      "caption_2": "some giraffes standing by each other in a field",
+      "file_name": "000000345261.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_057",
+      "query": "Find an image matching both of these visual descriptions: A plate holds a good size portion of a cooked, mixed dish that includes broccoli and pasta.; A pasta dish with mushrooms and broccoli in a cream sauce.",
+      "target_image_id": 407524,
+      "caption_1": "A plate holds a good size portion of a cooked, mixed dish that includes broccoli and pasta.",
+      "caption_2": "A pasta dish with mushrooms and broccoli in a cream sauce",
+      "file_name": "000000407524.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_058",
+      "query": "Find an image matching both of these visual descriptions: A young boy sitting in front of a plate of food.; a little boy smiling at someone across the table.",
+      "target_image_id": 368752,
+      "caption_1": "A young boy sitting in front of a plate of food.",
+      "caption_2": "a little boy smiling at someone across the table",
+      "file_name": "000000368752.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_059",
+      "query": "Find an image matching both of these visual descriptions: A small and near bathroom that's inside someone's house.; a bathroom with a long counter that has cleaning products on it.",
+      "target_image_id": 34760,
+      "caption_1": "A small and near bathroom that's inside someone's house.",
+      "caption_2": "a bathroom with a long counter that has cleaning products on it",
+      "file_name": "000000034760.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_060",
+      "query": "Find an image matching both of these visual descriptions: A plate of chicken and vegetables sits next to a bowl of rice.; A plate of food, rice bowl, and a soup bowl is on a tray..",
+      "target_image_id": 284106,
+      "caption_1": "A plate of chicken and vegetables sits next to a bowl of rice.",
+      "caption_2": "A plate of food, rice bowl, and a soup bowl is on a tray.",
+      "file_name": "000000284106.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_061",
+      "query": "Find an image matching both of these visual descriptions: A tennis player crouched in a ready position.; A tennis player waits for the ball to be hit..",
+      "target_image_id": 289059,
+      "caption_1": "A tennis player crouched in a ready position.",
+      "caption_2": "A tennis player waits for the ball to be hit.",
+      "file_name": "000000289059.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_062",
+      "query": "Find an image matching both of these visual descriptions: a man and a woman are standing beside a red motorcycle; A man and a woman are posing next to a red motorcycle..",
+      "target_image_id": 299887,
+      "caption_1": "a man and a woman are standing beside a red motorcycle",
+      "caption_2": "A man and a woman are posing next to a red motorcycle.",
+      "file_name": "000000299887.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_063",
+      "query": "Find an image matching both of these visual descriptions: A couple of people that are eating some food.; A group of men standing around a table of food in wooden room..",
+      "target_image_id": 157767,
+      "caption_1": "A couple of people that are eating some food.",
+      "caption_2": "A group of men standing around a table of food in wooden room.",
+      "file_name": "000000157767.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_064",
+      "query": "Find an image matching both of these visual descriptions: A cheeseburger is topped with a glazed doughnut.; there is a burger that is topped with a donut.",
+      "target_image_id": 297427,
+      "caption_1": "A cheeseburger is topped with a glazed doughnut.",
+      "caption_2": "there is a burger that is topped with a donut",
+      "file_name": "000000297427.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_065",
+      "query": "Find an image matching both of these visual descriptions: An adult and a child cow standing on the side of the road.; A couple of cows standing next to each other near a street..",
+      "target_image_id": 417085,
+      "caption_1": "An adult and a child cow standing on the side of the road.",
+      "caption_2": "A couple of cows standing next to each other near a street.",
+      "file_name": "000000417085.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_066",
+      "query": "Find an image matching both of these visual descriptions: Cars and trucks stopped at an intersection at twilight.; A car and a truck sitting a red light..",
+      "target_image_id": 453841,
+      "caption_1": "Cars and trucks stopped at an intersection at twilight.",
+      "caption_2": "A car and a truck sitting a red light.",
+      "file_name": "000000453841.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_067",
+      "query": "Find an image matching both of these visual descriptions: A young boy sinking his teeth into a piece of pizza; A child taking a bite of a pizza slice on a plate..",
+      "target_image_id": 80932,
+      "caption_1": "A young boy sinking his teeth into a piece of pizza",
+      "caption_2": "A child taking a bite of a pizza slice on a plate.",
+      "file_name": "000000080932.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_068",
+      "query": "Find an image matching both of these visual descriptions: A woman with suitcases waiting for a train.; A woman stands beside her luggage at an airport..",
+      "target_image_id": 153529,
+      "caption_1": "A woman with suitcases waiting for a train.",
+      "caption_2": "A woman stands beside her luggage at an airport.",
+      "file_name": "000000153529.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_069",
+      "query": "Find an image matching both of these visual descriptions: A man about to hit a tennis ball in front of a crowd; A tennis player strikes the ball with his racket..",
+      "target_image_id": 409211,
+      "caption_1": "A man about to hit a tennis ball in front of a crowd",
+      "caption_2": "A tennis player strikes the ball with his racket.",
+      "file_name": "000000409211.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_070",
+      "query": "Find an image matching both of these visual descriptions: a bus stops to pick up some passengers; A bus is traveling down the city street..",
+      "target_image_id": 5037,
+      "caption_1": "a bus stops to pick up some passengers",
+      "caption_2": "A bus is traveling down the city street.",
+      "file_name": "000000005037.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_071",
+      "query": "Find an image matching both of these visual descriptions: A group of people staring at a woman holding a bat.; a close up of a person holding a bat in the dark.",
+      "target_image_id": 284743,
+      "caption_1": "A group of people staring at a woman holding a bat.",
+      "caption_2": "a close up of a person holding a bat in the dark",
+      "file_name": "000000284743.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_072",
+      "query": "Find an image matching both of these visual descriptions: people and a dog in a supermarket in the fruit section; A family shopping at a farmers marked with their dog..",
+      "target_image_id": 479155,
+      "caption_1": "people and a dog in a supermarket in the fruit section",
+      "caption_2": "A family shopping at a farmers marked with their dog.",
+      "file_name": "000000479155.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_073",
+      "query": "Find an image matching both of these visual descriptions: A red-brick wall with a gray bench in a lush green space.; A tree standing in the middle of a grass circle..",
+      "target_image_id": 479099,
+      "caption_1": "A red-brick wall with a gray bench in a lush green space.",
+      "caption_2": "A tree standing in the middle of a grass circle.",
+      "file_name": "000000479099.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_074",
+      "query": "Find an image matching both of these visual descriptions: A bottle of beer sits next to the keyboard and mouse at the computer table.; A computer on a desk with a bottle of beer next to it.",
+      "target_image_id": 346638,
+      "caption_1": "A bottle of beer sits next to the keyboard and mouse at the computer table.",
+      "caption_2": "A computer on a desk with a bottle of beer next to it",
+      "file_name": "000000346638.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_075",
+      "query": "Find an image matching both of these visual descriptions: A desk with two computer screens and a Cecil Cooper bobble head.; A bobble head is shown next to computer screens..",
+      "target_image_id": 127987,
+      "caption_1": "A desk with two computer screens and a Cecil Cooper bobble head.",
+      "caption_2": "A bobble head is shown next to computer screens.",
+      "file_name": "000000127987.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_076",
+      "query": "Find an image matching both of these visual descriptions: a couple of people having a few laughs with each other.; A group of people with a man in the background with a stick..",
+      "target_image_id": 86956,
+      "caption_1": "a couple of people having a few laughs with each other.",
+      "caption_2": "A group of people with a man in the background with a stick.",
+      "file_name": "000000086956.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_077",
+      "query": "Find an image matching both of these visual descriptions: a woman riding a bike in the street and a building with a clock in the background; A lady is riding her bike and approaching the huge castle like building..",
+      "target_image_id": 125572,
+      "caption_1": "a woman riding a bike in the street and a building with a clock in the background",
+      "caption_2": "A lady is riding her bike and approaching the huge castle like building.",
+      "file_name": "000000125572.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_078",
+      "query": "Find an image matching both of these visual descriptions: A man and a girl standing next to two cakes in the kitchen.; A man and a young girl choosing between two cakes..",
+      "target_image_id": 374083,
+      "caption_1": "A man and a girl standing next to two cakes in the kitchen.",
+      "caption_2": "A man and a young girl choosing between two cakes.",
+      "file_name": "000000374083.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_079",
+      "query": "Find an image matching both of these visual descriptions: Plates of Pizza with silverware next to ketchup and other condiments.; A half eaten slice of pizza is on a plate with a knife and fork..",
+      "target_image_id": 173004,
+      "caption_1": "Plates of Pizza with silverware next to ketchup and other condiments.",
+      "caption_2": "A half eaten slice of pizza is on a plate with a knife and fork.",
+      "file_name": "000000173004.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_080",
+      "query": "Find an image matching both of these visual descriptions: People walking on sand next to a mountainous area.; A family are playing frisbee on the beach..",
+      "target_image_id": 334719,
+      "caption_1": "People walking on sand next to a mountainous area.",
+      "caption_2": "A family are playing frisbee on the beach.",
+      "file_name": "000000334719.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_081",
+      "query": "Find an image matching both of these visual descriptions: a birthday cake decorated to look like an island with surfboards; A blue cake features a small island on top and sharks swimming on the bottom of the cake..",
+      "target_image_id": 92177,
+      "caption_1": "a birthday cake decorated to look like an island with surfboards",
+      "caption_2": "A blue cake features a small island on top and sharks swimming on the bottom of the cake.",
+      "file_name": "000000092177.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_082",
+      "query": "Find an image matching both of these visual descriptions: There is a bright yellow parking meter on a red sidewalk; A photograph of a highly decorated parking meter..",
+      "target_image_id": 475484,
+      "caption_1": "There is a bright yellow parking meter on a red sidewalk",
+      "caption_2": "A photograph of a highly decorated parking meter.",
+      "file_name": "000000475484.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_083",
+      "query": "Find an image matching both of these visual descriptions: A dog looking out the window as seen through a mirror.; A dog that is sitting down in a backseat..",
+      "target_image_id": 151962,
+      "caption_1": "A dog looking out the window as seen through a mirror.",
+      "caption_2": "A dog that is sitting down in a backseat.",
+      "file_name": "000000151962.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_084",
+      "query": "Find an image matching both of these visual descriptions: A giraffe leans its neck as it walks through the bush.; An adult giraffe grazing in a brown field..",
+      "target_image_id": 55072,
+      "caption_1": "A giraffe leans its neck as it walks through the bush.",
+      "caption_2": "An adult giraffe grazing in a brown field.",
+      "file_name": "000000055072.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_085",
+      "query": "Find an image matching both of these visual descriptions: An airplane flying in the sky over some trees.; Aerial view of an airplane ascending in to the sky..",
+      "target_image_id": 189828,
+      "caption_1": "An airplane flying in the sky over some trees.",
+      "caption_2": "Aerial view of an airplane ascending in to the sky.",
+      "file_name": "000000189828.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_086",
+      "query": "Find an image matching both of these visual descriptions: The inside of an empty public bus with black seats.; A view of the back of a bus from inside..",
+      "target_image_id": 484404,
+      "caption_1": "The inside of an empty public bus with black seats.",
+      "caption_2": "A view of the back of a bus from inside.",
+      "file_name": "000000484404.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_087",
+      "query": "Find an image matching both of these visual descriptions: A dump truck with a dumpster on the back; A small white tow truck parked to another small white tow truck..",
+      "target_image_id": 154000,
+      "caption_1": "A dump truck with a dumpster on the back",
+      "caption_2": "A small white tow truck parked to another small white tow truck.",
+      "file_name": "000000154000.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_088",
+      "query": "Find an image matching both of these visual descriptions: An apartment room with a stove, spices, and bookcase.; The top window in a kitchen is open..",
+      "target_image_id": 45229,
+      "caption_1": "An apartment room with a stove, spices, and bookcase.",
+      "caption_2": "The top window in a kitchen is open.",
+      "file_name": "000000045229.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_089",
+      "query": "Find an image matching both of these visual descriptions: A young woman flies a kite near a body of water.; Young man flying a kite over a grassy area by water..",
+      "target_image_id": 367228,
+      "caption_1": "A young woman flies a kite near a body of water.",
+      "caption_2": "Young man flying a kite over a grassy area by water.",
+      "file_name": "000000367228.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_090",
+      "query": "Find an image matching both of these visual descriptions: a couple of women smile as they hold wine glasses; A couple of women sitting next to each other..",
+      "target_image_id": 70739,
+      "caption_1": "a couple of women smile as they hold wine glasses",
+      "caption_2": "A couple of women sitting next to each other.",
+      "file_name": "000000070739.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_091",
+      "query": "Find an image matching both of these visual descriptions: A cat is walking past a chair.; There is a room with distinctive things in the picture..",
+      "target_image_id": 540928,
+      "caption_1": "A cat is walking past a chair.",
+      "caption_2": "There is a room with distinctive things in the picture.",
+      "file_name": "000000540928.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_092",
+      "query": "Find an image matching both of these visual descriptions: A woman hitting a tennis ball with a racquet.; A person jumping in the air with a tennis racket in their hand..",
+      "target_image_id": 74092,
+      "caption_1": "A woman hitting a tennis ball with a racquet.",
+      "caption_2": "A person jumping in the air with a tennis racket in their hand.",
+      "file_name": "000000074092.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_093",
+      "query": "Find an image matching both of these visual descriptions: a bike sits parked next to a street; A blue bicycle sits on a sidewalk near a street..",
+      "target_image_id": 174482,
+      "caption_1": "a bike sits parked next to a street",
+      "caption_2": "A blue bicycle sits on a sidewalk near a street.",
+      "file_name": "000000174482.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_094",
+      "query": "Find an image matching both of these visual descriptions: A small child stands in a shopping cart with an umbrella.; A GIRL IS IN A GROCERY CART.",
+      "target_image_id": 443969,
+      "caption_1": "A small child stands in a shopping cart with an umbrella.",
+      "caption_2": "A GIRL IS IN A GROCERY CART",
+      "file_name": "000000443969.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_095",
+      "query": "Find an image matching both of these visual descriptions: A closeup of an orange still on the tree.; An orange hanging alone at the end of a branch..",
+      "target_image_id": 386277,
+      "caption_1": "A closeup of an orange still on the tree.",
+      "caption_2": "An orange hanging alone at the end of a branch.",
+      "file_name": "000000386277.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_096",
+      "query": "Find an image matching both of these visual descriptions: a black and green parked motorcycle some cars and buildings; Closeup picture of the front of a clean motorcycle..",
+      "target_image_id": 498709,
+      "caption_1": "a black and green parked motorcycle some cars and buildings",
+      "caption_2": "Closeup picture of the front of a clean motorcycle.",
+      "file_name": "000000498709.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_097",
+      "query": "Find an image matching both of these visual descriptions: A man in a button up shirt sitting by himself.; A man operates a laptop at a table in a train station..",
+      "target_image_id": 76547,
+      "caption_1": "A man in a button up shirt sitting by himself.",
+      "caption_2": "A man operates a laptop at a table in a train station.",
+      "file_name": "000000076547.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_098",
+      "query": "Find an image matching both of these visual descriptions: Modern bathroom with two sinks a toilet and a shower; A double sink vanity with mirror, shower stall and toilet in a bathroom..",
+      "target_image_id": 111951,
+      "caption_1": "Modern bathroom with two sinks a toilet and a shower",
+      "caption_2": "A double sink vanity with mirror, shower stall and toilet in a bathroom.",
+      "file_name": "000000111951.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_099",
+      "query": "Find an image matching both of these visual descriptions: Three bears stand together near a fence.; Three brown bears are looking outside their enclosure..",
+      "target_image_id": 217948,
+      "caption_1": "Three bears stand together near a fence.",
+      "caption_2": "Three brown bears are looking outside their enclosure.",
+      "file_name": "000000217948.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_100",
+      "query": "Find an image matching both of these visual descriptions: People walk down a crowded street at a festival; A crowd of people standing in the middle of a street..",
+      "target_image_id": 290248,
+      "caption_1": "People walk down a crowded street at a festival",
+      "caption_2": "A crowd of people standing in the middle of a street.",
+      "file_name": "000000290248.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_101",
+      "query": "Find an image matching both of these visual descriptions: A woman playing a video game with the Nintendo Wii.; A woman and a man playing a video game in the living room.",
+      "target_image_id": 489764,
+      "caption_1": "A woman playing a video game with the Nintendo Wii.",
+      "caption_2": "A woman and a man playing a video game in the living room",
+      "file_name": "000000489764.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_102",
+      "query": "Find an image matching both of these visual descriptions: A teddy bear and a stuffed monkey sit side by side.; Teddy bear next to monkey in foreground of picture..",
+      "target_image_id": 522638,
+      "caption_1": "A teddy bear and a stuffed monkey sit side by side.",
+      "caption_2": "Teddy bear next to monkey in foreground of picture.",
+      "file_name": "000000522638.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_103",
+      "query": "Find an image matching both of these visual descriptions: The little girl is intently playing the video game.; A little girl standing in front of a couch holding a remote..",
+      "target_image_id": 27186,
+      "caption_1": "The little girl is intently playing the video game.",
+      "caption_2": "A little girl standing in front of a couch holding a remote.",
+      "file_name": "000000027186.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_104",
+      "query": "Find an image matching both of these visual descriptions: A baseball player holding a bat next to a base.; A baseball player holds his bat and waits for the pitch..",
+      "target_image_id": 6471,
+      "caption_1": "A baseball player holding a bat next to a base.",
+      "caption_2": "A baseball player holds his bat and waits for the pitch.",
+      "file_name": "000000006471.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_105",
+      "query": "Find an image matching both of these visual descriptions: A woman standing on a tennis court in the sun.; A person on a court with a tennis racket..",
+      "target_image_id": 104424,
+      "caption_1": "A woman standing on a tennis court in the sun.",
+      "caption_2": "A person on a court with a tennis racket.",
+      "file_name": "000000104424.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_106",
+      "query": "Find an image matching both of these visual descriptions: A slice of pizza with a swirl of sauce on top.; A slice of pizza that is on top of a napkin..",
+      "target_image_id": 206027,
+      "caption_1": "A slice of pizza with a swirl of sauce on top.",
+      "caption_2": "A slice of pizza that is on top of a napkin.",
+      "file_name": "000000206027.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_107",
+      "query": "Find an image matching both of these visual descriptions: There is a man hitting a tennis ball.; A tennis player is leaping off of the ground..",
+      "target_image_id": 98853,
+      "caption_1": "There is a man hitting a tennis ball.",
+      "caption_2": "A tennis player is leaping off of the ground.",
+      "file_name": "000000098853.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_108",
+      "query": "Find an image matching both of these visual descriptions: A plate of shredded chicken with a broccoli cheese sauce.; a close up of a plate of food on a carpeted floor.",
+      "target_image_id": 8277,
+      "caption_1": "A plate of shredded chicken with a broccoli cheese sauce.",
+      "caption_2": "a close up of a plate of food on a carpeted floor",
+      "file_name": "000000008277.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_109",
+      "query": "Find an image matching both of these visual descriptions: The student is trying to relax on the floor.; A white teddy bear laying on top of a blue rug..",
+      "target_image_id": 567886,
+      "caption_1": "The student is trying to relax on the floor.",
+      "caption_2": "A white teddy bear laying on top of a blue rug.",
+      "file_name": "000000567886.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_110",
+      "query": "Find an image matching both of these visual descriptions: This is a broccoli carrot soup with a lot of broth.; A bowl holds soup with broccoli and other vegetables..",
+      "target_image_id": 123321,
+      "caption_1": "This is a broccoli carrot soup with a lot of broth.",
+      "caption_2": "A bowl holds soup with broccoli and other vegetables.",
+      "file_name": "000000123321.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_111",
+      "query": "Find an image matching both of these visual descriptions: A black cat rubbing up against a laptop.; A cat standing next to a laptop computer on top of a table..",
+      "target_image_id": 494634,
+      "caption_1": "A black cat rubbing up against a laptop.",
+      "caption_2": "A cat standing next to a laptop computer on top of a table.",
+      "file_name": "000000494634.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_112",
+      "query": "Find an image matching both of these visual descriptions: A black swan has some wet grasses in its mouth.; Two black geese are swimming in cloudy water..",
+      "target_image_id": 436551,
+      "caption_1": "A black swan has some wet grasses in its mouth.",
+      "caption_2": "Two black geese are swimming in cloudy water.",
+      "file_name": "000000436551.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_113",
+      "query": "Find an image matching both of these visual descriptions: Half a dozen donuts are sitting in a box.; A variety of different donuts in a box..",
+      "target_image_id": 451150,
+      "caption_1": "Half a dozen donuts are sitting in a box.",
+      "caption_2": "A variety of different donuts in a box.",
+      "file_name": "000000451150.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_114",
+      "query": "Find an image matching both of these visual descriptions: A horse that is walking down a trail by itself.; a horse that is walking around a field.",
+      "target_image_id": 304291,
+      "caption_1": "A horse that is walking down a trail by itself.",
+      "caption_2": "a horse that is walking around a field",
+      "file_name": "000000304291.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_115",
+      "query": "Find an image matching both of these visual descriptions: A woman taking a photo of her food with a cell phone.; A woman is taking a picture of food with a mobile device..",
+      "target_image_id": 226147,
+      "caption_1": "A woman taking a photo of her food with a cell phone.",
+      "caption_2": "A woman is taking a picture of food with a mobile device.",
+      "file_name": "000000226147.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_116",
+      "query": "Find an image matching both of these visual descriptions: Outside view of people walking in front of a store; People stand outside of a series of stores..",
+      "target_image_id": 343149,
+      "caption_1": "Outside view of people walking in front of a store",
+      "caption_2": "People stand outside of a series of stores.",
+      "file_name": "000000343149.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_117",
+      "query": "Find an image matching both of these visual descriptions: A living area with a microwave, counter and lights.; A room in a dusty building with cleaning supplies in it..",
+      "target_image_id": 485424,
+      "caption_1": "A living area with a microwave, counter and lights.",
+      "caption_2": "A room in a dusty building with cleaning supplies in it.",
+      "file_name": "000000485424.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_118",
+      "query": "Find an image matching both of these visual descriptions: A toilet, counter and shower in a bathroom.; A small bathroom with a white toilet next to a shower curtain covered bath tub..",
+      "target_image_id": 357567,
+      "caption_1": "A toilet, counter and shower in a bathroom.",
+      "caption_2": "A small bathroom with a white toilet next to a shower curtain covered bath tub.",
+      "file_name": "000000357567.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_119",
+      "query": "Find an image matching both of these visual descriptions: a desktop setup with a laptop and two monitors; a desk with two monitors and a laptop on it.",
+      "target_image_id": 385719,
+      "caption_1": "a desktop setup with a laptop and two monitors",
+      "caption_2": "a desk with two monitors and a laptop on it",
+      "file_name": "000000385719.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_120",
+      "query": "Find an image matching both of these visual descriptions: A desk in a classroom with a blackboard behind it; A wooden teacher's desk with books stacked on it and a blackboard in the background..",
+      "target_image_id": 17182,
+      "caption_1": "A desk in a classroom with a blackboard behind it",
+      "caption_2": "A wooden teacher's desk with books stacked on it and a blackboard in the background.",
+      "file_name": "000000017182.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_121",
+      "query": "Find an image matching both of these visual descriptions: a cow walking on a city street near people; an ox standing in a busy town area with people going about their normal business.",
+      "target_image_id": 430073,
+      "caption_1": "a cow walking on a city street near people",
+      "caption_2": "an ox standing in a busy town area with people going about their normal business",
+      "file_name": "000000430073.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_122",
+      "query": "Find an image matching both of these visual descriptions: Breakfast sits on the table, with eggs, hash brown and roll.; a plate of breakfast food sits on a table.",
+      "target_image_id": 462576,
+      "caption_1": "Breakfast sits on the table, with eggs, hash brown and roll.",
+      "caption_2": "a plate of breakfast food sits on a table",
+      "file_name": "000000462576.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_123",
+      "query": "Find an image matching both of these visual descriptions: A small black cat sits outside on an open window sill.; An orange cat sits on a stoop in front of a door..",
+      "target_image_id": 360943,
+      "caption_1": "A small black cat sits outside on an open window sill.",
+      "caption_2": "An orange cat sits on a stoop in front of a door.",
+      "file_name": "000000360943.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_124",
+      "query": "Find an image matching both of these visual descriptions: A yellow and red bird is sitting in a tree.; A bird perched on a branch of a tree..",
+      "target_image_id": 402519,
+      "caption_1": "A yellow and red bird is sitting in a tree.",
+      "caption_2": "A bird perched on a branch of a tree.",
+      "file_name": "000000402519.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_125",
+      "query": "Find an image matching both of these visual descriptions: People sitting at a table with computers, pizza boxes, and chicken wings.; A man eating pizza without using his hands..",
+      "target_image_id": 292446,
+      "caption_1": "People sitting at a table with computers, pizza boxes, and chicken wings.",
+      "caption_2": "A man eating pizza without using his hands.",
+      "file_name": "000000292446.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_126",
+      "query": "Find an image matching both of these visual descriptions: A young girl in a white top poses with a yellow tennis racket.; a small girl is holding a yellow racket.",
+      "target_image_id": 117744,
+      "caption_1": "A young girl in a white top poses with a yellow tennis racket.",
+      "caption_2": "a small girl is holding a yellow racket",
+      "file_name": "000000117744.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_127",
+      "query": "Find an image matching both of these visual descriptions: A grandmother looks at her family's pizza dinner; Pizza and empty glasses on the dinner table..",
+      "target_image_id": 12576,
+      "caption_1": "A grandmother looks at her family's pizza dinner",
+      "caption_2": "Pizza and empty glasses on the dinner table.",
+      "file_name": "000000012576.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_128",
+      "query": "Find an image matching both of these visual descriptions: A baseball game is being played before a crowd.; Looking through the safety net, baseball player getting ready to hit the ball..",
+      "target_image_id": 531135,
+      "caption_1": "A baseball game is being played before a crowd.",
+      "caption_2": "Looking through the safety net, baseball player getting ready to hit the ball.",
+      "file_name": "000000531135.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_129",
+      "query": "Find an image matching both of these visual descriptions: A painted picture of a man and a woman on a motorcycle.; A vintage, colored drawing of people on motorcycles pulled into a gas station..",
+      "target_image_id": 480021,
+      "caption_1": "A painted picture of a man and a woman on a motorcycle.",
+      "caption_2": "A vintage, colored drawing of people on motorcycles pulled into a gas station.",
+      "file_name": "000000480021.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_130",
+      "query": "Find an image matching both of these visual descriptions: Cat in window sill of colored panes on building; A gray cat is sitting in a tall window..",
+      "target_image_id": 219485,
+      "caption_1": "Cat in window sill of colored panes on building",
+      "caption_2": "A gray cat is sitting in a tall window.",
+      "file_name": "000000219485.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_131",
+      "query": "Find an image matching both of these visual descriptions: a close up of a toilet and a bath tub with toys; Bathroom tub with children's toys and books on floor and tub..",
+      "target_image_id": 144798,
+      "caption_1": "a close up of a toilet and a bath tub with toys",
+      "caption_2": "Bathroom tub with children's toys and books on floor and tub.",
+      "file_name": "000000144798.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_132",
+      "query": "Find an image matching both of these visual descriptions: A brick structure with a clock tower in the background.; The exterior of a building with a clock..",
+      "target_image_id": 140658,
+      "caption_1": "A brick structure with a clock tower in the background.",
+      "caption_2": "The exterior of a building with a clock.",
+      "file_name": "000000140658.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_133",
+      "query": "Find an image matching both of these visual descriptions: a small child is getting their hair dried at the salon.; A woman is air drying a young child's hair..",
+      "target_image_id": 569976,
+      "caption_1": "a small child is getting their hair dried at the salon.",
+      "caption_2": "A woman is air drying a young child's hair.",
+      "file_name": "000000569976.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_134",
+      "query": "Find an image matching both of these visual descriptions: a man on a motorcycle indoors attempts to lick the windshield; A man sticks out his tongue while sitting on a motorcycle..",
+      "target_image_id": 546976,
+      "caption_1": "a man on a motorcycle indoors attempts to lick the windshield",
+      "caption_2": "A man sticks out his tongue while sitting on a motorcycle.",
+      "file_name": "000000546976.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_135",
+      "query": "Find an image matching both of these visual descriptions: a room that has a lady with a remote in hand; a person standing in a living room with a remote control.",
+      "target_image_id": 195842,
+      "caption_1": "a room that has a lady with a remote in hand",
+      "caption_2": "a person standing in a living room with a remote control",
+      "file_name": "000000195842.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_136",
+      "query": "Find an image matching both of these visual descriptions: A cat that is laying in a piece of luggage.; An orange and white cat laying on top of a bag of luggage..",
+      "target_image_id": 443303,
+      "caption_1": "A cat that is laying in a piece of luggage.",
+      "caption_2": "An orange and white cat laying on top of a bag of luggage.",
+      "file_name": "000000443303.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_137",
+      "query": "Find an image matching both of these visual descriptions: A man swinging a baseball bat as another looks on.; The umpire, catcher, and batter as soon as the batter had swung..",
+      "target_image_id": 281409,
+      "caption_1": "A man swinging a baseball bat as another looks on.",
+      "caption_2": "The umpire, catcher, and batter as soon as the batter had swung.",
+      "file_name": "000000281409.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_138",
+      "query": "Find an image matching both of these visual descriptions: A man sitting on top of a bench with a newspaper.; there are many people that are sitting on the benches.",
+      "target_image_id": 16249,
+      "caption_1": "A man sitting on top of a bench with a newspaper.",
+      "caption_2": "there are many people that are sitting on the benches",
+      "file_name": "000000016249.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_139",
+      "query": "Find an image matching both of these visual descriptions: A person on a skateboard does an air trick.; A man flying through the air on top of a skateboard..",
+      "target_image_id": 576566,
+      "caption_1": "A person on a skateboard does an air trick.",
+      "caption_2": "A man flying through the air on top of a skateboard.",
+      "file_name": "000000576566.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_140",
+      "query": "Find an image matching both of these visual descriptions: A sheep that is standing in a field.; A lonely sheep standing in a field in front of a rock wall..",
+      "target_image_id": 46804,
+      "caption_1": "A sheep that is standing in a field.",
+      "caption_2": "A lonely sheep standing in a field in front of a rock wall.",
+      "file_name": "000000046804.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_141",
+      "query": "Find an image matching both of these visual descriptions: A man and woman sitting on a couch playing a video game.; Two people play video games while sitting on a couch..",
+      "target_image_id": 36936,
+      "caption_1": "A man and woman sitting on a couch playing a video game.",
+      "caption_2": "Two people play video games while sitting on a couch.",
+      "file_name": "000000036936.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_142",
+      "query": "Find an image matching both of these visual descriptions: A red fire hydrant with a building in the background.; A red fire hydrant sitting in a field next to a white building..",
+      "target_image_id": 537355,
+      "caption_1": "A red fire hydrant with a building in the background.",
+      "caption_2": "A red fire hydrant sitting in a field next to a white building.",
+      "file_name": "000000537355.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_143",
+      "query": "Find an image matching both of these visual descriptions: A statue of children flying a kite in front of a building.; A statue of a person holding an kite next to a child..",
+      "target_image_id": 23751,
+      "caption_1": "A statue of children flying a kite in front of a building.",
+      "caption_2": "A statue of a person holding an kite next to a child.",
+      "file_name": "000000023751.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_144",
+      "query": "Find an image matching both of these visual descriptions: A passenger train travels down the tracks at a stop.; People are waiting beside the blue train pulling beside the platform..",
+      "target_image_id": 287874,
+      "caption_1": "A passenger train travels down the tracks at a stop.",
+      "caption_2": "People are waiting beside the blue train pulling beside the platform.",
+      "file_name": "000000287874.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_145",
+      "query": "Find an image matching both of these visual descriptions: a male tennis player in a red shirt playing tennis; A person holding a tennis racket in their hand..",
+      "target_image_id": 444142,
+      "caption_1": "a male tennis player in a red shirt playing tennis",
+      "caption_2": "A person holding a tennis racket in their hand.",
+      "file_name": "000000444142.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_146",
+      "query": "Find an image matching both of these visual descriptions: a man sitting at a desk in front of a laptop computer; A man in thought sitting in front of a laptop with a pen in his hand..",
+      "target_image_id": 22371,
+      "caption_1": "a man sitting at a desk in front of a laptop computer",
+      "caption_2": "A man in thought sitting in front of a laptop with a pen in his hand.",
+      "file_name": "000000022371.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_147",
+      "query": "Find an image matching both of these visual descriptions: a woman dressed in English riding clothes rides a horse; A person riding on the back of a horse walking across a field..",
+      "target_image_id": 140270,
+      "caption_1": "a woman dressed in English riding clothes rides a horse",
+      "caption_2": "A person riding on the back of a horse walking across a field.",
+      "file_name": "000000140270.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_148",
+      "query": "Find an image matching both of these visual descriptions: An orange and white cat laying on top of a sink.; An orange cat rests on a white counter top.",
+      "target_image_id": 58111,
+      "caption_1": "An orange and white cat laying on top of a sink.",
+      "caption_2": "An orange cat rests on a white counter top",
+      "file_name": "000000058111.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_149",
+      "query": "Find an image matching both of these visual descriptions: A woman standing beside a toilet with the lid up.; A woman standing next to and touching a toilet..",
+      "target_image_id": 371529,
+      "caption_1": "A woman standing beside a toilet with the lid up.",
+      "caption_2": "A woman standing next to and touching a toilet.",
+      "file_name": "000000371529.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_150",
+      "query": "Find an image matching both of these visual descriptions: A black dual oven stove with controls on the top.; A pair of black machines stacked on each other..",
+      "target_image_id": 531771,
+      "caption_1": "A black dual oven stove with controls on the top.",
+      "caption_2": "A pair of black machines stacked on each other.",
+      "file_name": "000000531771.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_151",
+      "query": "Find an image matching both of these visual descriptions: A little boy is playing with a suitcase.; a small boy with a bag of luggage.",
+      "target_image_id": 350019,
+      "caption_1": "A little boy is playing with a suitcase.",
+      "caption_2": "a small boy with a bag of luggage",
+      "file_name": "000000350019.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_152",
+      "query": "Find an image matching both of these visual descriptions: Pedestrians crossing a street between buses and cars.; People crossing a busy city street full of vehicles..",
+      "target_image_id": 463730,
+      "caption_1": "Pedestrians crossing a street between buses and cars.",
+      "caption_2": "People crossing a busy city street full of vehicles.",
+      "file_name": "000000463730.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_153",
+      "query": "Find an image matching both of these visual descriptions: A table with many different objects, including a plate of sandwiches.; A bunch of different foods on display on a counter..",
+      "target_image_id": 226903,
+      "caption_1": "A table with many different objects, including a plate of sandwiches.",
+      "caption_2": "A bunch of different foods on display on a counter.",
+      "file_name": "000000226903.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_154",
+      "query": "Find an image matching both of these visual descriptions: A large open kitchen with an island in the middle; A kitchen with a center white island topped with a bowl of greens..",
+      "target_image_id": 565776,
+      "caption_1": "A large open kitchen with an island in the middle",
+      "caption_2": "A kitchen with a center white island topped with a bowl of greens.",
+      "file_name": "000000565776.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_155",
+      "query": "Find an image matching both of these visual descriptions: A small child lounges with a remote in his hand.; a small child laying in bed playing nintendo wii.",
+      "target_image_id": 190637,
+      "caption_1": "A small child lounges with a remote in his hand.",
+      "caption_2": "a small child laying in bed playing nintendo wii",
+      "file_name": "000000190637.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_156",
+      "query": "Find an image matching both of these visual descriptions: A brown and white dog standing next to another dog.; A small dog looking at a larger dog..",
+      "target_image_id": 464522,
+      "caption_1": "A brown and white dog standing next to another dog.",
+      "caption_2": "A small dog looking at a larger dog.",
+      "file_name": "000000464522.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_157",
+      "query": "Find an image matching both of these visual descriptions: A large long train on a steel track.; A train on top of an overpass bridge set of train tracks with fields on both side..",
+      "target_image_id": 108440,
+      "caption_1": "A large long train on a steel track.",
+      "caption_2": "A train on top of an overpass bridge set of train tracks with fields on both side.",
+      "file_name": "000000108440.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_158",
+      "query": "Find an image matching both of these visual descriptions: A man in a reception hall holds a drink; Bearded man in a suit about to enjoy an adult beverage.",
+      "target_image_id": 347254,
+      "caption_1": "A man in a reception hall holds a drink",
+      "caption_2": "Bearded man in a suit about to enjoy an adult beverage",
+      "file_name": "000000347254.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_159",
+      "query": "Find an image matching both of these visual descriptions: A man is playing catch with two children and a dog.; The dog runs near an adult who plays with two children..",
+      "target_image_id": 509403,
+      "caption_1": "A man is playing catch with two children and a dog.",
+      "caption_2": "The dog runs near an adult who plays with two children.",
+      "file_name": "000000509403.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_160",
+      "query": "Find an image matching both of these visual descriptions: A cat that is laying down on a chair.; A gray and white cat looking up from a chair..",
+      "target_image_id": 353970,
+      "caption_1": "A cat that is laying down on a chair.",
+      "caption_2": "A gray and white cat looking up from a chair.",
+      "file_name": "000000353970.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_161",
+      "query": "Find an image matching both of these visual descriptions: A boy playing tennis on a blue and green tennis court.; A young boy on a tennis court prepares to hit a tennis ball with his racquet..",
+      "target_image_id": 410510,
+      "caption_1": "A boy playing tennis on a blue and green tennis court.",
+      "caption_2": "A young boy on a tennis court prepares to hit a tennis ball with his racquet.",
+      "file_name": "000000410510.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_162",
+      "query": "Find an image matching both of these visual descriptions: The kite is red, white, and blue and is flying.; Two red, white and blue kites flying in the sky..",
+      "target_image_id": 450439,
+      "caption_1": "The kite is red, white, and blue and is flying.",
+      "caption_2": "Two red, white and blue kites flying in the sky.",
+      "file_name": "000000450439.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_163",
+      "query": "Find an image matching both of these visual descriptions: A man that is covered in liquid near a hydrant.; a person trying to open a fire hydrant.",
+      "target_image_id": 566923,
+      "caption_1": "A man that is covered in liquid near a hydrant.",
+      "caption_2": "a person trying to open a fire hydrant",
+      "file_name": "000000566923.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_164",
+      "query": "Find an image matching both of these visual descriptions: An animal grazing on a grassy hill near mountains.; A cow is standing on a grassy sloped hill..",
+      "target_image_id": 416837,
+      "caption_1": "An animal grazing on a grassy hill near mountains.",
+      "caption_2": "A cow is standing on a grassy sloped hill.",
+      "file_name": "000000416837.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_165",
+      "query": "Find an image matching both of these visual descriptions: A brown horse with a white mane is on the grass.; A brown horse walking outside in the grass.",
+      "target_image_id": 356968,
+      "caption_1": "A brown horse with a white mane is on the grass.",
+      "caption_2": "A brown horse walking outside in the grass",
+      "file_name": "000000356968.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_166",
+      "query": "Find an image matching both of these visual descriptions: A group of friends play a game on the Nintendo Wii.; A group of people are gathered around at television playing WII..",
+      "target_image_id": 467176,
+      "caption_1": "A group of friends play a game on the Nintendo Wii.",
+      "caption_2": "A group of people are gathered around at television playing WII.",
+      "file_name": "000000467176.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_167",
+      "query": "Find an image matching both of these visual descriptions: A little girl eating a slice of pizza in a room.; A girl takes a bite of her pepperoni pizza..",
+      "target_image_id": 473237,
+      "caption_1": "A little girl eating a slice of pizza in a room.",
+      "caption_2": "A girl takes a bite of her pepperoni pizza.",
+      "file_name": "000000473237.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_168",
+      "query": "Find an image matching both of these visual descriptions: There is a truck behind the stop sign.; A red traffic stop sign with a blank white sign below it..",
+      "target_image_id": 460229,
+      "caption_1": "There is a truck behind the stop sign.",
+      "caption_2": "A red traffic stop sign with a blank white sign below it.",
+      "file_name": "000000460229.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_169",
+      "query": "Find an image matching both of these visual descriptions: a kid is sitting on a small bed in a room; A little boy sits on a bed with a chair next to it..",
+      "target_image_id": 460333,
+      "caption_1": "a kid is sitting on a small bed in a room",
+      "caption_2": "A little boy sits on a bed with a chair next to it.",
+      "file_name": "000000460333.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_170",
+      "query": "Find an image matching both of these visual descriptions: A man jumping up in the air swinging a tennis racket at a ball.; A man in white shirt and shorts playing a game of tennis..",
+      "target_image_id": 493905,
+      "caption_1": "A man jumping up in the air swinging a tennis racket at a ball.",
+      "caption_2": "A man in white shirt and shorts playing a game of tennis.",
+      "file_name": "000000493905.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_171",
+      "query": "Find an image matching both of these visual descriptions: A work area with a laptop computer and phone.; A chair next to a desk with a laptop and phone sitting on it..",
+      "target_image_id": 513688,
+      "caption_1": "A work area with a laptop computer and phone.",
+      "caption_2": "A chair next to a desk with a laptop and phone sitting on it.",
+      "file_name": "000000513688.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_172",
+      "query": "Find an image matching both of these visual descriptions: a group of old people sitting on a bench talking; A black and white photo of four elderly people sitting in a bench overlooking the ocean..",
+      "target_image_id": 531707,
+      "caption_1": "a group of old people sitting on a bench talking",
+      "caption_2": "A black and white photo of four elderly people sitting in a bench overlooking the ocean.",
+      "file_name": "000000531707.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_173",
+      "query": "Find an image matching both of these visual descriptions: A kid is riding down the street on a skateboard.; A child in a helmet and safety pads riding a skateboard..",
+      "target_image_id": 442463,
+      "caption_1": "A kid is riding down the street on a skateboard.",
+      "caption_2": "A child in a helmet and safety pads riding a skateboard.",
+      "file_name": "000000442463.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_174",
+      "query": "Find an image matching both of these visual descriptions: The passenger train is pulling has arrived at the station.; Many people are gathered on the platforms of a train station..",
+      "target_image_id": 508917,
+      "caption_1": "The passenger train is pulling has arrived at the station.",
+      "caption_2": "Many people are gathered on the platforms of a train station.",
+      "file_name": "000000508917.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_175",
+      "query": "Find an image matching both of these visual descriptions: A hotel room with two beds side by side .; a large modern hotel room with double beds.",
+      "target_image_id": 7795,
+      "caption_1": "A hotel room with two beds side by side .",
+      "caption_2": "a large modern hotel room with double beds",
+      "file_name": "000000007795.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_176",
+      "query": "Find an image matching both of these visual descriptions: The kitchen is filled with various cooking appliances.; A picture of a small-sized kitchen with wood cabinets..",
+      "target_image_id": 437898,
+      "caption_1": "The kitchen is filled with various cooking appliances.",
+      "caption_2": "A picture of a small-sized kitchen with wood cabinets.",
+      "file_name": "000000437898.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_177",
+      "query": "Find an image matching both of these visual descriptions: Several men on a boat looking over the side.; A large ship floating in the ocean next to other ships..",
+      "target_image_id": 502168,
+      "caption_1": "Several men on a boat looking over the side.",
+      "caption_2": "A large ship floating in the ocean next to other ships.",
+      "file_name": "000000502168.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_178",
+      "query": "Find an image matching both of these visual descriptions: A bench in the sand facing an empty beach.; A bench that is on the beach by the water..",
+      "target_image_id": 282046,
+      "caption_1": "A bench in the sand facing an empty beach.",
+      "caption_2": "A bench that is on the beach by the water.",
+      "file_name": "000000282046.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_179",
+      "query": "Find an image matching both of these visual descriptions: A painting of a blue fish flying through the canvas; A blue colorful kite flying through the gray sky..",
+      "target_image_id": 85665,
+      "caption_1": "A painting of a blue fish flying through the canvas",
+      "caption_2": "A blue colorful kite flying through the gray sky.",
+      "file_name": "000000085665.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_180",
+      "query": "Find an image matching both of these visual descriptions: Several large fish balloons hanging from poles outside.; A large kite with three orange, white and black fish..",
+      "target_image_id": 17959,
+      "caption_1": "Several large fish balloons hanging from poles outside.",
+      "caption_2": "A large kite with three orange, white and black fish.",
+      "file_name": "000000017959.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_181",
+      "query": "Find an image matching both of these visual descriptions: Two guys in an office walking towards the chalk board.; Two guys in a large room with a blackboard..",
+      "target_image_id": 563267,
+      "caption_1": "Two guys in an office walking towards the chalk board.",
+      "caption_2": "Two guys in a large room with a blackboard.",
+      "file_name": "000000563267.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_182",
+      "query": "Find an image matching both of these visual descriptions: A small herd of zebras walking past the camera man.; Herd of zebra grazing on dried grasses in open field..",
+      "target_image_id": 508586,
+      "caption_1": "A small herd of zebras walking past the camera man.",
+      "caption_2": "Herd of zebra grazing on dried grasses in open field.",
+      "file_name": "000000508586.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_183",
+      "query": "Find an image matching both of these visual descriptions: These toilets are being used outside as decor; Two toilets sit outside on the pavement next to a yard with many decorations..",
+      "target_image_id": 482100,
+      "caption_1": "These toilets are being used outside as decor",
+      "caption_2": "Two toilets sit outside on the pavement next to a yard with many decorations.",
+      "file_name": "000000482100.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_184",
+      "query": "Find an image matching both of these visual descriptions: A series of pictures showing a flambe cake.; A man and woman standing over a dinner table with a cake..",
+      "target_image_id": 346703,
+      "caption_1": "A series of pictures showing a flambe cake.",
+      "caption_2": "A man and woman standing over a dinner table with a cake.",
+      "file_name": "000000346703.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_185",
+      "query": "Find an image matching both of these visual descriptions: THERE IS A MICROWAVE THAT IS ON THE DESK TOP; there is a black microwave that is on top of a wooden table.",
+      "target_image_id": 283717,
+      "caption_1": "THERE IS A MICROWAVE THAT IS ON THE DESK TOP",
+      "caption_2": "there is a black microwave that is on top of a wooden table",
+      "file_name": "000000283717.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_186",
+      "query": "Find an image matching both of these visual descriptions: A bathroom that has a bathtub with the light on.; A bathroom with sheer curtains framing the tub.",
+      "target_image_id": 351362,
+      "caption_1": "A bathroom that has a bathtub with the light on.",
+      "caption_2": "A bathroom with sheer curtains framing the tub",
+      "file_name": "000000351362.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_187",
+      "query": "Find an image matching both of these visual descriptions: A yellow and red train traveling down train tracks.; A passanger train stopped on the railroad tracks..",
+      "target_image_id": 431896,
+      "caption_1": "A yellow and red train traveling down train tracks.",
+      "caption_2": "A passanger train stopped on the railroad tracks.",
+      "file_name": "000000431896.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_188",
+      "query": "Find an image matching both of these visual descriptions: A surfer riding the top of a choppy wave; a man riding a blue surfboard on top of a wave..",
+      "target_image_id": 513524,
+      "caption_1": "A surfer riding the top of a choppy wave",
+      "caption_2": "a man riding a blue surfboard on top of a wave.",
+      "file_name": "000000513524.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_189",
+      "query": "Find an image matching both of these visual descriptions: a donut with a cup of coffee and an ornate napkin holder; A white plate with a donut and napkin sculpture..",
+      "target_image_id": 378605,
+      "caption_1": "a donut with a cup of coffee and an ornate napkin holder",
+      "caption_2": "A white plate with a donut and napkin sculpture.",
+      "file_name": "000000378605.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_190",
+      "query": "Find an image matching both of these visual descriptions: Assorted vegetables are displayed at a fruit stand including bananas, oranges, apples, and cherries.; Many types of fruit on display on a street..",
+      "target_image_id": 560256,
+      "caption_1": "Assorted vegetables are displayed at a fruit stand including bananas, oranges, apples, and cherries.",
+      "caption_2": "Many types of fruit on display on a street.",
+      "file_name": "000000560256.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_191",
+      "query": "Find an image matching both of these visual descriptions: From the rear, we see a horse standing between two cars parked in a parking lot.; A horse walks between cars in a parking lot..",
+      "target_image_id": 368335,
+      "caption_1": "From the rear, we see a horse standing between two cars parked in a parking lot.",
+      "caption_2": "A horse walks between cars in a parking lot.",
+      "file_name": "000000368335.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_192",
+      "query": "Find an image matching both of these visual descriptions: A man and woman in a boat on a river.; Two people riding in a boat in a river.",
+      "target_image_id": 472298,
+      "caption_1": "A man and woman in a boat on a river.",
+      "caption_2": "Two people riding in a boat in a river",
+      "file_name": "000000472298.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_193",
+      "query": "Find an image matching both of these visual descriptions: close up of a cat sitting in a bathroom sink; A cat sitting in a bathroom sink under a faucet..",
+      "target_image_id": 361621,
+      "caption_1": "close up of a cat sitting in a bathroom sink",
+      "caption_2": "A cat sitting in a bathroom sink under a faucet.",
+      "file_name": "000000361621.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_194",
+      "query": "Find an image matching both of these visual descriptions: A horse drawn carriage parked on top of a field.; A man that is sitting on a cart attached to a horse..",
+      "target_image_id": 121242,
+      "caption_1": "A horse drawn carriage parked on top of a field.",
+      "caption_2": "A man that is sitting on a cart attached to a horse.",
+      "file_name": "000000121242.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_195",
+      "query": "Find an image matching both of these visual descriptions: The door of the refrigerator has several papers on it.; A kitchen with white cabinets and brick walls..",
+      "target_image_id": 135561,
+      "caption_1": "The door of the refrigerator has several papers on it.",
+      "caption_2": "A kitchen with white cabinets and brick walls.",
+      "file_name": "000000135561.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_196",
+      "query": "Find an image matching both of these visual descriptions: a small bird standing on a rocky beach; A small bird standing on a rocky ground..",
+      "target_image_id": 186938,
+      "caption_1": "a small bird standing on a rocky beach",
+      "caption_2": "A small bird standing on a rocky ground.",
+      "file_name": "000000186938.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_197",
+      "query": "Find an image matching both of these visual descriptions: A large crowd of people watching the sky as something flies by; A crowd of people flying kites in a blue cloudy sky..",
+      "target_image_id": 299553,
+      "caption_1": "A large crowd of people watching the sky as something flies by",
+      "caption_2": "A crowd of people flying kites in a blue cloudy sky.",
+      "file_name": "000000299553.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_198",
+      "query": "Find an image matching both of these visual descriptions: A police officer riding a bike in the street.; A cop riding on the back of a motorcycle..",
+      "target_image_id": 499622,
+      "caption_1": "A police officer riding a bike in the street.",
+      "caption_2": "A cop riding on the back of a motorcycle.",
+      "file_name": "000000499622.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_199",
+      "query": "Find an image matching both of these visual descriptions: A cat is on papers on a computer desk.; a close up of a cat laying on a desk.",
+      "target_image_id": 112798,
+      "caption_1": "A cat is on papers on a computer desk.",
+      "caption_2": "a close up of a cat laying on a desk",
+      "file_name": "000000112798.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    },
+    {
+      "id": "coco_final_200",
+      "query": "Find an image matching both of these visual descriptions: An old gothic church next to a cemetery with a rock fence in front.; A long stone wall at a church with a cemetary..",
+      "target_image_id": 120572,
+      "caption_1": "An old gothic church next to a cemetery with a rock fence in front.",
+      "caption_2": "A long stone wall at a church with a cemetary.",
+      "file_name": "000000120572.jpg",
+      "benchmark_split": "final_test",
+      "benchmark_version": "1.0"
+    }
+  ]
+}
