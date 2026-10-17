@@ -17,6 +17,15 @@ The goal is to answer complex compositional image-search queries while remaining
 
 ---
 
+## Quick Links
+
+- [Demo Cases](docs/DEMO.md)
+- [Results and Ablations](#results-and-ablations)
+- [System Architecture](#system-architecture)
+- [Running Grounded DeepSearch](#running-grounded-deepsearch)
+
+---
+
 # Motivation
 
 Traditional text-to-image retrieval systems often perform well when a query contains a single dominant visual concept.
