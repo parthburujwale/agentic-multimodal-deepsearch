@@ -85,7 +85,11 @@ class EvidenceVerifier:
             Qwen2_5_VLForConditionalGeneration
             .from_pretrained(
                 model_name,
-                dtype=model_dtype
+                dtype=model_dtype,
+
+                # Force eager attention for reproducible
+                # multimodal verification.
+                attn_implementation="eager",
             )
         )
 
@@ -93,6 +97,7 @@ class EvidenceVerifier:
         self.model = self.model.to(
             device
         )
+
 
         self.model.eval()
 

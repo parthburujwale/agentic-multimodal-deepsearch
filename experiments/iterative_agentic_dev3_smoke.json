@@ -1,0 +1,1965 @@
+{
+  "benchmark": "../../data/benchmarks/complex_coco_queries_50.json",
+  "status": "complete",
+  "completed_queries": 3,
+  "summary": {
+    "num_queries": 3,
+    "metrics": {
+      "deepsearch_v2": {
+        "R@1": 0.6666666666666666,
+        "R@5": 0.6666666666666666,
+        "R@10": 0.6666666666666666,
+        "MRR@10": 0.6666666666666666
+      },
+      "one_shot_agentic": {
+        "R@1": 0.3333333333333333,
+        "R@5": 0.6666666666666666,
+        "R@10": 1.0,
+        "MRR@10": 0.4861111111111111
+      },
+      "iterative_agentic": {
+        "R@1": 0.3333333333333333,
+        "R@5": 0.6666666666666666,
+        "R@10": 1.0,
+        "MRR@10": 0.4861111111111111
+      }
+    },
+    "iteration_statistics": {
+      "round_2_triggered": 0,
+      "round_2_trigger_rate": 0.0,
+      "average_rounds": 1.0,
+      "final_sufficient_count": 3,
+      "final_sufficient_rate": 1.0,
+      "selected_round_counts": {
+        "1": 3
+      },
+      "stop_reason_counts": {
+        "sufficient_evidence": 3
+      },
+      "round_2_effect": {
+        "improved": 0,
+        "unchanged": 0,
+        "worsened": 0
+      }
+    },
+    "comparisons": {
+      "iterative_vs_one_shot": {
+        "improved": 0,
+        "unchanged": 3,
+        "worsened": 0
+      },
+      "iterative_vs_deepsearch_v2": {
+        "improved": 1,
+        "unchanged": 1,
+        "worsened": 1
+      }
+    }
+  },
+  "records": [
+    {
+      "index": 1,
+      "example_id": "coco_complex_001",
+      "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+      "target_image_id": 77396,
+      "baseline_rank": 1,
+      "one_shot_rank": 3,
+      "round_2_rank": null,
+      "iterative_rank": 3,
+      "rounds_executed": 1,
+      "selected_round": 1,
+      "stop_reason": "sufficient_evidence",
+      "final_sufficient": true,
+      "one_shot_vs_baseline": "worsened",
+      "iterative_vs_one_shot": "unchanged",
+      "iterative_vs_baseline": "worsened",
+      "round_history": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+          "verification_query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+          "top_result": {
+            "image_id": 333772,
+            "file_name": "000000333772.jpg",
+            "final_score": 0.8628913576834389,
+            "overall_match": true,
+            "verification_score": 0.8666666666666667
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 3/3 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.87 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.8666666666666667,
+            "satisfied_positive_constraints": 3,
+            "total_positive_constraints": 3,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "results": [
+            {
+              "image_index": 1096,
+              "image_id": 333772,
+              "file_name": "000000333772.jpg",
+              "rrf_rank": 2,
+              "rrf_score": 0.06455284357070923,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 2,
+                  "retrieval_score": 0.29095399379730225
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 6,
+                  "retrieval_score": 0.25199592113494873
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 82,
+                  "retrieval_score": 0.2294972836971283
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 39,
+                  "retrieval_score": 0.22953402996063232
+                }
+              ],
+              "normalized_rrf_score": 0.8515654307337557,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": true,
+                    "confidence": 0.8,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.8666666666666667,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.8666666666666667,
+                "overall_match": true,
+                "explanation": "The image shows two cats playing in a room with a laptop computer and a desk. One cat is lying on the floor, and the other has its front paws up on a stool."
+              },
+              "final_score": 0.8628913576834389
+            },
+            {
+              "image_index": 4585,
+              "image_id": 297085,
+              "file_name": "000000297085.jpg",
+              "rrf_rank": 1,
+              "rrf_score": 0.06561709940433502,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 5,
+                  "retrieval_score": 0.2586511969566345
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 2,
+                  "retrieval_score": 0.2598876357078552
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 105,
+                  "retrieval_score": 0.22224178910255432
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 19,
+                  "retrieval_score": 0.24465923011302948
+                }
+              ],
+              "normalized_rrf_score": 1.0,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": true,
+                    "confidence": 0.8,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": true,
+                    "confidence": 0.7,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.8000000000000002,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.8000000000000002,
+                "overall_match": true,
+                "explanation": "The image shows two cats playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other has its front paws up on a stool."
+              },
+              "final_score": 0.8500000000000001
+            },
+            {
+              "image_index": 1161,
+              "image_id": 77396,
+              "file_name": "000000077396.jpg",
+              "rrf_rank": 9,
+              "rrf_score": 0.05894319340586662,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 1,
+                  "retrieval_score": 0.2946751117706299
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 1,
+                  "retrieval_score": 0.29206764698028564
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 115,
+                  "retrieval_score": 0.21987347304821014
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 187,
+                  "retrieval_score": 0.1928289234638214
+                }
+              ],
+              "normalized_rrf_score": 0.0691727205938131,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": true,
+                    "confidence": 0.8,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.8666666666666667,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.8666666666666667,
+                "overall_match": true,
+                "explanation": "The image shows two cats playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other has its front paws up on a stool."
+              },
+              "final_score": 0.6672931801484533
+            },
+            {
+              "image_index": 2590,
+              "image_id": 357941,
+              "file_name": "000000357941.jpg",
+              "rrf_rank": 10,
+              "rrf_score": 0.05844723433256149,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 14,
+                  "retrieval_score": 0.24730682373046875
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 4,
+                  "retrieval_score": 0.25539430975914
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 93,
+                  "retrieval_score": 0.22450590133666992
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 48,
+                  "retrieval_score": 0.2249308079481125
+                }
+              ],
+              "normalized_rrf_score": 0.0,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": false,
+                    "confidence": 0.1,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": false,
+                    "confidence": 0.1,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.3,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.3,
+                "overall_match": false,
+                "explanation": "The image shows a cat sitting on top of a television, which satisfies the presence of a large TV. However, it does not show a cat lying on the floor or a cat with its front paws up on a stool, as per the negative checks."
+              },
+              "final_score": 0.22499999999999998
+            },
+            {
+              "image_index": 1817,
+              "image_id": 106389,
+              "file_name": "000000106389.jpg",
+              "rrf_rank": 3,
+              "rrf_score": 0.06414487212896347,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 4,
+                  "retrieval_score": 0.2609610855579376
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 110,
+                  "retrieval_score": 0.19396188855171204
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 26,
+                  "retrieval_score": 0.25181975960731506
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 5,
+                  "retrieval_score": 0.27985602617263794
+                }
+              ],
+              "normalized_rrf_score": 0.7946645772781072,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image does not contain any cats, a large TV, or a laptop computer. It shows a cat sitting on a chair, but it does not have its front paws up on a stool."
+              },
+              "final_score": 0.1986661443195268
+            },
+            {
+              "image_index": 1686,
+              "image_id": 540928,
+              "file_name": "000000540928.jpg",
+              "rrf_rank": 4,
+              "rrf_score": 0.06276543438434601,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 13,
+                  "retrieval_score": 0.24996431171894073
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 134,
+                  "retrieval_score": 0.1899658739566803
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 11,
+                  "retrieval_score": 0.2657097280025482
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 2,
+                  "retrieval_score": 0.29605284333229065
+                }
+              ],
+              "normalized_rrf_score": 0.6022707552453802,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image does not contain any cats or a room with a large TV and a laptop computer."
+              },
+              "final_score": 0.15056768881134505
+            },
+            {
+              "image_index": 1059,
+              "image_id": 187236,
+              "file_name": "000000187236.jpg",
+              "rrf_rank": 5,
+              "rrf_score": 0.06190510094165802,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 9,
+                  "retrieval_score": 0.25459185242652893
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 33,
+                  "retrieval_score": 0.22312970459461212
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 16,
+                  "retrieval_score": 0.2576673924922943
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 51,
+                  "retrieval_score": 0.2241942584514618
+                }
+              ],
+              "normalized_rrf_score": 0.4822777799138127,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": true,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image shows two cats, but they are not playing in a room with a large TV and a laptop computer. One cat is lying on the floor, while the other is not on a stool."
+              },
+              "final_score": 0.12056944497845318
+            },
+            {
+              "image_index": 2166,
+              "image_id": 402473,
+              "file_name": "000000402473.jpg",
+              "rrf_rank": 6,
+              "rrf_score": 0.06046086177229881,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 3,
+                  "retrieval_score": 0.26211199164390564
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 17,
+                  "retrieval_score": 0.23562829196453094
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 141,
+                  "retrieval_score": 0.2139778435230255
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 33,
+                  "retrieval_score": 0.2331819087266922
+                }
+              ],
+              "normalized_rrf_score": 0.28084593218701,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": true,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image shows two cats, but they are not playing in a room with a large TV and a laptop computer. One cat is lying on the floor, and the other is not with its front paws up on a stool."
+              },
+              "final_score": 0.0702114830467525
+            },
+            {
+              "image_index": 1060,
+              "image_id": 271728,
+              "file_name": "000000271728.jpg",
+              "rrf_rank": 7,
+              "rrf_score": 0.060065824538469315,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 6,
+                  "retrieval_score": 0.2585611045360565
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 5,
+                  "retrieval_score": 0.2534603476524353
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 146,
+                  "retrieval_score": 0.21287454664707184
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 45,
+                  "retrieval_score": 0.22591210901737213
+                }
+              ],
+              "normalized_rrf_score": 0.2257490468377042,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image does not contain any cats, a large TV, or a laptop computer."
+              },
+              "final_score": 0.05643726170942605
+            },
+            {
+              "image_index": 1683,
+              "image_id": 570664,
+              "file_name": "000000570664.jpg",
+              "rrf_rank": 8,
+              "rrf_score": 0.059294380247592926,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: These two cats are playing in a room that has a large TV and a laptop computer; One cat lying on the floor, and another with its front paws up on a stool.",
+                  "rank": 8,
+                  "retrieval_score": 0.25508779287338257
+                },
+                {
+                  "query": "two cats playing in a room with a large tv and a laptop computer",
+                  "rank": 32,
+                  "retrieval_score": 0.22351089119911194
+                },
+                {
+                  "query": "cat lying on the floor",
+                  "rank": 73,
+                  "retrieval_score": 0.2320917844772339
+                },
+                {
+                  "query": "cat with its front paws up on a stool",
+                  "rank": 27,
+                  "retrieval_score": 0.2407640814781189
+                }
+              ],
+              "normalized_rrf_score": 0.11815367605263513,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "two cats playing in a room with a large tv and a laptop computer",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat laying on the floor",
+                    "satisfied": true,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "cat with its front paws up on a stool",
+                    "satisfied": true,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image shows two cats playing in a room, but it does not have a large TV or a laptop computer."
+              },
+              "final_score": 0.029538419013158783
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "example_id": "coco_complex_002",
+      "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+      "target_image_id": 471991,
+      "baseline_rank": 1,
+      "one_shot_rank": 1,
+      "round_2_rank": null,
+      "iterative_rank": 1,
+      "rounds_executed": 1,
+      "selected_round": 1,
+      "stop_reason": "sufficient_evidence",
+      "final_sufficient": true,
+      "one_shot_vs_baseline": "unchanged",
+      "iterative_vs_one_shot": "unchanged",
+      "iterative_vs_baseline": "unchanged",
+      "round_history": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+          "verification_query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+          "top_result": {
+            "image_id": 471991,
+            "file_name": "000000471991.jpg",
+            "final_score": 0.9031646722663292,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 4/4 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 4,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "results": [
+            {
+              "image_index": 758,
+              "image_id": 471991,
+              "file_name": "000000471991.jpg",
+              "rrf_rank": 2,
+              "rrf_score": 0.07135529071092606,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 1,
+                  "retrieval_score": 0.26788872480392456
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 3,
+                  "retrieval_score": 0.27340951561927795
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 8,
+                  "retrieval_score": 0.25161290168762207
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 167,
+                  "retrieval_score": 0.1968385875225067
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 219,
+                  "retrieval_score": 0.2060585469007492
+                }
+              ],
+              "normalized_rrf_score": 0.9126586890653167,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a church with pews on either side of a clear center aisle, a large room with wooden counters and chairs behind them, and no other unwanted elements."
+              },
+              "final_score": 0.9031646722663292
+            },
+            {
+              "image_index": 757,
+              "image_id": 481404,
+              "file_name": "000000481404.jpg",
+              "rrf_rank": 3,
+              "rrf_score": 0.07002310454845428,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 2,
+                  "retrieval_score": 0.26768895983695984
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 1,
+                  "retrieval_score": 0.27495238184928894
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 12,
+                  "retrieval_score": 0.25076478719711304
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 181,
+                  "retrieval_score": 0.1922934353351593
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 240,
+                  "retrieval_score": 0.20461109280586243
+                }
+              ],
+              "normalized_rrf_score": 0.8224246901917087,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a church with pews running along the sides and a clear center aisle. It also features a large room with wooden counters and chairs behind them on both sides."
+              },
+              "final_score": 0.8806061725479273
+            },
+            {
+              "image_index": 3721,
+              "image_id": 205514,
+              "file_name": "000000205514.jpg",
+              "rrf_rank": 4,
+              "rrf_score": 0.0649169385433197,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 33,
+                  "retrieval_score": 0.21329781413078308
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 112,
+                  "retrieval_score": 0.1846911609172821
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 9,
+                  "retrieval_score": 0.2515205442905426
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 89,
+                  "retrieval_score": 0.21827028691768646
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 1,
+                  "retrieval_score": 0.27572110295295715
+                }
+              ],
+              "normalized_rrf_score": 0.47656478672229996,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.45,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.45,
+                "overall_match": false,
+                "explanation": "The image shows a large room with wooden counters and chairs behind them, which matches the description of a large room with wooden counters and chairs behind them on both sides."
+              },
+              "final_score": 0.456641196680575
+            },
+            {
+              "image_index": 4309,
+              "image_id": 68833,
+              "file_name": "000000068833.jpg",
+              "rrf_rank": 1,
+              "rrf_score": 0.07264477014541626,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 5,
+                  "retrieval_score": 0.24052919447422028
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 66,
+                  "retrieval_score": 0.19368189573287964
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 185,
+                  "retrieval_score": 0.21899497509002686
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 6,
+                  "retrieval_score": 0.27141073346138
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 8,
+                  "retrieval_score": 0.2493973821401596
+                }
+              ],
+              "normalized_rrf_score": 1.0,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.225,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.225,
+                "overall_match": false,
+                "explanation": "The image does not contain a church or pews, nor does it have chairs behind counters."
+              },
+              "final_score": 0.41875
+            },
+            {
+              "image_index": 2422,
+              "image_id": 415194,
+              "file_name": "000000415194.jpg",
+              "rrf_rank": 7,
+              "rrf_score": 0.05957484245300293,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 12,
+                  "retrieval_score": 0.23345947265625
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 390,
+                  "retrieval_score": 0.16469068825244904
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 133,
+                  "retrieval_score": 0.22309157252311707
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 61,
+                  "retrieval_score": 0.2314099669456482
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 2,
+                  "retrieval_score": 0.26537778973579407
+                }
+              ],
+              "normalized_rrf_score": 0.11472444775498751,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.45,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.45,
+                "overall_match": false,
+                "explanation": "The image shows a kitchen with wooden counters and chairs behind them, which matches the description of a large room with wooden counters and chairs. There is no church or pews present."
+              },
+              "final_score": 0.3661811119387469
+            },
+            {
+              "image_index": 487,
+              "image_id": 440475,
+              "file_name": "000000440475.jpg",
+              "rrf_rank": 8,
+              "rrf_score": 0.058473266661167145,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 8,
+                  "retrieval_score": 0.23687182366847992
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 62,
+                  "retrieval_score": 0.19505225121974945
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 292,
+                  "retrieval_score": 0.2129421830177307
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 53,
+                  "retrieval_score": 0.23397718369960785
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 49,
+                  "retrieval_score": 0.22817882895469666
+                }
+              ],
+              "normalized_rrf_score": 0.040110560026807324,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.45,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.45,
+                "overall_match": false,
+                "explanation": "The image shows a large room with wooden counters and chairs behind them, which matches the description."
+              },
+              "final_score": 0.34752764000670183
+            },
+            {
+              "image_index": 498,
+              "image_id": 36494,
+              "file_name": "000000036494.jpg",
+              "rrf_rank": 9,
+              "rrf_score": 0.05790909752249718,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 4,
+                  "retrieval_score": 0.2425510138273239
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 163,
+                  "retrieval_score": 0.1785842478275299
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 176,
+                  "retrieval_score": 0.2194252759218216
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 142,
+                  "retrieval_score": 0.20367023348808289
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 17,
+                  "retrieval_score": 0.24416173994541168
+                }
+              ],
+              "normalized_rrf_score": 0.0018972540660130363,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.45,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.45,
+                "overall_match": false,
+                "explanation": "The image shows a large room with wooden counters and chairs behind them, which matches the description of a large room with wooden counters and chairs behind them. However, it does not show a church with pews or a clear center aisle."
+              },
+              "final_score": 0.33797431351650326
+            },
+            {
+              "image_index": 134,
+              "image_id": 186980,
+              "file_name": "000000186980.jpg",
+              "rrf_rank": 10,
+              "rrf_score": 0.05788108706474304,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 11,
+                  "retrieval_score": 0.2343575656414032
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 210,
+                  "retrieval_score": 0.17409853637218475
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 824,
+                  "retrieval_score": 0.19982382655143738
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 28,
+                  "retrieval_score": 0.24572588503360748
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 14,
+                  "retrieval_score": 0.24713073670864105
+                }
+              ],
+              "normalized_rrf_score": 0.0,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.45,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.45,
+                "overall_match": false,
+                "explanation": "The image shows a kitchen with wooden counters and chairs, but it does not depict a church with pews or a clear center aisle."
+              },
+              "final_score": 0.3375
+            },
+            {
+              "image_index": 870,
+              "image_id": 56127,
+              "file_name": "000000056127.jpg",
+              "rrf_rank": 6,
+              "rrf_score": 0.06197594106197357,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 41,
+                  "retrieval_score": 0.20954057574272156
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 42,
+                  "retrieval_score": 0.20295628905296326
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 22,
+                  "retrieval_score": 0.24239525198936462
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 57,
+                  "retrieval_score": 0.2322482466697693
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 26,
+                  "retrieval_score": 0.2373984158039093
+                }
+              ],
+              "normalized_rrf_score": 0.2773599226463351,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.225,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.225,
+                "overall_match": false,
+                "explanation": "The image shows a kitchen with wooden counters but no pews or chairs."
+              },
+              "final_score": 0.23808998066158377
+            },
+            {
+              "image_index": 2760,
+              "image_id": 294783,
+              "file_name": "000000294783.jpg",
+              "rrf_rank": 5,
+              "rrf_score": 0.06462907791137695,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A church with pews running along the sides with a clear center isle; The large room has wooden counters with chairs behind them on both sides.",
+                  "rank": 6,
+                  "retrieval_score": 0.23931936919689178
+                },
+                {
+                  "query": "church with pews",
+                  "rank": 82,
+                  "retrieval_score": 0.18932339549064636
+                },
+                {
+                  "query": "clear center aisle",
+                  "rank": 5,
+                  "retrieval_score": 0.2543491721153259
+                },
+                {
+                  "query": "large room with wooden counters",
+                  "rank": 51,
+                  "retrieval_score": 0.23531277477741241
+                },
+                {
+                  "query": "chairs behind counters",
+                  "rank": 286,
+                  "retrieval_score": 0.2008458822965622
+                }
+              ],
+              "normalized_rrf_score": 0.4570668992121311,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "church with pews",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "clear center aisle",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "large room with wooden counters",
+                    "satisfied": true,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "chairs behind counters",
+                    "satisfied": false,
+                    "confidence": 0.0,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.0,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.0,
+                "overall_match": false,
+                "explanation": "The image does not contain a church with pews or a clear center aisle."
+              },
+              "final_score": 0.11426672480303278
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "example_id": "coco_complex_003",
+      "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+      "target_image_id": 581062,
+      "baseline_rank": 14,
+      "one_shot_rank": 8,
+      "round_2_rank": null,
+      "iterative_rank": 8,
+      "rounds_executed": 1,
+      "selected_round": 1,
+      "stop_reason": "sufficient_evidence",
+      "final_sufficient": true,
+      "one_shot_vs_baseline": "improved",
+      "iterative_vs_one_shot": "unchanged",
+      "iterative_vs_baseline": "improved",
+      "round_history": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+          "verification_query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+          "top_result": {
+            "image_id": 194471,
+            "file_name": "000000194471.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "results": [
+            {
+              "image_index": 823,
+              "image_id": 194471,
+              "file_name": "000000194471.jpg",
+              "rrf_rank": 1,
+              "rrf_score": 0.06179375946521759,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 5,
+                  "retrieval_score": 0.2753120958805084
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 6,
+                  "retrieval_score": 0.27467668056488037
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 3,
+                  "retrieval_score": 0.28118300437927246
+                }
+              ],
+              "normalized_rrf_score": 1.0,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using a cemented curved aqueduct structure, which satisfies the given visual descriptions."
+              },
+              "final_score": 0.925
+            },
+            {
+              "image_index": 693,
+              "image_id": 473118,
+              "file_name": "000000473118.jpg",
+              "rrf_rank": 2,
+              "rrf_score": 0.06077694892883301,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 3,
+                  "retrieval_score": 0.27894365787506104
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 3,
+                  "retrieval_score": 0.2798286974430084
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 16,
+                  "retrieval_score": 0.27540919184684753
+                }
+              ],
+              "normalized_rrf_score": 0.8594242092907913,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using an aqueduct structure, which satisfies the given visual descriptions."
+              },
+              "final_score": 0.8898560523226979
+            },
+            {
+              "image_index": 1462,
+              "image_id": 500270,
+              "file_name": "000000500270.jpg",
+              "rrf_rank": 3,
+              "rrf_score": 0.057484567165374756,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 4,
+                  "retrieval_score": 0.27807897329330444
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 12,
+                  "retrieval_score": 0.27096253633499146
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 21,
+                  "retrieval_score": 0.2725774645805359
+                }
+              ],
+              "normalized_rrf_score": 0.4042468157122602,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.8,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.8500000000000001,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.8500000000000001,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using a curved aqueduct structure, which satisfies the given constraints."
+              },
+              "final_score": 0.7385617039280651
+            },
+            {
+              "image_index": 1995,
+              "image_id": 428111,
+              "file_name": "000000428111.jpg",
+              "rrf_rank": 5,
+              "rrf_score": 0.056197650730609894,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 9,
+                  "retrieval_score": 0.27110612392425537
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 13,
+                  "retrieval_score": 0.26922154426574707
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 14,
+                  "retrieval_score": 0.27606022357940674
+                }
+              ],
+              "normalized_rrf_score": 0.22632842391727007,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using a cemented curved aqueduct structure, which satisfies the positive constraints. The absence of a sunny day does not violate the negative constraint."
+              },
+              "final_score": 0.7315821059793176
+            },
+            {
+              "image_index": 3392,
+              "image_id": 292415,
+              "file_name": "000000292415.jpg",
+              "rrf_rank": 4,
+              "rrf_score": 0.05709525942802429,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 2,
+                  "retrieval_score": 0.27942317724227905
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 33,
+                  "retrieval_score": 0.25896891951560974
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 11,
+                  "retrieval_score": 0.2764122486114502
+                }
+              ],
+              "normalized_rrf_score": 0.3504243571037518,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.8,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.8500000000000001,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.8500000000000001,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using a cemented curved aqueduct structure, which satisfies the given visual descriptions."
+              },
+              "final_score": 0.725106089275938
+            },
+            {
+              "image_index": 1992,
+              "image_id": 71877,
+              "file_name": "000000071877.jpg",
+              "rrf_rank": 6,
+              "rrf_score": 0.055851396173238754,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 17,
+                  "retrieval_score": 0.2669816017150879
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 5,
+                  "retrieval_score": 0.27589115500450134
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 9,
+                  "retrieval_score": 0.2769726514816284
+                }
+              ],
+              "normalized_rrf_score": 0.17845814086317618,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a concrete barrier, which resembles a drain pipe system, and he is using a curved aqueduct structure for his trick."
+              },
+              "final_score": 0.7196145352157941
+            },
+            {
+              "image_index": 4378,
+              "image_id": 68628,
+              "file_name": "000000068628.jpg",
+              "rrf_rank": 7,
+              "rrf_score": 0.05524974688887596,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 28,
+                  "retrieval_score": 0.26237818598747253
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 2,
+                  "retrieval_score": 0.28063133358955383
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 1,
+                  "retrieval_score": 0.2863003611564636
+                }
+              ],
+              "normalized_rrf_score": 0.09527910125599814,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using an aqueduct structure, which satisfies the given visual descriptions."
+              },
+              "final_score": 0.6988197753139995
+            },
+            {
+              "image_index": 1341,
+              "image_id": 581062,
+              "file_name": "000000581062.jpg",
+              "rrf_rank": 8,
+              "rrf_score": 0.05518517643213272,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 14,
+                  "retrieval_score": 0.26876798272132874
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 1,
+                  "retrieval_score": 0.2927676737308502
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 25,
+                  "retrieval_score": 0.2699405252933502
+                }
+              ],
+              "normalized_rrf_score": 0.08635212549371847,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man riding a skateboard near a drain pipe system, which satisfies the positive constraints."
+              },
+              "final_score": 0.6965880313734296
+            },
+            {
+              "image_index": 3140,
+              "image_id": 31093,
+              "file_name": "000000031093.jpg",
+              "rrf_rank": 10,
+              "rrf_score": 0.054560575634241104,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 8,
+                  "retrieval_score": 0.2713239789009094
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 45,
+                  "retrieval_score": 0.2554011344909668
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 4,
+                  "retrieval_score": 0.2808237671852112
+                }
+              ],
+              "normalized_rrf_score": 0.0,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.9,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.9,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using a cemented curved aqueduct structure, which satisfies the given visual descriptions."
+              },
+              "final_score": 0.675
+            },
+            {
+              "image_index": 1100,
+              "image_id": 424521,
+              "file_name": "000000424521.jpg",
+              "rrf_rank": 9,
+              "rrf_score": 0.054676834493875504,
+              "query_matches": [
+                {
+                  "query": "Find an image matching both of these visual descriptions: A man rides his skateboard near a drain pipe system; Male skateboarder utilizing cemented curved aqueduct structure on sunny day.",
+                  "rank": 1,
+                  "retrieval_score": 0.27977317571640015
+                },
+                {
+                  "query": "man skateboarding near drain pipe system",
+                  "rank": 35,
+                  "retrieval_score": 0.25850698351860046
+                },
+                {
+                  "query": "male skateboarder using aqueduct structure",
+                  "rank": 28,
+                  "retrieval_score": 0.26942047476768494
+                }
+              ],
+              "normalized_rrf_score": 0.01607298561064006,
+              "verification": {
+                "positive_checks": [
+                  {
+                    "constraint": "man skateboarding near drain pipe system",
+                    "satisfied": true,
+                    "confidence": 0.9,
+                    "missing_from_model_output": false
+                  },
+                  {
+                    "constraint": "male skateboarder using aqueduct structure",
+                    "satisfied": true,
+                    "confidence": 0.8,
+                    "missing_from_model_output": false
+                  }
+                ],
+                "negative_checks": [],
+                "positive_score": 0.8500000000000001,
+                "negative_violation_score": 0.0,
+                "overall_score": 0.8500000000000001,
+                "overall_match": true,
+                "explanation": "The image shows a man skateboarding near a drain pipe system and using an aqueduct structure, satisfying both positive constraints."
+              },
+              "final_score": 0.6415182464026601
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

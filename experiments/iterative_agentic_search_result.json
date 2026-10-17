@@ -1,0 +1,552 @@
+{
+  "original_query": "Find an image of a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+  "fixed_original_plan": {
+    "original_query": "Find an image of a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+    "search_queries": [
+      "dog standing beside water",
+      "several people visible in background",
+      "red bicycle nearby"
+    ],
+    "positive_constraints": [
+      "dog standing",
+      "water",
+      "several people",
+      "red bicycle"
+    ],
+    "negative_constraints": [
+      "dog swimming",
+      "boat visible",
+      "boat"
+    ],
+    "reasoning_goal": "Verify that a dog is standing beside water with several people visible in the background, a red bicycle nearby, and that the dog is not swimming and there is no boat visible."
+  },
+  "fixed_positive_constraints": [
+    "dog standing beside water",
+    "several people visible in background",
+    "red bicycle nearby"
+  ],
+  "fixed_negative_constraints": [
+    "dog swimming",
+    "boat visible"
+  ],
+  "max_rounds": 2,
+  "rounds_executed": 2,
+  "stop_reason": "maximum_rounds_reached",
+  "selected_round": 2,
+  "selected_retrieval_query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+  "verification_query": "Find an image of a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+  "final_sufficient": false,
+  "final_sufficiency": {
+    "sufficient": false,
+    "reason": "Evidence is insufficient because the verifier does not consider the image a complete semantic match; missing required evidence: red bicycle nearby; verification confidence 0.57 is below the required threshold of 0.75.",
+    "overall_match": false,
+    "verification_score": 0.5666666666666668,
+    "satisfied_positive_constraints": 2,
+    "total_positive_constraints": 3,
+    "violated_negative_constraints": 0,
+    "total_negative_constraints": 2,
+    "missing_positive_constraints": [
+      "red bicycle nearby"
+    ],
+    "violated_negative_constraint_names": []
+  },
+  "round_history": [
+    {
+      "round": 1,
+      "retrieval_query": "Find an image of a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+      "verification_query": "Find an image of a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+      "top_result": {
+        "image_id": 190140,
+        "file_name": "000000190140.jpg",
+        "final_score": 0.3673801246658032,
+        "overall_match": false,
+        "verification_score": 0.3
+      },
+      "sufficiency": {
+        "sufficient": false,
+        "reason": "Evidence is insufficient because the verifier does not consider the image a complete semantic match; missing required evidence: several people visible in background, red bicycle nearby; verification confidence 0.30 is below the required threshold of 0.75.",
+        "overall_match": false,
+        "verification_score": 0.3,
+        "satisfied_positive_constraints": 1,
+        "total_positive_constraints": 3,
+        "violated_negative_constraints": 0,
+        "total_negative_constraints": 2,
+        "missing_positive_constraints": [
+          "several people visible in background",
+          "red bicycle nearby"
+        ],
+        "violated_negative_constraint_names": []
+      }
+    },
+    {
+      "round": 2,
+      "retrieval_query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+      "verification_query": "Find an image of a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+      "top_result": {
+        "image_id": 426836,
+        "file_name": "000000426836.jpg",
+        "final_score": 0.45680431557040646,
+        "overall_match": false,
+        "verification_score": 0.5666666666666668
+      },
+      "sufficiency": {
+        "sufficient": false,
+        "reason": "Evidence is insufficient because the verifier does not consider the image a complete semantic match; missing required evidence: red bicycle nearby; verification confidence 0.57 is below the required threshold of 0.75.",
+        "overall_match": false,
+        "verification_score": 0.5666666666666668,
+        "satisfied_positive_constraints": 2,
+        "total_positive_constraints": 3,
+        "violated_negative_constraints": 0,
+        "total_negative_constraints": 2,
+        "missing_positive_constraints": [
+          "red bicycle nearby"
+        ],
+        "violated_negative_constraint_names": []
+      }
+    }
+  ],
+  "results": [
+    {
+      "image_index": 1362,
+      "image_id": 426836,
+      "file_name": "000000426836.jpg",
+      "rrf_rank": 8,
+      "rrf_score": 0.041042525321245193,
+      "query_matches": [
+        {
+          "query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+          "rank": 3,
+          "retrieval_score": 0.2502824068069458
+        },
+        {
+          "query": "several people visible in background",
+          "rank": 420,
+          "retrieval_score": 0.2162015736103058
+        },
+        {
+          "query": "red bicycle nearby",
+          "rank": 781,
+          "retrieval_score": 0.16149717569351196
+        },
+        {
+          "query": "a dog standing beside water",
+          "rank": 106,
+          "retrieval_score": 0.20993925631046295
+        }
+      ],
+      "normalized_rrf_score": 0.12721726228162564,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog standing beside water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "several people visible in background",
+            "satisfied": true,
+            "confidence": 0.8,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "red bicycle nearby",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "boat visible",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.5666666666666668,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.5666666666666668,
+        "overall_match": false,
+        "explanation": "The image shows a dog standing beside water with several people in the background, but it does not show a red bicycle or a boat."
+      },
+      "final_score": 0.45680431557040646
+    },
+    {
+      "image_index": 2848,
+      "image_id": 171611,
+      "file_name": "000000171611.jpg",
+      "rrf_rank": 9,
+      "rrf_score": 0.040011171251535416,
+      "query_matches": [
+        {
+          "query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+          "rank": 1,
+          "retrieval_score": 0.2568105459213257
+        },
+        {
+          "query": "several people visible in background",
+          "rank": 3497,
+          "retrieval_score": 0.17510366439819336
+        },
+        {
+          "query": "red bicycle nearby",
+          "rank": 1683,
+          "retrieval_score": 0.14286446571350098
+        },
+        {
+          "query": "a dog standing beside water",
+          "rank": 97,
+          "retrieval_score": 0.21212758123874664
+        }
+      ],
+      "normalized_rrf_score": 0.02410925905787116,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog standing beside water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "several people visible in background",
+            "satisfied": true,
+            "confidence": 0.8,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "red bicycle nearby",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": true
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": true
+          },
+          {
+            "constraint": "boat visible",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.5666666666666668,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.5666666666666668,
+        "overall_match": false,
+        "explanation": "The image shows a dog standing beside water with several people visible in the background, which satisfies the positive checks. There is no red bicycle or boat present, which satisfies the negative checks."
+      },
+      "final_score": 0.4310273147644678
+    },
+    {
+      "image_index": 1065,
+      "image_id": 190140,
+      "file_name": "000000190140.jpg",
+      "rrf_rank": 5,
+      "rrf_score": 0.04485362395644188,
+      "query_matches": [
+        {
+          "query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+          "rank": 5,
+          "retrieval_score": 0.24928374588489532
+        },
+        {
+          "query": "several people visible in background",
+          "rank": 3542,
+          "retrieval_score": 0.1745089590549469
+        },
+        {
+          "query": "red bicycle nearby",
+          "rank": 3350,
+          "retrieval_score": 0.11971435695886612
+        },
+        {
+          "query": "a dog standing beside water",
+          "rank": 14,
+          "retrieval_score": 0.2497439980506897
+        }
+      ],
+      "normalized_rrf_score": 0.5082258624362586,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog standing beside water",
+            "satisfied": true,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "several people visible in background",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "red bicycle nearby",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "boat visible",
+            "present": false,
+            "confidence": 0.9,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.3,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.3,
+        "overall_match": false,
+        "explanation": "The image does not satisfy the positive constraints for several people and a red bicycle, nor does it meet the requirement of the dog being standing beside water without swimming."
+      },
+      "final_score": 0.3520564656090646
+    },
+    {
+      "image_index": 2423,
+      "image_id": 228436,
+      "file_name": "000000228436.jpg",
+      "rrf_rank": 1,
+      "rrf_score": 0.04977267235517502,
+      "query_matches": [
+        {
+          "query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+          "rank": 4,
+          "retrieval_score": 0.2496979683637619
+        },
+        {
+          "query": "several people visible in background",
+          "rank": 3452,
+          "retrieval_score": 0.17563694715499878
+        },
+        {
+          "query": "red bicycle nearby",
+          "rank": 6,
+          "retrieval_score": 0.24957069754600525
+        },
+        {
+          "query": "a dog standing beside water",
+          "rank": 264,
+          "retrieval_score": 0.19039826095104218
+        }
+      ],
+      "normalized_rrf_score": 1.0,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog standing beside water",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "several people visible in background",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "red bicycle nearby",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "boat visible",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.0,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.0,
+        "overall_match": false,
+        "explanation": "The image does not contain a dog standing beside water, several people in the background, or a red bicycle. It also does not have a boat visible."
+      },
+      "final_score": 0.25
+    },
+    {
+      "image_index": 3451,
+      "image_id": 109055,
+      "file_name": "000000109055.jpg",
+      "rrf_rank": 2,
+      "rrf_score": 0.04693302884697914,
+      "query_matches": [
+        {
+          "query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+          "rank": 14,
+          "retrieval_score": 0.22934818267822266
+        },
+        {
+          "query": "several people visible in background",
+          "rank": 3313,
+          "retrieval_score": 0.1773616522550583
+        },
+        {
+          "query": "red bicycle nearby",
+          "rank": 17,
+          "retrieval_score": 0.23105444014072418
+        },
+        {
+          "query": "a dog standing beside water",
+          "rank": 91,
+          "retrieval_score": 0.21279636025428772
+        }
+      ],
+      "normalized_rrf_score": 0.7161111003520209,
+      "verification": {
+        "positive_checks": [
+          {
+            "constraint": "dog standing beside water",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "several people visible in background",
+            "satisfied": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "red bicycle nearby",
+            "satisfied": true,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "negative_checks": [
+          {
+            "constraint": "dog swimming",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          },
+          {
+            "constraint": "boat visible",
+            "present": false,
+            "confidence": 0.0,
+            "missing_from_model_output": false
+          }
+        ],
+        "positive_score": 0.0,
+        "negative_violation_score": 0.0,
+        "overall_score": 0.0,
+        "overall_match": false,
+        "explanation": "The image does not contain a dog standing beside water or several people visible in the background."
+      },
+      "final_score": 0.17902777508800521
+    }
+  ],
+  "positive_constraints": [
+    "dog standing beside water",
+    "several people visible in background",
+    "red bicycle nearby"
+  ],
+  "negative_constraints": [
+    "dog swimming",
+    "boat visible"
+  ],
+  "anchor_applied": false,
+  "selected_top_result": {
+    "image_index": 1362,
+    "image_id": 426836,
+    "file_name": "000000426836.jpg",
+    "rrf_rank": 8,
+    "rrf_score": 0.041042525321245193,
+    "query_matches": [
+      {
+        "query": "several people visible in background, red bicycle nearby, a dog standing beside water with several people visible in the background and a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+        "rank": 3,
+        "retrieval_score": 0.2502824068069458
+      },
+      {
+        "query": "several people visible in background",
+        "rank": 420,
+        "retrieval_score": 0.2162015736103058
+      },
+      {
+        "query": "red bicycle nearby",
+        "rank": 781,
+        "retrieval_score": 0.16149717569351196
+      },
+      {
+        "query": "a dog standing beside water",
+        "rank": 106,
+        "retrieval_score": 0.20993925631046295
+      }
+    ],
+    "normalized_rrf_score": 0.12721726228162564,
+    "verification": {
+      "positive_checks": [
+        {
+          "constraint": "dog standing beside water",
+          "satisfied": true,
+          "confidence": 0.9,
+          "missing_from_model_output": false
+        },
+        {
+          "constraint": "several people visible in background",
+          "satisfied": true,
+          "confidence": 0.8,
+          "missing_from_model_output": false
+        },
+        {
+          "constraint": "red bicycle nearby",
+          "satisfied": false,
+          "confidence": 0.0,
+          "missing_from_model_output": false
+        }
+      ],
+      "negative_checks": [
+        {
+          "constraint": "dog swimming",
+          "present": false,
+          "confidence": 0.0,
+          "missing_from_model_output": false
+        },
+        {
+          "constraint": "boat visible",
+          "present": false,
+          "confidence": 0.0,
+          "missing_from_model_output": false
+        }
+      ],
+      "positive_score": 0.5666666666666668,
+      "negative_violation_score": 0.0,
+      "overall_score": 0.5666666666666668,
+      "overall_match": false,
+      "explanation": "The image shows a dog standing beside water with several people in the background, but it does not show a red bicycle or a boat."
+    },
+    "final_score": 0.45680431557040646
+  }
+}

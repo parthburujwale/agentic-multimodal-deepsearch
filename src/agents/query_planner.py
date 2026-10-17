@@ -14,6 +14,7 @@ from transformers import (
 # 1. Query Planner
 # --------------------------------------------------
 
+
 class QueryPlanner:
 
     def __init__(
@@ -22,7 +23,7 @@ class QueryPlanner:
             "Qwen/"
             "Qwen2.5-1.5B-Instruct"
         ),
-        device=None
+        device=None,
     ):
 
         # --------------------------------------------------
@@ -43,8 +44,11 @@ class QueryPlanner:
 
                 device = "cpu"
 
+
         self.device = device
+
         self.model_name = model_name
+
 
         print(
             f"Loading query planner: "
@@ -56,6 +60,7 @@ class QueryPlanner:
             f"{device}"
         )
 
+
         # --------------------------------------------------
         # Tokenizer
         # --------------------------------------------------
@@ -65,6 +70,7 @@ class QueryPlanner:
                 model_name
             )
         )
+
 
         # --------------------------------------------------
         # Model
@@ -76,18 +82,26 @@ class QueryPlanner:
             else torch.float32
         )
 
+
         self.model = (
             AutoModelForCausalLM.from_pretrained(
                 model_name,
-                dtype=model_dtype
+                dtype=model_dtype,
+
+                # Use standard eager attention for
+                # reproducible evaluation.
+                attn_implementation="eager",
             )
         )
+
 
         self.model = self.model.to(
             device
         )
 
+
         self.model.eval()
+
 
     # --------------------------------------------------
     # 2. System instructions
@@ -95,7 +109,7 @@ class QueryPlanner:
 
     def build_messages(
         self,
-        query
+        query,
     ):
 
         system_prompt = """
@@ -127,52 +141,80 @@ Rules:
 3. search_queries must describe VISUAL CONTENT THAT SHOULD
    BE PRESENT in the desired image.
 
-4. NEVER create a search query based only on negation.
+4. NEVER create a search query for something the user said
+   should be absent.
+
+   For example, if the user says:
+   "no boat should be visible"
+
+   then:
+
+   VALID negative constraint:
+   "boat visible"
+
+   INVALID search query:
+   "boat visible"
+
+5. NEVER create a search query based only on negation.
+
    Examples of INVALID search queries:
+
    "no swimming"
    "no passengers"
    "without cars"
    "not indoors"
 
-5. Negative requirements belong ONLY in
+6. Negative requirements belong ONLY in
    negative_constraints.
 
-6. Break complex requests into simpler positive visual
+7. A concept must NEVER appear simultaneously as:
+   - a positive retrieval query
+   and
+   - a negative constraint.
+
+8. Break complex requests into simpler positive visual
    concepts when useful.
 
-7. Keep important relationships between objects.
-   For example:
+9. Keep important relationships between objects.
+
+   Examples:
+
    "dog near water"
    "person riding bicycle"
    "car beside building"
 
-8. positive_constraints must contain ALL important objects,
-   attributes, actions, and relationships that the requested
-   image should contain.
+10. positive_constraints must contain all important objects,
+    attributes, actions, and relationships that SHOULD be
+    present.
 
-9. negative_constraints must contain ONLY things that the
-   user explicitly said should not be present or should not
-   be happening.
+11. positive_constraints must NOT contain anything the user
+    explicitly requested to be absent.
 
-10. Do not invent constraints.
+12. negative_constraints must contain ONLY things that the
+    user explicitly said should not be present or should not
+    be happening.
 
-11. Search queries should be natural image descriptions that
+13. Do not invent constraints.
+
+14. Search queries should be natural image descriptions that
     work well with a text-to-image retrieval model.
 
-12. reasoning_goal should state what must be verified after
+15. reasoning_goal should state what must be verified after
     retrieval, including both positive and negative
     requirements.
 
-13. Do not include markdown.
+16. Do not include markdown.
 
-14. Do not include explanations outside the JSON.
+17. Do not include explanations outside the JSON.
 
 Example:
 
 User:
+
 Find a red car parked beside a building with no people.
 
 Output:
+
 {
   "original_query": "Find a red car parked beside a building with no people.",
   "search_queries": [
@@ -190,25 +232,63 @@ Output:
   ],
   "reasoning_goal": "Verify that a red car is parked beside a building and that no people are visible."
 }
+
+Example with several negative requirements:
+
+User:
+
+Find a dog beside water with a red bicycle nearby,
+but the dog should not be swimming and no boat should
+be visible.
+
+Output:
+
+{
+  "original_query": "Find a dog beside water with a red bicycle nearby, but the dog should not be swimming and no boat should be visible.",
+  "search_queries": [
+    "dog beside water",
+    "red bicycle near dog"
+  ],
+  "positive_constraints": [
+    "dog beside water",
+    "red bicycle nearby"
+  ],
+  "negative_constraints": [
+    "dog swimming",
+    "boat visible"
+  ],
+  "reasoning_goal": "Verify that a dog is beside water with a red bicycle nearby, while the dog is not swimming and no boat is visible."
+}
 """.strip()
+
 
         user_prompt = (
             f"User image-search request:\n"
             f"{query}"
         )
 
+
         messages = [
             {
-                "role": "system",
-                "content": system_prompt
+                "role":
+                    "system",
+
+                "content":
+                    system_prompt,
             },
+
             {
-                "role": "user",
-                "content": user_prompt
-            }
+                "role":
+                    "user",
+
+                "content":
+                    user_prompt,
+            },
         ]
 
+
         return messages
+
 
     # --------------------------------------------------
     # 3. Extract JSON from model output
@@ -216,16 +296,16 @@ Output:
 
     def extract_json(
         self,
-        generated_text
+        generated_text,
     ):
 
         generated_text = (
             generated_text.strip()
         )
 
+
         # --------------------------------------------------
-        # First attempt:
-        # direct JSON parsing
+        # Direct JSON parsing
         # --------------------------------------------------
 
         try:
@@ -238,16 +318,17 @@ Output:
 
             pass
 
+
         # --------------------------------------------------
-        # Second attempt:
-        # find first {...} block
+        # Extract first JSON object
         # --------------------------------------------------
 
         match = re.search(
             r"\{.*\}",
             generated_text,
-            flags=re.DOTALL
+            flags=re.DOTALL,
         )
+
 
         if match is None:
 
@@ -258,7 +339,11 @@ Output:
                 f"{generated_text}"
             )
 
-        json_text = match.group(0)
+
+        json_text = (
+            match.group(0)
+        )
+
 
         try:
 
@@ -275,18 +360,20 @@ Output:
                 f"{generated_text}"
             ) from error
 
+
     # --------------------------------------------------
-    # 4. Detect whether a phrase represents negation
+    # 4. Detect explicit negation
     # --------------------------------------------------
 
     def is_negative_phrase(
         self,
-        text
+        text,
     ):
 
         text = str(
             text
         ).strip().lower()
+
 
         negative_patterns = [
             r"\bno\b",
@@ -294,51 +381,48 @@ Output:
             r"\bwithout\b",
             r"\bexclude\b",
             r"\bexcluding\b",
-            r"\babsence of\b"
+            r"\babsence of\b",
         ]
+
 
         for pattern in negative_patterns:
 
             if re.search(
                 pattern,
-                text
+                text,
             ):
 
                 return True
 
+
         return False
 
+
     # --------------------------------------------------
-    # 5. Convert a negative phrase into the visual concept
-    #    that should be absent.
-    #
-    # Examples:
-    #
-    # "no passengers"          -> "passengers"
-    # "not swimming"           -> "swimming"
-    # "dog not swimming"       -> "dog swimming"
-    # "dog should not be swimming" -> "dog swimming"
-    # "without people"         -> "people"
+    # 5. Convert explicit negation into the visual
+    #    concept that should be absent
     # --------------------------------------------------
 
     def clean_negative_phrase(
         self,
-        text
+        text,
     ):
 
         text = str(
             text
         ).strip()
 
-        # ------------------------------------------
+
+        # ----------------------------------------------
         # "no passengers"
-        # ------------------------------------------
+        # ----------------------------------------------
 
         match = re.match(
             r"^\s*no\s+(.+)$",
             text,
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE,
         )
+
 
         if match:
 
@@ -347,15 +431,17 @@ Output:
                 .strip()
             )
 
-        # ------------------------------------------
+
+        # ----------------------------------------------
         # "without people"
-        # ------------------------------------------
+        # ----------------------------------------------
 
         match = re.match(
             r"^\s*without\s+(.+)$",
             text,
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE,
         )
+
 
         if match:
 
@@ -364,15 +450,17 @@ Output:
                 .strip()
             )
 
-        # ------------------------------------------
+
+        # ----------------------------------------------
         # "not swimming"
-        # ------------------------------------------
+        # ----------------------------------------------
 
         match = re.match(
             r"^\s*not\s+(.+)$",
             text,
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE,
         )
+
 
         if match:
 
@@ -381,26 +469,29 @@ Output:
                 .strip()
             )
 
-        # ------------------------------------------
+
+        # ----------------------------------------------
         # "dog should not be swimming"
+        # "dog must not be swimming"
         # "dog not swimming"
         #
         # becomes:
         #
         # "dog swimming"
-        # ------------------------------------------
+        # ----------------------------------------------
 
         match = re.match(
             (
                 r"^\s*(.+?)\s+"
-                r"(?:should\s+)?"
+                r"(?:should\s+|must\s+)?"
                 r"not\s+"
                 r"(?:be\s+)?"
                 r"(.+)$"
             ),
             text,
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE,
         )
+
 
         if match:
 
@@ -409,19 +500,22 @@ Output:
                 .strip()
             )
 
+
             negative_action = (
                 match.group(2)
                 .strip()
             )
+
 
             return (
                 f"{subject} "
                 f"{negative_action}"
             )
 
-        # ------------------------------------------
+
+        # ----------------------------------------------
         # Fallback
-        # ------------------------------------------
+        # ----------------------------------------------
 
         cleaned = re.sub(
             (
@@ -431,25 +525,257 @@ Output:
             ),
             "",
             text,
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE,
         )
+
 
         cleaned = re.sub(
             r"\s+",
             " ",
-            cleaned
+            cleaned,
         ).strip()
+
 
         return cleaned
 
+
     # --------------------------------------------------
-    # 6. Validate + sanitize planner output
+    # 6. Normalize visual concepts for deterministic
+    #    contradiction detection
+    # --------------------------------------------------
+
+    @staticmethod
+    def normalize_concept(
+        text,
+    ):
+
+        text = str(
+            text
+        ).lower()
+
+
+        text = re.sub(
+            r"[^a-z0-9\s]",
+            " ",
+            text,
+        )
+
+
+        text = re.sub(
+            r"\s+",
+            " ",
+            text,
+        ).strip()
+
+
+        # Words that do not materially identify the
+        # visual concept itself.
+        removable_words = {
+            "a",
+            "an",
+            "the",
+            "is",
+            "are",
+            "be",
+            "being",
+            "to",
+            "of",
+        }
+
+
+        tokens = [
+            token
+
+            for token in text.split()
+
+            if token not in removable_words
+        ]
+
+
+        return " ".join(
+            tokens
+        )
+
+
+    # --------------------------------------------------
+    # 7. Determine whether a positive-looking phrase
+    #    conflicts with a negative constraint
+    # --------------------------------------------------
+
+    def concepts_conflict(
+        self,
+        positive_text,
+        negative_text,
+    ):
+
+        positive = (
+            self.normalize_concept(
+                positive_text
+            )
+        )
+
+
+        negative = (
+            self.normalize_concept(
+                negative_text
+            )
+        )
+
+
+        if (
+            not positive
+            or
+            not negative
+        ):
+
+            return False
+
+
+        # ----------------------------------------------
+        # Exact normalized match
+        #
+        # "boat visible"
+        # vs
+        # "boat visible"
+        # ----------------------------------------------
+
+        if positive == negative:
+
+            return True
+
+
+        positive_tokens = set(
+            positive.split()
+        )
+
+
+        negative_tokens = set(
+            negative.split()
+        )
+
+
+        if (
+            not positive_tokens
+            or
+            not negative_tokens
+        ):
+
+            return False
+
+
+        # ----------------------------------------------
+        # Negative concept fully contained in the
+        # positive phrase.
+        #
+        # negative:
+        #   "boat"
+        #
+        # positive:
+        #   "boat near water"
+        #
+        # -> conflict
+        # ----------------------------------------------
+
+        if negative_tokens.issubset(
+            positive_tokens
+        ):
+
+            return True
+
+
+        # ----------------------------------------------
+        # Positive phrase is simply a shorter version
+        # of the forbidden concept.
+        #
+        # negative:
+        #   "the dog swimming"
+        #
+        # positive:
+        #   "dog swimming"
+        #
+        # -> conflict
+        # ----------------------------------------------
+
+        if positive_tokens.issubset(
+            negative_tokens
+        ):
+
+            return True
+
+
+        return False
+
+
+    # --------------------------------------------------
+    # 8. Remove phrases that contradict negative
+    #    constraints
+    # --------------------------------------------------
+
+    def remove_negative_conflicts(
+        self,
+        positive_items,
+        negative_constraints,
+        item_type,
+    ):
+
+        cleaned = []
+
+
+        for item in positive_items:
+
+            conflicts = []
+
+
+            for negative in negative_constraints:
+
+                if self.concepts_conflict(
+                    positive_text=
+                        item,
+
+                    negative_text=
+                        negative,
+                ):
+
+                    conflicts.append(
+                        negative
+                    )
+
+
+            if conflicts:
+
+                print(
+                    f"Planner sanitizer removed "
+                    f"{item_type}: "
+                    f"'{item}'"
+                )
+
+                print(
+                    "  Conflicts with negative "
+                    "constraint(s): "
+                    + ", ".join(
+                        conflicts
+                    )
+                )
+
+                continue
+
+
+            cleaned.append(
+                item
+            )
+
+
+        return cleaned
+
+
+    # --------------------------------------------------
+    # 9. Validate + sanitize planner output
     # --------------------------------------------------
 
     def validate_plan(
         self,
         plan,
-        original_query
+        original_query,
     ):
 
         required_keys = [
@@ -457,8 +783,9 @@ Output:
             "search_queries",
             "positive_constraints",
             "negative_constraints",
-            "reasoning_goal"
+            "reasoning_goal",
         ]
+
 
         # --------------------------------------------------
         # Ensure required fields exist
@@ -473,6 +800,7 @@ Output:
                     f"{key}"
                 )
 
+
         # --------------------------------------------------
         # Preserve exact original query
         # --------------------------------------------------
@@ -481,26 +809,29 @@ Output:
             "original_query"
         ] = original_query
 
+
         # --------------------------------------------------
-        # Validate list fields
+        # Validate field types
         # --------------------------------------------------
 
         list_fields = [
             "search_queries",
             "positive_constraints",
-            "negative_constraints"
+            "negative_constraints",
         ]
+
 
         for field in list_fields:
 
             if not isinstance(
                 plan[field],
-                list
+                list,
             ):
 
                 raise ValueError(
                     f"{field} must be a list."
                 )
+
 
         # --------------------------------------------------
         # Collect negative concepts
@@ -508,8 +839,7 @@ Output:
 
         cleaned_negative_constraints = []
 
-        # Start with negatives explicitly produced
-        # by the LLM.
+
         for item in plan[
             "negative_constraints"
         ]:
@@ -518,9 +848,11 @@ Output:
                 item
             ).strip()
 
+
             if not item:
 
                 continue
+
 
             if self.is_negative_phrase(
                 item
@@ -532,20 +864,23 @@ Output:
                     )
                 )
 
+
             if item:
 
                 cleaned_negative_constraints.append(
                     item
                 )
 
+
         # --------------------------------------------------
         # Clean search queries
         #
-        # Any negated search query is removed from
-        # retrieval and moved into negative constraints.
+        # Explicitly negated queries are removed from
+        # retrieval and converted to negative concepts.
         # --------------------------------------------------
 
         cleaned_search_queries = []
+
 
         for query in plan[
             "search_queries"
@@ -555,9 +890,11 @@ Output:
                 query
             ).strip()
 
+
             if not query:
 
                 continue
+
 
             if self.is_negative_phrase(
                 query
@@ -569,26 +906,31 @@ Output:
                     )
                 )
 
+
                 if negative_concept:
 
                     cleaned_negative_constraints.append(
                         negative_concept
                     )
 
+
                 continue
+
 
             cleaned_search_queries.append(
                 query
             )
 
+
         # --------------------------------------------------
         # Clean positive constraints
         #
-        # Negated "positive" constraints are actually
-        # negative constraints.
+        # Explicitly negated "positive" constraints are
+        # actually negative constraints.
         # --------------------------------------------------
 
         cleaned_positive_constraints = []
+
 
         for constraint in plan[
             "positive_constraints"
@@ -598,9 +940,11 @@ Output:
                 constraint
             ).strip()
 
+
             if not constraint:
 
                 continue
+
 
             if self.is_negative_phrase(
                 constraint
@@ -612,20 +956,97 @@ Output:
                     )
                 )
 
+
                 if negative_concept:
 
                     cleaned_negative_constraints.append(
                         negative_concept
                     )
 
+
                 continue
+
 
             cleaned_positive_constraints.append(
                 constraint
             )
 
+
         # --------------------------------------------------
-        # Remove duplicates while preserving order
+        # Remove duplicates BEFORE contradiction checking
+        # --------------------------------------------------
+
+        cleaned_negative_constraints = list(
+            dict.fromkeys(
+                cleaned_negative_constraints
+            )
+        )
+
+
+        cleaned_search_queries = list(
+            dict.fromkeys(
+                cleaned_search_queries
+            )
+        )
+
+
+        cleaned_positive_constraints = list(
+            dict.fromkeys(
+                cleaned_positive_constraints
+            )
+        )
+
+
+        # --------------------------------------------------
+        # CRITICAL CONTRADICTION FILTER
+        #
+        # A phrase may look positive because it contains no
+        # words like "no" or "not", while still representing
+        # something the user explicitly prohibited.
+        #
+        # Example:
+        #
+        # search query:
+        #   "boat visible"
+        #
+        # negative constraint:
+        #   "boat visible"
+        #
+        # This phrase MUST NOT survive into retrieval.
+        # --------------------------------------------------
+
+        cleaned_search_queries = (
+            self.remove_negative_conflicts(
+
+                positive_items=
+                    cleaned_search_queries,
+
+                negative_constraints=
+                    cleaned_negative_constraints,
+
+                item_type=
+                    "search query",
+            )
+        )
+
+
+        cleaned_positive_constraints = (
+            self.remove_negative_conflicts(
+
+                positive_items=
+                    cleaned_positive_constraints,
+
+                negative_constraints=
+                    cleaned_negative_constraints,
+
+                item_type=
+                    "positive constraint",
+            )
+        )
+
+
+        # --------------------------------------------------
+        # Final deduplication
         # --------------------------------------------------
 
         cleaned_search_queries = list(
@@ -634,11 +1055,13 @@ Output:
             )
         )
 
+
         cleaned_positive_constraints = list(
             dict.fromkeys(
                 cleaned_positive_constraints
             )
         )
+
 
         cleaned_negative_constraints = list(
             dict.fromkeys(
@@ -646,8 +1069,9 @@ Output:
             )
         )
 
+
         # --------------------------------------------------
-        # Maximum 4 retrieval queries
+        # Maximum four positive subqueries
         # --------------------------------------------------
 
         cleaned_search_queries = (
@@ -656,17 +1080,21 @@ Output:
             ]
         )
 
+
         # --------------------------------------------------
-        # Always keep at least one positive query
+        # Important:
+        #
+        # Do NOT insert the full original query here merely
+        # because all subqueries disappeared.
+        #
+        # VerifiedAgenticSearch already adds the original
+        # query separately as the first retrieval query.
+        #
+        # An empty subquery list is therefore valid and is
+        # safer than accidentally reintroducing a prohibited
+        # concept as a positive subquery.
         # --------------------------------------------------
 
-        if len(
-            cleaned_search_queries
-        ) == 0:
-
-            cleaned_search_queries = [
-                original_query
-            ]
 
         # --------------------------------------------------
         # Store sanitized results
@@ -676,13 +1104,16 @@ Output:
             "search_queries"
         ] = cleaned_search_queries
 
+
         plan[
             "positive_constraints"
         ] = cleaned_positive_constraints
 
+
         plan[
             "negative_constraints"
         ] = cleaned_negative_constraints
+
 
         plan[
             "reasoning_goal"
@@ -692,21 +1123,26 @@ Output:
             ]
         ).strip()
 
+
         return plan
 
+
     # --------------------------------------------------
-    # 7. Generate search plan
+    # 10. Generate search plan
     # --------------------------------------------------
 
     def plan(
         self,
         query,
-        max_new_tokens=400
+        max_new_tokens=400,
     ):
 
-        messages = self.build_messages(
-            query
+        messages = (
+            self.build_messages(
+                query
+            )
         )
+
 
         # --------------------------------------------------
         # Convert messages to model input
@@ -716,28 +1152,35 @@ Output:
             self.tokenizer.apply_chat_template(
                 messages,
                 tokenize=False,
-                add_generation_prompt=True
+                add_generation_prompt=True,
             )
         )
+
 
         inputs = self.tokenizer(
             formatted_prompt,
-            return_tensors="pt"
+            return_tensors="pt",
         )
 
+
         inputs = {
-            key: value.to(
-                self.device
-            )
+
+            key:
+                value.to(
+                    self.device
+                )
+
             for key, value
             in inputs.items()
         }
+
 
         input_length = (
             inputs[
                 "input_ids"
             ].shape[1]
         )
+
 
         # --------------------------------------------------
         # Generate
@@ -748,18 +1191,22 @@ Output:
             generated_ids = (
                 self.model.generate(
                     **inputs,
+
                     max_new_tokens=
                         max_new_tokens,
+
                     do_sample=False,
+
                     pad_token_id=(
                         self.tokenizer
                         .eos_token_id
-                    )
+                    ),
                 )
             )
 
+
         # --------------------------------------------------
-        # Remove original prompt tokens
+        # Remove prompt tokens
         # --------------------------------------------------
 
         new_tokens = (
@@ -769,32 +1216,41 @@ Output:
             ]
         )
 
+
         generated_text = (
             self.tokenizer.decode(
                 new_tokens,
-                skip_special_tokens=True
+                skip_special_tokens=True,
             )
         )
 
+
         # --------------------------------------------------
-        # Parse + validate JSON
+        # Parse + sanitize
         # --------------------------------------------------
 
-        plan = self.extract_json(
-            generated_text
+        plan = (
+            self.extract_json(
+                generated_text
+            )
         )
 
-        plan = self.validate_plan(
-            plan,
-            original_query=query
+
+        plan = (
+            self.validate_plan(
+                plan,
+                original_query=query,
+            )
         )
+
 
         return plan
 
 
 # --------------------------------------------------
-# 8. Command-line interface
+# 11. Command-line interface
 # --------------------------------------------------
+
 
 def main():
 
@@ -805,6 +1261,7 @@ def main():
         )
     )
 
+
     parser.add_argument(
         "--query",
         type=str,
@@ -812,8 +1269,9 @@ def main():
         help=(
             "Natural-language image "
             "search request"
-        )
+        ),
     )
+
 
     parser.add_argument(
         "--model",
@@ -825,31 +1283,44 @@ def main():
         help=(
             "Hugging Face instruction "
             "model used for planning"
+        ),
+    )
+
+
+    args = (
+        parser.parse_args()
+    )
+
+
+    planner = (
+        QueryPlanner(
+            model_name=
+                args.model
         )
     )
 
-    args = parser.parse_args()
 
-    planner = QueryPlanner(
-        model_name=args.model
+    plan = (
+        planner.plan(
+            args.query
+        )
     )
 
-    plan = planner.plan(
-        args.query
-    )
 
     print(
         "\nGenerated Search Plan"
     )
 
+
     print(
         "-" * 60
     )
 
+
     print(
         json.dumps(
             plan,
-            indent=2
+            indent=2,
         )
     )
 

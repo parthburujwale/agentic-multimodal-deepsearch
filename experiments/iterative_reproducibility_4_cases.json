@@ -1,0 +1,1342 @@
+{
+  "seed": 42,
+  "run_a": {
+    "coco_complex_011": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+        "search_queries": [
+          "lavishly decorated cake",
+          "empty drinking glasses",
+          "tropical guests",
+          "small two tier wedding cake"
+        ],
+        "positive_constraints": [
+          "lavishly decorated cake",
+          "empty drinking glasses",
+          "tropical guests",
+          "small two tier wedding cake",
+          "embellished with red flowers",
+          "table with stemware artfully arranged"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a lavishly decorated cake and empty drinking glasses awaiting tropical guests, along with a small two-tier wedding cake adorned with red flowers on a table with artfully arranged stemware."
+      },
+      "fixed_positive_constraints": [
+        "lavishly decorated cake",
+        "empty drinking glasses",
+        "tropical guests",
+        "small two tier wedding cake"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 2,
+      "stop_reason": "maximum_rounds_reached",
+      "selected_round": "bounded_promotion",
+      "final_sufficient": false,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+          "verification_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+          "target_rank": 2,
+          "image_ids": [
+            54628,
+            277689,
+            578922,
+            495448,
+            276434,
+            453040,
+            146358,
+            556873,
+            7818,
+            45472
+          ],
+          "router": {
+            "trigger_round_2": true,
+            "reasons": [
+              "low_verification_score"
+            ],
+            "winner_image_id": 54628,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.8250000000000001,
+            "baseline_top1_image_id": 277689,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": false,
+            "baseline_candidate_verification_score": 0.675,
+            "baseline_winner_disagreement": true,
+            "baseline_verifier_tie": false
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 4/4 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.83 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.8250000000000001,
+            "satisfied_positive_constraints": 4,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 54628,
+            "file_name": "000000054628.jpg",
+            "final_score": 0.7327192483811464,
+            "overall_match": true,
+            "verification_score": 0.8250000000000001
+          },
+          "verification_scores": [
+            0.8250000000000001,
+            0.675,
+            0.65,
+            0.45,
+            0.45,
+            0.45,
+            0.45,
+            0.45,
+            0.225,
+            0.0
+          ],
+          "overall_matches": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.7327192483811464,
+            0.7562500000000001,
+            0.6461782386468307,
+            0.4570332951030897,
+            0.43009643605618514,
+            0.4081924259595618,
+            0.3605780438165514,
+            0.3375,
+            0.1876475106886056,
+            0.18684665006823592
+          ]
+        },
+        {
+          "round": 2,
+          "retrieval_query": "lavishly decorated cake, empty drinking glasses, tropical guests",
+          "verification_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+          "target_rank": 1,
+          "image_ids": [
+            277689,
+            578922,
+            242060,
+            2157,
+            276434,
+            453040,
+            92177,
+            45472,
+            297396,
+            572678
+          ],
+          "router": {
+            "trigger_round_2": true,
+            "reasons": [
+              "incomplete_semantic_match",
+              "low_verification_score"
+            ],
+            "winner_image_id": 277689,
+            "winner_overall_match": false,
+            "winner_verification_score": 0.675,
+            "baseline_top1_image_id": 277689,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": false,
+            "baseline_candidate_verification_score": 0.675,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": false,
+            "reason": "Evidence is insufficient because the verifier does not consider the image a complete semantic match; missing required evidence: tropical guests; verification confidence 0.68 is below the required threshold of 0.75.",
+            "overall_match": false,
+            "verification_score": 0.675,
+            "satisfied_positive_constraints": 3,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [
+              "tropical guests"
+            ],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 277689,
+            "file_name": "000000277689.jpg",
+            "final_score": 0.6799880327752497,
+            "overall_match": false,
+            "verification_score": 0.675
+          },
+          "verification_scores": [
+            0.675,
+            0.65,
+            0.675,
+            0.65,
+            0.45,
+            0.45,
+            0.45,
+            0.0,
+            0.225,
+            0.225
+          ],
+          "overall_matches": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.6799880327752497,
+            0.6504588945477271,
+            0.5275152315621635,
+            0.5015012145981086,
+            0.40335756107271864,
+            0.36043724639437186,
+            0.3375,
+            0.25,
+            0.18906438435688355,
+            0.1878962996441253
+          ]
+        }
+      ]
+    },
+    "coco_complex_032": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+        "search_queries": [
+          "stuffed toy bear with rubber green turtle displayed next to chair",
+          "three teddy bears sitting with their arms around each other"
+        ],
+        "positive_constraints": [
+          "stuffed toy bear",
+          "rubber green turtle",
+          "displayed next to chair",
+          "teddy bears",
+          "sitting together",
+          "arms around each other"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a stuffed toy bear with a rubber green turtle displayed next to a chair, and that three teddy bears are sitting together with their arms around each other."
+      },
+      "fixed_positive_constraints": [
+        "stuffed toy bear with rubber green turtle displayed next to chair",
+        "three teddy bears sitting with their arms around each other"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 2,
+      "stop_reason": "sufficient_evidence_at_max_round",
+      "selected_round": "bounded_promotion",
+      "final_sufficient": true,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+          "verification_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+          "target_rank": 2,
+          "image_ids": [
+            50844,
+            383386,
+            249129,
+            335081,
+            428867,
+            262938,
+            153343,
+            322844,
+            537802,
+            253433
+          ],
+          "router": {
+            "trigger_round_2": true,
+            "reasons": [
+              "baseline_agentic_tied_disagreement"
+            ],
+            "winner_image_id": 50844,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 383386,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": true,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 50844,
+            "file_name": "000000050844.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.8500000000000001,
+            0.9,
+            0.9,
+            0.45,
+            0.45,
+            0.0
+          ],
+          "overall_matches": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.925,
+            0.8743265506433333,
+            0.8285557795727216,
+            0.7612802241020811,
+            0.754670845615868,
+            0.6984484013734202,
+            0.6851705538466422,
+            0.3950406315362702,
+            0.3375,
+            0.11989756018104589
+          ]
+        },
+        {
+          "round": 2,
+          "retrieval_query": "teddy bears and stuffed toy with green turtle near chair",
+          "verification_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+          "target_rank": null,
+          "image_ids": [
+            249129,
+            50844,
+            410880,
+            446703,
+            205542,
+            253433,
+            44068,
+            362434,
+            471869,
+            220310
+          ],
+          "router": {
+            "trigger_round_2": false,
+            "reasons": [],
+            "winner_image_id": 249129,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 249129,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 249129,
+            "file_name": "000000249129.jpg",
+            "final_score": 0.9182569664300877,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.9,
+            0.45,
+            0.45,
+            0.45,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overall_matches": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.9182569664300877,
+            0.7334636214621817,
+            0.43425030694490685,
+            0.4099984785287002,
+            0.3625259233263286,
+            0.25,
+            0.2117861542930937,
+            0.024882788395680082,
+            0.014450902598270083,
+            0.0
+          ]
+        }
+      ]
+    },
+    "coco_complex_043": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: A table holding a variety of beverages at an outdoor party; Outdoor impromptu bar scene on wooden bench, ice coolers, blender, bottles and several other items, appearing very crowded.",
+        "search_queries": [
+          "outdoor party",
+          "table holding beverages",
+          "wooden bench",
+          "ice coolers"
+        ],
+        "positive_constraints": [
+          "outdoor party",
+          "table",
+          "beverages",
+          "wooden bench",
+          "coolers",
+          "blender",
+          "bottles",
+          "crowded"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is an outdoor party with a table holding various beverages, an outdoor scene with a wooden bench, ice coolers, a blender, bottles, and a crowded atmosphere."
+      },
+      "fixed_positive_constraints": [
+        "outdoor party",
+        "table holding beverages",
+        "wooden bench",
+        "ice coolers"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 1,
+      "stop_reason": "sufficient_evidence",
+      "selected_round": 1,
+      "final_sufficient": true,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: A table holding a variety of beverages at an outdoor party; Outdoor impromptu bar scene on wooden bench, ice coolers, blender, bottles and several other items, appearing very crowded.",
+          "verification_query": "Find an image matching both of these visual descriptions: A table holding a variety of beverages at an outdoor party; Outdoor impromptu bar scene on wooden bench, ice coolers, blender, bottles and several other items, appearing very crowded.",
+          "target_rank": 1,
+          "image_ids": [
+            150638,
+            266768,
+            275198,
+            121506,
+            151938,
+            312421,
+            170670,
+            156643,
+            261116,
+            21465
+          ],
+          "router": {
+            "trigger_round_2": false,
+            "reasons": [],
+            "winner_image_id": 150638,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 150638,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 4/4 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 4,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 150638,
+            "file_name": "000000150638.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.9,
+            0.825,
+            0.825,
+            0.8500000000000001,
+            0.825,
+            0.675,
+            0.65,
+            0.45,
+            0.2
+          ],
+          "overall_matches": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.925,
+            0.8058143387755338,
+            0.7113028890573546,
+            0.6998819836573916,
+            0.6666225697754802,
+            0.6187499999999999,
+            0.5980730186785778,
+            0.5188111137718467,
+            0.35318759776336,
+            0.25840594687222346
+          ]
+        }
+      ]
+    },
+    "coco_complex_045": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: A Texas longhorn bull eating grass by a barbed wire fence; Brown and white cow with long horns standing next to a chain fence.",
+        "search_queries": [
+          "Texas longhorn bull eating grass",
+          "Brown and white cow with long horns"
+        ],
+        "positive_constraints": [
+          "Texas longhorn bull",
+          "eating grass",
+          "barbed wire fence",
+          "brown and white cow",
+          "long horns",
+          "standing next to",
+          "chain fence"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a Texas longhorn bull eating grass by a barbed wire fence and a brown and white cow with long horns standing next to a chain fence."
+      },
+      "fixed_positive_constraints": [
+        "Texas longhorn bull eating grass",
+        "Brown and white cow with long horns"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 1,
+      "stop_reason": "sufficient_evidence",
+      "selected_round": 1,
+      "final_sufficient": true,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: A Texas longhorn bull eating grass by a barbed wire fence; Brown and white cow with long horns standing next to a chain fence.",
+          "verification_query": "Find an image matching both of these visual descriptions: A Texas longhorn bull eating grass by a barbed wire fence; Brown and white cow with long horns standing next to a chain fence.",
+          "target_rank": 1,
+          "image_ids": [
+            118594,
+            124636,
+            572408,
+            125806,
+            361268,
+            459396,
+            222863,
+            412887,
+            518213,
+            90062
+          ],
+          "router": {
+            "trigger_round_2": false,
+            "reasons": [],
+            "winner_image_id": 118594,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 118594,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 118594,
+            "file_name": "000000118594.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.8500000000000001,
+            0.9,
+            0.8500000000000001,
+            0.9,
+            0.8500000000000001,
+            0.45,
+            0.45,
+            0.45,
+            0.45
+          ],
+          "overall_matches": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.925,
+            0.7478852295980125,
+            0.7391595266483554,
+            0.7239965748144387,
+            0.675,
+            0.6428176014561662,
+            0.5213498611298124,
+            0.5135960140314354,
+            0.44826031166084,
+            0.40197888273160903
+          ]
+        }
+      ]
+    }
+  },
+  "run_b": {
+    "coco_complex_011": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+        "search_queries": [
+          "lavishly decorated cake",
+          "empty drinking glasses",
+          "tropical guests",
+          "small two tier wedding cake"
+        ],
+        "positive_constraints": [
+          "lavishly decorated cake",
+          "empty drinking glasses",
+          "tropical guests",
+          "small two tier wedding cake",
+          "embellished with red flowers",
+          "table with stemware artfully arranged"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a lavishly decorated cake and empty drinking glasses awaiting tropical guests, along with a small two-tier wedding cake adorned with red flowers on a table with artfully arranged stemware."
+      },
+      "fixed_positive_constraints": [
+        "lavishly decorated cake",
+        "empty drinking glasses",
+        "tropical guests",
+        "small two tier wedding cake"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 2,
+      "stop_reason": "maximum_rounds_reached",
+      "selected_round": "bounded_promotion",
+      "final_sufficient": false,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+          "verification_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+          "target_rank": 2,
+          "image_ids": [
+            54628,
+            277689,
+            578922,
+            495448,
+            276434,
+            453040,
+            146358,
+            556873,
+            7818,
+            45472
+          ],
+          "router": {
+            "trigger_round_2": true,
+            "reasons": [
+              "low_verification_score"
+            ],
+            "winner_image_id": 54628,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.8250000000000001,
+            "baseline_top1_image_id": 277689,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": false,
+            "baseline_candidate_verification_score": 0.675,
+            "baseline_winner_disagreement": true,
+            "baseline_verifier_tie": false
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 4/4 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.83 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.8250000000000001,
+            "satisfied_positive_constraints": 4,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 54628,
+            "file_name": "000000054628.jpg",
+            "final_score": 0.7327192483811464,
+            "overall_match": true,
+            "verification_score": 0.8250000000000001
+          },
+          "verification_scores": [
+            0.8250000000000001,
+            0.675,
+            0.65,
+            0.45,
+            0.45,
+            0.45,
+            0.45,
+            0.45,
+            0.225,
+            0.0
+          ],
+          "overall_matches": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.7327192483811464,
+            0.7562500000000001,
+            0.6461782386468307,
+            0.4570332951030897,
+            0.43009643605618514,
+            0.4081924259595618,
+            0.3605780438165514,
+            0.3375,
+            0.1876475106886056,
+            0.18684665006823592
+          ]
+        },
+        {
+          "round": 2,
+          "retrieval_query": "lavishly decorated cake, empty drinking glasses, tropical guests",
+          "verification_query": "Find an image matching both of these visual descriptions: Lavishly decorated cake and empty drinking glasses await their tropical guests; A small two tier wedding cake is embellished with red flowers, on a table with stemware artfully arranged.",
+          "target_rank": 1,
+          "image_ids": [
+            277689,
+            578922,
+            242060,
+            2157,
+            276434,
+            453040,
+            92177,
+            45472,
+            297396,
+            572678
+          ],
+          "router": {
+            "trigger_round_2": true,
+            "reasons": [
+              "incomplete_semantic_match",
+              "low_verification_score"
+            ],
+            "winner_image_id": 277689,
+            "winner_overall_match": false,
+            "winner_verification_score": 0.675,
+            "baseline_top1_image_id": 277689,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": false,
+            "baseline_candidate_verification_score": 0.675,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": false,
+            "reason": "Evidence is insufficient because the verifier does not consider the image a complete semantic match; missing required evidence: tropical guests; verification confidence 0.68 is below the required threshold of 0.75.",
+            "overall_match": false,
+            "verification_score": 0.675,
+            "satisfied_positive_constraints": 3,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [
+              "tropical guests"
+            ],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 277689,
+            "file_name": "000000277689.jpg",
+            "final_score": 0.6799880327752497,
+            "overall_match": false,
+            "verification_score": 0.675
+          },
+          "verification_scores": [
+            0.675,
+            0.65,
+            0.675,
+            0.65,
+            0.45,
+            0.45,
+            0.45,
+            0.0,
+            0.225,
+            0.225
+          ],
+          "overall_matches": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.6799880327752497,
+            0.6504588945477271,
+            0.5275152315621635,
+            0.5015012145981086,
+            0.40335756107271864,
+            0.36043724639437186,
+            0.3375,
+            0.25,
+            0.18906438435688355,
+            0.1878962996441253
+          ]
+        }
+      ]
+    },
+    "coco_complex_032": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+        "search_queries": [
+          "stuffed toy bear with rubber green turtle displayed next to chair",
+          "three teddy bears sitting with their arms around each other"
+        ],
+        "positive_constraints": [
+          "stuffed toy bear",
+          "rubber green turtle",
+          "displayed next to chair",
+          "teddy bears",
+          "sitting together",
+          "arms around each other"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a stuffed toy bear with a rubber green turtle displayed next to a chair, and that three teddy bears are sitting together with their arms around each other."
+      },
+      "fixed_positive_constraints": [
+        "stuffed toy bear with rubber green turtle displayed next to chair",
+        "three teddy bears sitting with their arms around each other"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 2,
+      "stop_reason": "sufficient_evidence_at_max_round",
+      "selected_round": "bounded_promotion",
+      "final_sufficient": true,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+          "verification_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+          "target_rank": 2,
+          "image_ids": [
+            50844,
+            383386,
+            249129,
+            335081,
+            428867,
+            262938,
+            153343,
+            322844,
+            537802,
+            253433
+          ],
+          "router": {
+            "trigger_round_2": true,
+            "reasons": [
+              "baseline_agentic_tied_disagreement"
+            ],
+            "winner_image_id": 50844,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 383386,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": true,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 50844,
+            "file_name": "000000050844.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.9,
+            0.9,
+            0.9,
+            0.8500000000000001,
+            0.9,
+            0.9,
+            0.45,
+            0.45,
+            0.0
+          ],
+          "overall_matches": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.925,
+            0.8743265506433333,
+            0.8285557795727216,
+            0.7612802241020811,
+            0.754670845615868,
+            0.6984484013734202,
+            0.6851705538466422,
+            0.3950406315362702,
+            0.3375,
+            0.11989756018104589
+          ]
+        },
+        {
+          "round": 2,
+          "retrieval_query": "teddy bears and stuffed toy with green turtle near chair",
+          "verification_query": "Find an image matching both of these visual descriptions: Stuffed toy bear with rubber green turtle displayed next to chair; The three teddy bears sit with their arms around each other.",
+          "target_rank": null,
+          "image_ids": [
+            249129,
+            50844,
+            410880,
+            446703,
+            205542,
+            253433,
+            44068,
+            362434,
+            471869,
+            220310
+          ],
+          "router": {
+            "trigger_round_2": false,
+            "reasons": [],
+            "winner_image_id": 249129,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 249129,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 249129,
+            "file_name": "000000249129.jpg",
+            "final_score": 0.9182569664300877,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.9,
+            0.45,
+            0.45,
+            0.45,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "overall_matches": [
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.9182569664300877,
+            0.7334636214621817,
+            0.43425030694490685,
+            0.4099984785287002,
+            0.3625259233263286,
+            0.25,
+            0.2117861542930937,
+            0.024882788395680082,
+            0.014450902598270083,
+            0.0
+          ]
+        }
+      ]
+    },
+    "coco_complex_043": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: A table holding a variety of beverages at an outdoor party; Outdoor impromptu bar scene on wooden bench, ice coolers, blender, bottles and several other items, appearing very crowded.",
+        "search_queries": [
+          "outdoor party",
+          "table holding beverages",
+          "wooden bench",
+          "ice coolers"
+        ],
+        "positive_constraints": [
+          "outdoor party",
+          "table",
+          "beverages",
+          "wooden bench",
+          "coolers",
+          "blender",
+          "bottles",
+          "crowded"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is an outdoor party with a table holding various beverages, an outdoor scene with a wooden bench, ice coolers, a blender, bottles, and a crowded atmosphere."
+      },
+      "fixed_positive_constraints": [
+        "outdoor party",
+        "table holding beverages",
+        "wooden bench",
+        "ice coolers"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 1,
+      "stop_reason": "sufficient_evidence",
+      "selected_round": 1,
+      "final_sufficient": true,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: A table holding a variety of beverages at an outdoor party; Outdoor impromptu bar scene on wooden bench, ice coolers, blender, bottles and several other items, appearing very crowded.",
+          "verification_query": "Find an image matching both of these visual descriptions: A table holding a variety of beverages at an outdoor party; Outdoor impromptu bar scene on wooden bench, ice coolers, blender, bottles and several other items, appearing very crowded.",
+          "target_rank": 1,
+          "image_ids": [
+            150638,
+            266768,
+            275198,
+            121506,
+            151938,
+            312421,
+            170670,
+            156643,
+            261116,
+            21465
+          ],
+          "router": {
+            "trigger_round_2": false,
+            "reasons": [],
+            "winner_image_id": 150638,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 150638,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 4/4 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 4,
+            "total_positive_constraints": 4,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 150638,
+            "file_name": "000000150638.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.9,
+            0.825,
+            0.825,
+            0.8500000000000001,
+            0.825,
+            0.675,
+            0.65,
+            0.45,
+            0.2
+          ],
+          "overall_matches": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.925,
+            0.8058143387755338,
+            0.7113028890573546,
+            0.6998819836573916,
+            0.6666225697754802,
+            0.6187499999999999,
+            0.5980730186785778,
+            0.5188111137718467,
+            0.35318759776336,
+            0.25840594687222346
+          ]
+        }
+      ]
+    },
+    "coco_complex_045": {
+      "fixed_original_plan": {
+        "original_query": "Find an image matching both of these visual descriptions: A Texas longhorn bull eating grass by a barbed wire fence; Brown and white cow with long horns standing next to a chain fence.",
+        "search_queries": [
+          "Texas longhorn bull eating grass",
+          "Brown and white cow with long horns"
+        ],
+        "positive_constraints": [
+          "Texas longhorn bull",
+          "eating grass",
+          "barbed wire fence",
+          "brown and white cow",
+          "long horns",
+          "standing next to",
+          "chain fence"
+        ],
+        "negative_constraints": [],
+        "reasoning_goal": "Verify that there is a Texas longhorn bull eating grass by a barbed wire fence and a brown and white cow with long horns standing next to a chain fence."
+      },
+      "fixed_positive_constraints": [
+        "Texas longhorn bull eating grass",
+        "Brown and white cow with long horns"
+      ],
+      "fixed_negative_constraints": [],
+      "rounds_executed": 1,
+      "stop_reason": "sufficient_evidence",
+      "selected_round": 1,
+      "final_sufficient": true,
+      "rounds": [
+        {
+          "round": 1,
+          "retrieval_query": "Find an image matching both of these visual descriptions: A Texas longhorn bull eating grass by a barbed wire fence; Brown and white cow with long horns standing next to a chain fence.",
+          "verification_query": "Find an image matching both of these visual descriptions: A Texas longhorn bull eating grass by a barbed wire fence; Brown and white cow with long horns standing next to a chain fence.",
+          "target_rank": 1,
+          "image_ids": [
+            118594,
+            124636,
+            572408,
+            125806,
+            361268,
+            459396,
+            222863,
+            412887,
+            518213,
+            90062
+          ],
+          "router": {
+            "trigger_round_2": false,
+            "reasons": [],
+            "winner_image_id": 118594,
+            "winner_overall_match": true,
+            "winner_verification_score": 0.9,
+            "baseline_top1_image_id": 118594,
+            "baseline_candidate_present": true,
+            "baseline_candidate_overall_match": true,
+            "baseline_candidate_verification_score": 0.9,
+            "baseline_winner_disagreement": false,
+            "baseline_verifier_tie": true
+          },
+          "sufficiency": {
+            "sufficient": true,
+            "reason": "Evidence is sufficient: 2/2 positive constraints are satisfied, 0/0 negative constraints are violated, the verifier considers the candidate a complete semantic match, and the verification score 0.90 exceeds the threshold 0.75.",
+            "overall_match": true,
+            "verification_score": 0.9,
+            "satisfied_positive_constraints": 2,
+            "total_positive_constraints": 2,
+            "violated_negative_constraints": 0,
+            "total_negative_constraints": 0,
+            "missing_positive_constraints": [],
+            "violated_negative_constraint_names": []
+          },
+          "top_result": {
+            "image_id": 118594,
+            "file_name": "000000118594.jpg",
+            "final_score": 0.925,
+            "overall_match": true,
+            "verification_score": 0.9
+          },
+          "verification_scores": [
+            0.9,
+            0.8500000000000001,
+            0.9,
+            0.8500000000000001,
+            0.9,
+            0.8500000000000001,
+            0.45,
+            0.45,
+            0.45,
+            0.45
+          ],
+          "overall_matches": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "final_scores": [
+            0.925,
+            0.7478852295980125,
+            0.7391595266483554,
+            0.7239965748144387,
+            0.675,
+            0.6428176014561662,
+            0.5213498611298124,
+            0.5135960140314354,
+            0.44826031166084,
+            0.40197888273160903
+          ]
+        }
+      ]
+    }
+  },
+  "comparison": {
+    "coco_complex_011": {
+      "exact_match": true,
+      "differences": []
+    },
+    "coco_complex_032": {
+      "exact_match": true,
+      "differences": []
+    },
+    "coco_complex_043": {
+      "exact_match": true,
+      "differences": []
+    },
+    "coco_complex_045": {
+      "exact_match": true,
+      "differences": []
+    }
+  },
+  "summary": {
+    "cases": 4,
+    "exact_matches": 4,
+    "all_cases_reproducible": true
+  }
+}

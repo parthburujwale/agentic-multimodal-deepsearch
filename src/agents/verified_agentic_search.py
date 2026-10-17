@@ -18,17 +18,30 @@ from agents.evidence_verifier import EvidenceVerifier
 #
 # Pipeline:
 #
-# DeepSearch V2
+# Retrieval Query
 #      ↓
 # Query Planner
 #      ↓
 # Weighted RRF
+#      ↓
+# Candidate Retrieval
+#      ↓
+# ORIGINAL Semantic Objective
 #      ↓
 # VLM Evidence Verification
 #      ↓
 # Strict Anchor Arbitration
 #      ↓
 # Final Ranking
+#
+# Important:
+#
+# Retrieval intent and verification intent can now be
+# different.
+#
+# This enables iterative search where later rounds use
+# focused retrieval queries while still being judged against
+# the user's ORIGINAL objective.
 # ============================================================
 
 
@@ -65,6 +78,7 @@ class VerifiedAgenticSearch:
             self.retrieval_weight
             + self.verification_weight
         )
+
 
         if weight_sum <= 0:
 
@@ -114,7 +128,7 @@ class VerifiedAgenticSearch:
                 retriever_processor_path,
 
             planner_model_name=
-                planner_model_name
+                planner_model_name,
         )
 
 
@@ -143,7 +157,7 @@ class VerifiedAgenticSearch:
 
     def exact_query_ranking(
         self,
-        query
+        query,
     ):
 
         query_embedding = (
@@ -170,13 +184,13 @@ class VerifiedAgenticSearch:
 
         ranked_indices = torch.argsort(
             similarities,
-            descending=True
+            descending=True,
         )
 
 
         return (
             similarities,
-            ranked_indices
+            ranked_indices,
         )
 
 
@@ -187,7 +201,7 @@ class VerifiedAgenticSearch:
     def build_retrieval_queries(
         self,
         original_query,
-        plan
+        plan,
     ):
 
         retrieval_queries = [
@@ -226,7 +240,7 @@ class VerifiedAgenticSearch:
 
     def clean_negative_constraints(
         self,
-        negative_constraints
+        negative_constraints,
     ):
 
         negative_constraints = list(
@@ -277,6 +291,7 @@ class VerifiedAgenticSearch:
                 ):
 
                     redundant = True
+
                     break
 
 
@@ -293,15 +308,23 @@ class VerifiedAgenticSearch:
     # ========================================================
     # Semantic constraints for the VLM
     #
-    # Planner search_queries retain useful relations such as:
+    # IMPORTANT:
+    #
+    # search_queries are intentionally used as semantic
+    # positive constraints because they preserve useful
+    # relationships such as:
     #
     # "dog near water"
     # "people in background"
+    #
+    # For iterative search, this method can receive the
+    # ORIGINAL plan rather than the round-specific retrieval
+    # plan.
     # ========================================================
 
     def build_verification_constraints(
         self,
-        plan
+        plan,
     ):
 
         positive_constraints = list(
@@ -324,18 +347,18 @@ class VerifiedAgenticSearch:
 
         return (
             positive_constraints,
-            negative_constraints
+            negative_constraints,
         )
 
 
     # ========================================================
     # Weighted Reciprocal Rank Fusion
     #
-    # Original full query:
-    #     weight = 2.0
+    # First retrieval query:
+    #     weight = original_query_weight
     #
     # Planner subqueries:
-    #     weight = 1.0
+    #     weight = subquery_weight
     #
     # score(d) =
     #
@@ -345,7 +368,7 @@ class VerifiedAgenticSearch:
     def weighted_rrf(
         self,
         retrieval_queries,
-        rrf_k=60
+        rrf_k=60,
     ):
 
         rankings = []
@@ -361,7 +384,7 @@ class VerifiedAgenticSearch:
 
             (
                 similarities,
-                ranking
+                ranking,
             ) = self.exact_query_ranking(
                 query
             )
@@ -370,6 +393,7 @@ class VerifiedAgenticSearch:
             rankings.append(
                 ranking
             )
+
 
             similarities_per_query.append(
                 similarities
@@ -406,7 +430,7 @@ class VerifiedAgenticSearch:
         rrf_scores = torch.zeros(
             num_images,
             dtype=torch.float32,
-            device=device
+            device=device,
         )
 
 
@@ -414,16 +438,16 @@ class VerifiedAgenticSearch:
             1,
             num_images + 1,
             dtype=torch.float32,
-            device=device
+            device=device,
         )
 
 
         for (
             ranking,
-            weight
+            weight,
         ) in zip(
             rankings,
-            weights
+            weights,
         ):
 
             contributions = (
@@ -446,11 +470,12 @@ class VerifiedAgenticSearch:
 
         final_ranking = torch.argsort(
             rrf_scores,
-            descending=True
+            descending=True,
         )
 
 
         return {
+
             "rankings":
                 rankings,
 
@@ -473,7 +498,7 @@ class VerifiedAgenticSearch:
                     ][
                         0
                     ].item()
-                )
+                ),
         }
 
 
@@ -485,7 +510,7 @@ class VerifiedAgenticSearch:
         self,
         retrieval_queries,
         rrf_output,
-        retrieval_top_k
+        retrieval_top_k,
     ):
 
         candidate_indices = (
@@ -507,7 +532,7 @@ class VerifiedAgenticSearch:
 
         for rrf_rank, image_index in enumerate(
             candidate_indices,
-            start=1
+            start=1,
         ):
 
             record = (
@@ -524,7 +549,7 @@ class VerifiedAgenticSearch:
             for (
                 query,
                 ranking,
-                similarities
+                similarities,
             ) in zip(
                 retrieval_queries,
                 rrf_output[
@@ -532,7 +557,7 @@ class VerifiedAgenticSearch:
                 ],
                 rrf_output[
                     "similarities"
-                ]
+                ],
             ):
 
                 match = (
@@ -570,7 +595,7 @@ class VerifiedAgenticSearch:
                             query_rank,
 
                         "retrieval_score":
-                            retrieval_score
+                            retrieval_score,
                     }
                 )
 
@@ -603,7 +628,7 @@ class VerifiedAgenticSearch:
                         ),
 
                     "query_matches":
-                        query_matches
+                        query_matches,
                 }
             )
 
@@ -617,7 +642,7 @@ class VerifiedAgenticSearch:
 
     def normalize_rrf_scores(
         self,
-        candidates
+        candidates,
     ):
 
         if len(candidates) == 0:
@@ -638,6 +663,7 @@ class VerifiedAgenticSearch:
         maximum_score = max(
             scores
         )
+
 
         minimum_score = min(
             scores
@@ -690,14 +716,14 @@ class VerifiedAgenticSearch:
         candidate,
         original_query,
         positive_constraints,
-        negative_constraints
+        negative_constraints,
     ):
 
         image_path = os.path.join(
             self.image_folder,
             candidate[
                 "file_name"
-            ]
+            ],
         )
 
 
@@ -713,7 +739,7 @@ class VerifiedAgenticSearch:
                 positive_constraints,
 
             negative_constraints=
-                negative_constraints
+                negative_constraints,
         )
 
 
@@ -724,7 +750,7 @@ class VerifiedAgenticSearch:
     def calculate_final_score(
         self,
         retrieval_score,
-        verification_score
+        verification_score,
     ):
 
         score = (
@@ -743,8 +769,8 @@ class VerifiedAgenticSearch:
             0.0,
             min(
                 1.0,
-                score
-            )
+                score,
+            ),
         )
 
 
@@ -754,7 +780,7 @@ class VerifiedAgenticSearch:
 
     def rank_verified_candidates(
         self,
-        verified_candidates
+        verified_candidates,
     ):
 
         verified_candidates.sort(
@@ -779,10 +805,10 @@ class VerifiedAgenticSearch:
 
                 candidate[
                     "rrf_score"
-                ]
+                ],
             ),
 
-            reverse=True
+            reverse=True,
         )
 
 
@@ -792,9 +818,9 @@ class VerifiedAgenticSearch:
     # ========================================================
     # STRICT ANCHOR ARBITRATION
     #
-    # Preserve original DeepSearch V2 top-1 only when:
+    # Preserve round retrieval top-1 only when:
     #
-    # 1. It survived into the verification candidate set.
+    # 1. It survived into verification candidates.
     #
     # 2. VLM says it is a complete semantic match.
     #
@@ -807,7 +833,7 @@ class VerifiedAgenticSearch:
     def apply_strict_anchor(
         self,
         verified_candidates,
-        baseline_top1_index
+        baseline_top1_index,
     ):
 
         if len(
@@ -816,7 +842,7 @@ class VerifiedAgenticSearch:
 
             return (
                 verified_candidates,
-                False
+                False,
             )
 
 
@@ -841,6 +867,7 @@ class VerifiedAgenticSearch:
             ):
 
                 baseline_candidate = candidate
+
                 break
 
 
@@ -848,7 +875,7 @@ class VerifiedAgenticSearch:
 
             return (
                 verified_candidates,
-                False
+                False,
             )
 
 
@@ -864,7 +891,7 @@ class VerifiedAgenticSearch:
 
             return (
                 verified_candidates,
-                False
+                False,
             )
 
 
@@ -909,7 +936,7 @@ class VerifiedAgenticSearch:
 
             return (
                 verified_candidates,
-                False
+                False,
             )
 
 
@@ -936,12 +963,23 @@ class VerifiedAgenticSearch:
 
         return (
             reordered,
-            True
+            True,
         )
 
 
     # ========================================================
     # Full search
+    #
+    # query:
+    #     controls retrieval for THIS round
+    #
+    # verification_query:
+    #     semantic objective used by VLM
+    #
+    # verification_plan:
+    #     positive / negative constraints used by VLM
+    #
+    # This distinction is critical for iterative retrieval.
     # ========================================================
 
     def search(
@@ -949,8 +987,19 @@ class VerifiedAgenticSearch:
         query,
         retrieval_top_k=10,
         final_top_k=5,
-        rrf_k=60
+        rrf_k=60,
+        verification_query=None,
+        verification_plan=None,
     ):
+
+        # --------------------------------------------------
+        # Default one-shot behavior remains unchanged.
+        # --------------------------------------------------
+
+        if verification_query is None:
+
+            verification_query = query
+
 
         print(
             "\n"
@@ -965,6 +1014,10 @@ class VerifiedAgenticSearch:
             "=" * 70
         )
 
+
+        # --------------------------------------------------
+        # This plan controls RETRIEVAL for this round.
+        # --------------------------------------------------
 
         plan = (
             self.agentic_retriever
@@ -983,10 +1036,11 @@ class VerifiedAgenticSearch:
             "-" * 60
         )
 
+
         print(
             json.dumps(
                 plan,
-                indent=2
+                indent=2,
             )
         )
 
@@ -994,7 +1048,7 @@ class VerifiedAgenticSearch:
         retrieval_queries = (
             self.build_retrieval_queries(
                 original_query=query,
-                plan=plan
+                plan=plan,
             )
         )
 
@@ -1010,7 +1064,7 @@ class VerifiedAgenticSearch:
 
         for index, retrieval_query in enumerate(
             retrieval_queries,
-            start=1
+            start=1,
         ):
 
             print(
@@ -1038,11 +1092,12 @@ class VerifiedAgenticSearch:
 
 
         rrf_output = self.weighted_rrf(
+
             retrieval_queries=
                 retrieval_queries,
 
             rrf_k=
-                rrf_k
+                rrf_k,
         )
 
 
@@ -1061,7 +1116,7 @@ class VerifiedAgenticSearch:
                 rrf_output,
 
             retrieval_top_k=
-                retrieval_top_k
+                retrieval_top_k,
         )
 
 
@@ -1072,17 +1127,41 @@ class VerifiedAgenticSearch:
         )
 
 
+        # --------------------------------------------------
+        # Semantic verification objective
+        #
+        # If a fixed original plan was supplied, use it.
+        # Otherwise preserve original one-shot behavior.
+        # --------------------------------------------------
+
+        constraint_plan = (
+
+            verification_plan
+
+            if verification_plan is not None
+
+            else plan
+        )
+
+
         (
             positive_constraints,
-            negative_constraints
+            negative_constraints,
         ) = self.build_verification_constraints(
-            plan
+            constraint_plan
         )
 
 
         print(
-            "\nSemantic verification constraints:"
+            "\nSemantic verification objective:"
         )
+
+
+        print(
+            f"\nVerification query:\n"
+            f"{verification_query}"
+        )
+
 
         print(
             "\nPositive:"
@@ -1131,7 +1210,7 @@ class VerifiedAgenticSearch:
 
         for index, candidate in enumerate(
             candidates,
-            start=1
+            start=1,
         ):
 
             print(
@@ -1139,11 +1218,13 @@ class VerifiedAgenticSearch:
                 + "-" * 70
             )
 
+
             print(
                 f"Verifying candidate "
                 f"{index}/"
                 f"{len(candidates)}"
             )
+
 
             print(
                 f"File: "
@@ -1156,14 +1237,17 @@ class VerifiedAgenticSearch:
                 candidate=
                     candidate,
 
+                # IMPORTANT:
+                # verify against fixed semantic objective,
+                # NOT necessarily the retrieval query.
                 original_query=
-                    query,
+                    verification_query,
 
                 positive_constraints=
                     positive_constraints,
 
                 negative_constraints=
-                    negative_constraints
+                    negative_constraints,
             )
 
 
@@ -1177,13 +1261,14 @@ class VerifiedAgenticSearch:
                 verification_score=
                     verification[
                         "overall_score"
-                    ]
+                    ],
             )
 
 
             candidate[
                 "verification"
             ] = verification
+
 
             candidate[
                 "final_score"
@@ -1195,20 +1280,24 @@ class VerifiedAgenticSearch:
                 f"{candidate['rrf_rank']}"
             )
 
+
             print(
                 f"RRF score: "
                 f"{candidate['rrf_score']:.6f}"
             )
+
 
             print(
                 f"Verification score: "
                 f"{verification['overall_score']:.4f}"
             )
 
+
             print(
                 f"Overall match: "
                 f"{verification['overall_match']}"
             )
+
 
             print(
                 f"Combined score: "
@@ -1233,6 +1322,7 @@ class VerifiedAgenticSearch:
 
 
         pre_anchor_winner = (
+
             verified_candidates[
                 0
             ][
@@ -1265,7 +1355,7 @@ class VerifiedAgenticSearch:
 
         (
             verified_candidates,
-            anchor_applied
+            anchor_applied,
         ) = self.apply_strict_anchor(
 
             verified_candidates=
@@ -1274,11 +1364,12 @@ class VerifiedAgenticSearch:
             baseline_top1_index=
                 rrf_output[
                     "baseline_top1_index"
-                ]
+                ],
         )
 
 
         post_anchor_winner = (
+
             verified_candidates[
                 0
             ][
@@ -1296,10 +1387,12 @@ class VerifiedAgenticSearch:
             f"{anchor_applied}"
         )
 
+
         print(
             f"Winner before anchor: "
             f"{pre_anchor_winner}"
         )
+
 
         print(
             f"Winner after anchor: "
@@ -1326,11 +1419,25 @@ class VerifiedAgenticSearch:
 
         return {
 
+            # Retrieval query used for this round
             "query":
                 query,
 
+            # Explicit alias for clarity
+            "retrieval_query":
+                query,
+
+            # Fixed semantic objective used by VLM
+            "verification_query":
+                verification_query,
+
+            # Round-specific retrieval plan
             "plan":
                 plan,
+
+            # Plan actually used to define verification
+            "verification_plan":
+                constraint_plan,
 
             "retrieval_queries":
                 retrieval_queries,
@@ -1342,7 +1449,7 @@ class VerifiedAgenticSearch:
                 negative_constraints,
 
             "reasoning_goal":
-                plan[
+                constraint_plan[
                     "reasoning_goal"
                 ],
 
@@ -1378,7 +1485,7 @@ class VerifiedAgenticSearch:
                 ),
 
             "results":
-                final_results
+                final_results,
         }
 
 
@@ -1389,7 +1496,7 @@ class VerifiedAgenticSearch:
 
 def print_verified_result(
     rank,
-    result
+    result,
 ):
 
     verification = (
@@ -1404,9 +1511,11 @@ def print_verified_result(
         + "=" * 70
     )
 
+
     print(
         f"FINAL RANK {rank}"
     )
+
 
     print(
         "=" * 70
@@ -1418,35 +1527,42 @@ def print_verified_result(
         f"{result['image_id']}"
     )
 
+
     print(
         f"File: "
         f"{result['file_name']}"
     )
+
 
     print(
         f"Weighted RRF rank: "
         f"{result['rrf_rank']}"
     )
 
+
     print(
         f"Weighted RRF score: "
         f"{result['rrf_score']:.6f}"
     )
+
 
     print(
         f"Normalized retrieval score: "
         f"{result['normalized_rrf_score']:.4f}"
     )
 
+
     print(
         f"Verification score: "
         f"{verification['overall_score']:.4f}"
     )
 
+
     print(
         f"Final combined score: "
         f"{result['final_score']:.4f}"
     )
+
 
     print(
         f"Complete match: "
@@ -1464,10 +1580,13 @@ def print_verified_result(
     ]:
 
         status = (
+
             "PASS"
+
             if check[
                 "satisfied"
             ]
+
             else "FAIL"
         )
 
@@ -1496,10 +1615,13 @@ def print_verified_result(
         ]:
 
             status = (
+
                 "VIOLATION"
+
                 if check[
                     "present"
                 ]
+
                 else "PASS"
             )
 
@@ -1515,6 +1637,7 @@ def print_verified_result(
     print(
         "\nExplanation:"
     )
+
 
     print(
         verification[
@@ -1560,56 +1683,56 @@ def main():
     parser.add_argument(
         "--query",
         type=str,
-        required=True
+        required=True,
     )
 
 
     parser.add_argument(
         "--retrieval-top-k",
         type=int,
-        default=10
+        default=10,
     )
 
 
     parser.add_argument(
         "--final-top-k",
         type=int,
-        default=5
+        default=5,
     )
 
 
     parser.add_argument(
         "--rrf-k",
         type=int,
-        default=60
+        default=60,
     )
 
 
     parser.add_argument(
         "--original-query-weight",
         type=float,
-        default=2.0
+        default=2.0,
     )
 
 
     parser.add_argument(
         "--subquery-weight",
         type=float,
-        default=1.0
+        default=1.0,
     )
 
 
     parser.add_argument(
         "--retrieval-weight",
         type=float,
-        default=0.25
+        default=0.25,
     )
 
 
     parser.add_argument(
         "--verification-weight",
         type=float,
-        default=0.75
+        default=0.75,
     )
 
 
@@ -1619,7 +1742,7 @@ def main():
         default=(
             "../../experiments/"
             "verified_agentic_search_result.json"
-        )
+        ),
     )
 
 
@@ -1660,7 +1783,7 @@ def main():
             args.original_query_weight,
 
         subquery_weight=
-            args.subquery_weight
+            args.subquery_weight,
     )
 
 
@@ -1676,7 +1799,7 @@ def main():
             args.final_top_k,
 
         rrf_k=
-            args.rrf_k
+            args.rrf_k,
     )
 
 
@@ -1685,9 +1808,11 @@ def main():
         + "#" * 70
     )
 
+
     print(
         "FINAL ANCHOR-AWARE AGENTIC SEARCH RESULTS"
     )
+
 
     print(
         "#" * 70
@@ -1695,12 +1820,25 @@ def main():
 
 
     print(
-        "\nQuery:"
+        "\nRetrieval query:"
     )
+
 
     print(
         output[
-            "query"
+            "retrieval_query"
+        ]
+    )
+
+
+    print(
+        "\nVerification objective:"
+    )
+
+
+    print(
+        output[
+            "verification_query"
         ]
     )
 
@@ -1708,6 +1846,7 @@ def main():
     print(
         "\nSemantic positive constraints:"
     )
+
 
     print(
         output[
@@ -1719,6 +1858,7 @@ def main():
     print(
         "\nSemantic negative constraints:"
     )
+
 
     print(
         output[
@@ -1737,12 +1877,12 @@ def main():
         output[
             "results"
         ],
-        start=1
+        start=1,
     ):
 
         print_verified_result(
             rank,
-            result
+            result,
         )
 
 
@@ -1755,25 +1895,26 @@ def main():
 
         os.makedirs(
             output_directory,
-            exist_ok=True
+            exist_ok=True,
         )
 
 
     with open(
         args.output,
-        "w"
+        "w",
     ) as file:
 
         json.dump(
             output,
             file,
-            indent=2
+            indent=2,
         )
 
 
     print(
         "\nSaved complete result to:"
     )
+
 
     print(
         args.output
